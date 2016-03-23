@@ -1,0 +1,53 @@
+<div class="container">
+
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>First name:</strong>
+    <%= @broker.first_name %>
+  </p>
+
+  <p>
+    <strong>Last name:</strong>
+    <%= @broker.last_name %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= @broker.email %>
+  </p>
+
+  <p>
+    <strong>Mobile:</strong>
+    <%= @broker.mobile %>
+  </p>
+
+  <p>
+    <strong>Direct phone:</strong>
+    <%= @broker.direct_phone %>
+  </p>
+
+  <p>
+    <strong>Company:</strong>
+    <%= @broker.company %>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    <%= @broker.address %>
+  </p>
+
+  <p>
+    <strong>City:</strong>
+    <%= @broker.city %>
+  </p>
+
+  <p>
+    <strong>Zip:</strong>
+    <%= @broker.zip %>
+  </p>
+
+  <%= link_to 'Edit', edit_broker_path(@broker) %> |
+  <%= link_to 'Back', brokers_path %>
+
+</div>

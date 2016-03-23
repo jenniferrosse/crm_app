@@ -1,0 +1,24 @@
+<div class="container">
+
+  <p id="notice"><%= notice %></p>
+
+  <h1>Commercial Leads</h1>
+
+      <% @commercial_leads.each do |commercial_lead| %>
+          <%= commercial_lead.contact_date %><br>
+          <strong><%= commercial_lead.first_name %>
+          <%= commercial_lead.last_name %><br>
+          <%= commercial_lead.description %><br></strong>
+          <%= commercial_lead.contact_type %>
+          <%= commercial_lead.source %>
+          
+          <%= commercial_lead.properties_referenced %><br>
+          <%= link_to 'Show', commercial_lead %>
+          <%= link_to 'Edit', edit_commercial_lead_path(commercial_lead) %>
+          <%= link_to 'Destroy', commercial_lead, method: :delete, data: { confirm: 'Are you sure?' } %><br><br>
+      <% end %>
+  <br>
+
+  <%= link_to 'New Commercial lead', new_commercial_lead_path %>
+  
+</div>

@@ -1,0 +1,53 @@
+<%= form_for(@commercial_lead) do |f| %>
+  <% if @commercial_lead.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@commercial_lead.errors.count, "error") %> prohibited this commercial_lead from being saved:</h2>
+
+      <ul>
+      <% @commercial_lead.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_type %><br>
+    <%= f.text_field :contact_type %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :source %><br>
+    <%= f.text_field :source %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_date %><br>
+    <%= f.date_select :contact_date %>
+  </div>
+  <div class="field">
+    <%= f.label :properties_referenced %><br>
+    <%= f.text_field :properties_referenced %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

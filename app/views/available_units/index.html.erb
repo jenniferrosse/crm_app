@@ -1,0 +1,26 @@
+<div class="container">
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Available Units</h1>
+
+    <% @available_units.each do |available_unit| %>
+      
+      <%= link_to available_unit.unit_id, available_unit %><br>
+      <strong>Sq Ft: </strong><%= available_unit.sq_ft %><br>
+      <strong>Market Rent: </strong><%= available_unit.market_rent %><br>
+      <strong>Bedrooms: </strong><%= available_unit.bedroom %><br>
+      <strong>Bathrooms: </strong><%= available_unit.bathroom %><br>
+      <strong>Laundry: </strong><%= available_unit.laundry %><br>
+   
+        <%= link_to 'Edit', edit_available_unit_path(available_unit) %>
+        <%= link_to 'Delete', available_unit, method: :delete, data: { confirm: 'Are you sure?' } %>
+     <br><br>
+    <% end %>
+
+
+<br>
+
+<%= link_to 'New Available unit', new_available_unit_path %>
+
+</div>

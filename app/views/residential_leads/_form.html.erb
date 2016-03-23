@@ -1,0 +1,89 @@
+<%= form_for(@residential_lead) do |f| %>
+  <% if @residential_lead.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@residential_lead.errors.count, "error") %> prohibited this residential_lead from being saved:</h2>
+
+      <ul>
+      <% @residential_lead.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_date %><br>
+    <%= f.date_select :contact_date %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_type %><br>
+    <%= f.text_field :contact_type %>
+  </div>
+  <div class="field">
+    <%= f.label :earliest_move_in %><br>
+    <%= f.date_select :earliest_move_in %>
+  </div>
+  <div class="field">
+    <%= f.label :latest_move_in %><br>
+    <%= f.date_select :latest_move_in %>
+  </div>
+  <div class="field">
+    <%= f.label :price_min %><br>
+    <%= f.text_field :price_min %>
+  </div>
+  <div class="field">
+    <%= f.label :price_max %><br>
+    <%= f.text_field :price_max %>
+  </div>
+  <div class="field">
+    <%= f.label :properties_referenced %><br>
+    <%= f.text_area :properties_referenced %>
+  </div>
+  <div class="field">
+    <%= f.label :profession %><br>
+    <%= f.text_field :profession %>
+  </div>
+  <div class="field">
+    <%= f.label :people %><br>
+    <%= f.text_field :people %>
+  </div>
+  <div class="field">
+    <%= f.label :pets %><br>
+    <%= f.text_area :pets %>
+  </div>
+  <div class="field">
+    <%= f.label :income %><br>
+    <%= f.text_field :income %>
+  </div>
+  <div class="field">
+    <%= f.label :source %><br>
+    <%= f.text_field :source %>
+  </div>
+  <div class="field">
+    <%= f.label :combined_income %><br>
+    <%= f.text_field :combined_income %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

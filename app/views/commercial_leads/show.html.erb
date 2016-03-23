@@ -1,0 +1,53 @@
+<div class="container">
+
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>First name:</strong>
+    <%= @commercial_lead.first_name %>
+  </p>
+
+  <p>
+    <strong>Last name:</strong>
+    <%= @commercial_lead.last_name %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= @commercial_lead.email %>
+  </p>
+
+  <p>
+    <strong>Phone:</strong>
+    <%= @commercial_lead.phone %>
+  </p>
+
+  <p>
+    <strong>Contact type:</strong>
+    <%= @commercial_lead.contact_type %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @commercial_lead.description %>
+  </p>
+
+  <p>
+    <strong>Source:</strong>
+    <%= @commercial_lead.source %>
+  </p>
+
+  <p>
+    <strong>Contact date:</strong>
+    <%= @commercial_lead.contact_date %>
+  </p>
+
+  <p>
+    <strong>Properties referenced:</strong>
+    <%= @commercial_lead.properties_referenced %>
+  </p>
+
+  <%= link_to 'Edit', edit_commercial_lead_path(@commercial_lead) %> |
+  <%= link_to 'Back', commercial_leads_path %>
+
+</div>

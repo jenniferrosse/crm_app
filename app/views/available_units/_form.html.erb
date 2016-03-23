@@ -1,0 +1,65 @@
+<%= form_for(@available_unit) do |f| %>
+  <% if @available_unit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@available_unit.errors.count, "error") %> prohibited this available_unit from being saved:</h2>
+
+      <ul>
+      <% @available_unit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :unit_id %><br>
+    <%= f.text_field :unit_id %>
+  </div>
+  <div class="field">
+    <%= f.label :sq_ft %><br>
+    <%= f.text_field :sq_ft %>
+  </div>
+  <div class="field">
+    <%= f.label :market_rent %><br>
+    <%= f.text_field :market_rent %>
+  </div>
+  <div class="field">
+    <%= f.label :bedroom %><br>
+    <%= f.text_field :bedroom %>
+  </div>
+  <div class="field">
+    <%= f.label :bathroom %><br>
+    <%= f.text_field :bathroom %>
+  </div>
+  <div class="field">
+    <%= f.label :laundry %><br>
+    <%= f.text_field :laundry %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_field :address %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :zip %><br>
+    <%= f.text_field :zip %>
+  </div>
+  <div class="field">
+    <%= f.label :craigslist_title %><br>
+    <%= f.text_field :craigslist_title %>
+  </div>
+  <div class="field">
+    <%= f.label :short_description %><br>
+    <%= f.text_area :short_description %>
+  </div>
+  <div class="field">
+    <%= f.label :features %><br>
+    <%= f.text_area :features %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

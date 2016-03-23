@@ -1,0 +1,56 @@
+<div class="container">
+
+  <p id="notice"><%= notice %></p>
+
+  <h1>Residential Leads</h1>
+
+  <%= form_tag(residential_leads_path, :method => "get", id: "search-form") do %>
+    <p>
+      <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+  <% end %>
+    
+      <% @residential_leads.each do |residential_lead| %>
+        
+          <strong><%= link_to residential_lead.first_name, residential_lead %> 
+          <%= link_to residential_lead.last_name, residential_lead %></strong><br>
+        <table class="table table-striped"> 
+          <tr>
+            <td><strong>Email: </strong></td>
+            <td><%= residential_lead.email %></td>
+          <tr>
+            <td><strong>Phone: </strong></td>
+            <td><%= residential_lead.phone %></td>
+          </tr>
+          <tr>
+            <td><strong>Move-In Range: </strong>
+            <td><%= residential_lead.earliest_move_in.strftime("%m/%d/%Y")  %> - 
+            <%= residential_lead.latest_move_in.strftime("%m/%d/%Y")  %></td>
+          </tr>
+          <tr>
+            <td><strong>Price Range: </strong></td>
+            <td><%= residential_lead.price_min %> - <%= residential_lead.price_max %>
+            </td>
+          </tr>
+          <tr>
+            <td><strong>Properties Referenced: </strong></td>
+            <td><%= residential_lead.properties_referenced %></td>
+          </tr>
+          <tr>
+            <td><strong>First Contact Type: </strong></td>
+            <td><%= residential_lead.contact_type %></td>
+          </tr> 
+        </table>
+           <%= link_to 'Edit', edit_residential_lead_path(residential_lead) %>
+          <%= link_to 'Destroy', residential_lead, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <hr>
+    
+      <% end %>
+ 
+
+  <br>
+
+  <%= link_to 'New Residential lead', new_residential_lead_path %>
+
+</div>

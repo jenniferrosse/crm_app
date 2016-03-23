@@ -1,0 +1,83 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+
+  <h3>
+    <%= @residential_lead.first_name %> <%= @residential_lead.last_name %>
+  </h3>
+  <p>
+    <strong>Contact Date:</strong>
+    <%= @residential_lead.contact_date.strftime("%A, %b %d") %>
+  </p>
+
+  <p>
+    <strong>Email:</strong>
+    <%= @residential_lead.email %>
+  <br>
+    <strong>Phone:</strong>
+    <%= @residential_lead.phone %>
+  </p>
+
+  <p>
+    <strong>Move-In Range:</strong>
+    <%= @residential_lead.earliest_move_in.strftime("%m/%d/%Y") %> - 
+
+    <%= @residential_lead.latest_move_in.strftime("%m/%d/%Y") %>
+  </p>
+
+  <p>
+    <strong>Price range:</strong>
+    <%= @residential_lead.price_min %> - <%= @residential_lead.price_max %>
+  </p>
+  <p>
+    <strong>People:</strong>
+    <%= @residential_lead.people %>
+  </p>
+  <p>
+    <strong>Pets:</strong>
+    <%= @residential_lead.pets %>
+  </p>
+  <p>
+    <strong>Properties referenced:</strong>
+    <%= @residential_lead.properties_referenced %>
+  </p>
+  <p>
+    <strong>Notes:</strong>
+    <%= markdown(@residential_lead.notes) %>
+  </p>
+<hr>
+
+
+
+  
+
+  <p>
+    <strong>Profession:</strong>
+    <%= @residential_lead.profession %>
+  </p>
+  <p>
+    <strong>Employer:</strong>
+    <%= @residential_lead.employer %>
+  </p>
+  <p>
+    <strong>Income:</strong>
+    <%= @residential_lead.income %>
+  </p>
+
+  <p>
+    <strong>Combined income:</strong>
+    <%= @residential_lead.combined_income %>
+  </p>
+
+ <p>
+    <strong>Source:</strong>
+    <%= @residential_lead.source %>
+  </p>
+   <p>
+    <strong>Contact type:</strong>
+    <%= @residential_lead.contact_type %>
+  </p>
+
+  <%= link_to 'Edit', edit_residential_lead_path(@residential_lead) %> |
+  <%= link_to 'Back', residential_leads_path %>
+</div>

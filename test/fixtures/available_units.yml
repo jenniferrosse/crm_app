@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  unit_id: MyString
+  sq_ft: MyString
+  market_rent: MyString
+  bedroom: MyString
+  bathroom: MyString
+  laundry: MyString
+  address: MyString
+  city: MyString
+  zip: MyString
+  craigslist_title: MyString
+  short_description: MyText
+  features: MyText
+
+two:
+  unit_id: MyString
+  sq_ft: MyString
+  market_rent: MyString
+  bedroom: MyString
+  bathroom: MyString
+  laundry: MyString
+  address: MyString
+  city: MyString
+  zip: MyString
+  craigslist_title: MyString
+  short_description: MyText
+  features: MyText
