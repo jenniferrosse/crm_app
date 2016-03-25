@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160325162853) do
+ActiveRecord::Schema.define(version: 20160325210536) do
 
   create_table "available_units", force: :cascade do |t|
     t.string   "unit_id"
@@ -75,8 +75,8 @@ ActiveRecord::Schema.define(version: 20160325162853) do
     t.string   "income"
     t.string   "source"
     t.string   "combined_income"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.date     "contact_date"
     t.string   "employer"
     t.text     "notes"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20160325162853) do
     t.time     "appointment_time"
     t.text     "spaces"
     t.date     "application_date"
+    t.boolean  "application_on_file",   default: false
   end
 
   create_table "users", force: :cascade do |t|
