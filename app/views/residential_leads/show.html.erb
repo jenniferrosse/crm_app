@@ -33,6 +33,10 @@
     <%= @residential_lead.price_min %> - <%= @residential_lead.price_max %>
   </p>
   <p>
+    <strong>Preferences:</strong>
+    <%= @residential_lead.preferences %>
+  </p>
+  <p>
     <strong>People:</strong>
     <%= @residential_lead.people %>
   </p>
@@ -48,12 +52,28 @@
     <strong>Notes:</strong>
     <%= markdown(@residential_lead.notes) %>
   </p>
+
 <hr>
 
+  <p>
+    <strong>Appointment Date:</strong>
+    <%= @residential_lead.appointment_date %>
+  </p>
+  <p>
+    <strong>Appointment Time:</strong>
+    <%= @residential_lead.appointment_time %>
+  </p>
+  <p>
+    <strong>Spaces:</strong>
+    <%= markdown(@residential_lead.spaces) %>
+  </p>
+  <p>
+    <strong>Application Date:</strong>
+    <%= @residential_lead.application_date %>
+  </p>
 
-
+<hr>
   
-
   <p>
     <strong>Profession:</strong>
     <%= @residential_lead.profession %>
@@ -63,6 +83,21 @@
     <%= @residential_lead.employer %>
   </p>
   <p>
+    <strong>Source:</strong>
+    <%= @residential_lead.source %>
+  </p>
+   <p>
+    <strong>Contact type:</strong>
+    <%= @residential_lead.contact_type %>
+  </p>
+
+  <hr>
+
+  <p>
+    <strong>Availability:</strong>
+    <%= @residential_lead.availability %>
+  </p>
+  <p>
     <strong>Income:</strong>
     <%= @residential_lead.income %>
   </p>
@@ -70,15 +105,6 @@
   <p>
     <strong>Combined income:</strong>
     <%= @residential_lead.combined_income %>
-  </p>
-
- <p>
-    <strong>Source:</strong>
-    <%= @residential_lead.source %>
-  </p>
-   <p>
-    <strong>Contact type:</strong>
-    <%= @residential_lead.contact_type %>
   </p>
 
   <%= link_to 'Edit', edit_residential_lead_path(@residential_lead) %> |

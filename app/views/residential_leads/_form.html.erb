@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :contact_date %><br>
+    <%= f.date_select :contact_date %>
+  </div>
+  <div class="field">
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>
   </div>
@@ -26,14 +30,6 @@
   <div class="field">
     <%= f.label :phone %><br>
     <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_date %><br>
-    <%= f.date_select :contact_date %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_type %><br>
-    <%= f.text_field :contact_type %>
   </div>
   <div class="field">
     <%= f.label :earliest_move_in %><br>
@@ -52,12 +48,8 @@
     <%= f.text_field :price_max %>
   </div>
   <div class="field">
-    <%= f.label :properties_referenced %><br>
-    <%= f.text_area :properties_referenced %>
-  </div>
-  <div class="field">
-    <%= f.label :profession %><br>
-    <%= f.text_field :profession %>
+    <%= f.label :preferences %><br>
+    <%= f.text_area :preferences %>
   </div>
   <div class="field">
     <%= f.label :people %><br>
@@ -68,20 +60,63 @@
     <%= f.text_area :pets %>
   </div>
   <div class="field">
-    <%= f.label :income %><br>
-    <%= f.text_field :income %>
+    <%= f.label :properties_referenced %><br>
+    <%= f.text_area :properties_referenced %>
+  </div>
+
+  <hr>
+  
+  <div class="field">
+    <%= f.label :appointment_date %><br>
+    <%= f.date_select :appointment_date %>
+  </div>
+  <div class="field">
+    <%= f.label :appointment_time %><br>
+    <%= f.time_select :appointment_time %>
+  </div>
+  <div class="field">
+    <%= f.label :spaces %><br>
+    <%= f.text_area :spaces %>
+  </div>
+  <div class="field">
+    <%= f.label :application_date %><br>
+    <%= f.date_select :application_date %>
+  </div>
+  <hr>
+
+  <div class="field">
+    <%= f.label :profession %><br>
+    <%= f.text_field :profession %>
+  </div>
+  <div class="field">
+    <%= f.label :employer %><br>
+    <%= f.text_field :employer %>
   </div>
   <div class="field">
     <%= f.label :source %><br>
     <%= f.text_field :source %>
   </div>
   <div class="field">
-    <%= f.label :combined_income %><br>
-    <%= f.text_field :combined_income %>
+    <%= f.label :contact_type %><br>
+    <%= f.text_field :contact_type %>
   </div>
   <div class="field">
     <%= f.label :notes %><br>
     <%= f.text_area :notes %>
+  </div>
+
+  <hr>
+  <div class="field">
+    <%= f.label :availability %><br>
+    <%= f.text_area :availability %>
+  </div>
+  <div class="field">
+    <%= f.label :income %><br>
+    <%= f.text_field :income %>
+  </div>
+  <div class="field">
+    <%= f.label :combined_income %><br>
+    <%= f.text_field :combined_income %>
   </div>
   <div class="actions">
     <%= f.submit %>

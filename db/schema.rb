@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309140843) do
+ActiveRecord::Schema.define(version: 20160325162853) do
 
   create_table "available_units", force: :cascade do |t|
     t.string   "unit_id"
@@ -80,6 +80,13 @@ ActiveRecord::Schema.define(version: 20160309140843) do
     t.date     "contact_date"
     t.string   "employer"
     t.text     "notes"
+    t.text     "preferences"
+    t.text     "availability"
+    t.boolean  "smoker"
+    t.date     "appointment_date"
+    t.time     "appointment_time"
+    t.text     "spaces"
+    t.date     "application_date"
   end
 
   create_table "users", force: :cascade do |t|
