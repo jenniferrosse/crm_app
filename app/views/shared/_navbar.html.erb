@@ -19,6 +19,8 @@
         <li><%= link_to "Commercial Leads", commercial_leads_path %></li>
         <% if user_signed_in? %>
           <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Sign In", new_user_session_path %></li> 
         <% end %>
       </ul>
     

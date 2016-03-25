@@ -1,6 +1,9 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
+<button class="btn btn-default" type="submit">Button</button>
+
+<=% link_to_function("Print this Page", "javascript:print()") %>
 
   <h3>
     <%= @residential_lead.first_name %> <%= @residential_lead.last_name %>
