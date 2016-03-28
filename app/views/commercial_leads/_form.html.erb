@@ -32,6 +32,10 @@
     <%= f.text_field :contact_type %>
   </div>
   <div class="field">
+    <%= f.label :use %><br>
+    <%= f.text_field :use %>
+  </div>
+  <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
@@ -46,6 +50,10 @@
   <div class="field">
     <%= f.label :properties_referenced %><br>
     <%= f.text_field :properties_referenced %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
   </div>
   <div class="actions">
     <%= f.submit %>
