@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  resources :residential_applications
   resources :available_units
   resources :brokers
   resources :residential_leads
+  resources :residential_applications
   devise_for :users
   get 'pages/home'
 

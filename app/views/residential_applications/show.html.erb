@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date received:</strong>
+  <%= @residential_application.date_received %>
+</p>
+
+<p>
+  <strong>Date completed:</strong>
+  <%= @residential_application.date_completed %>
+</p>
+
+<p>
+  <strong>Fee paid:</strong>
+  <%= @residential_application.fee_paid %>
+</p>
+
+<%= link_to 'Edit', edit_residential_application_path(@residential_application) %> |
+<%= link_to 'Back', residential_applications_path %>

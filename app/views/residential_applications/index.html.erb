@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Residential Applications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date received</th>
+      <th>Date completed</th>
+      <th>Fee paid</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @residential_applications.each do |residential_application| %>
+      <tr>
+        <td><%= residential_application.date_received %></td>
+        <td><%= residential_application.date_completed %></td>
+        <td><%= residential_application.fee_paid %></td>
+        <td><%= link_to 'Show', residential_application %></td>
+        <td><%= link_to 'Edit', edit_residential_application_path(residential_application) %></td>
+        <td><%= link_to 'Destroy', residential_application, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Residential application', new_residential_application_path %>
