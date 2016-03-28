@@ -2,49 +2,46 @@
 
   <p id="notice"><%= notice %></p>
 
-  <p>
-    <strong>First name:</strong>
-    <%= @commercial_lead.first_name %>
-  </p>
-
-  <p>
-    <strong>Last name:</strong>
-    <%= @commercial_lead.last_name %>
-  </p>
+  <h2><%= @commercial_lead.first_name %> <%= @commercial_lead.last_name %>
+  </h2>
 
   <p>
     <strong>Email:</strong>
-    <%= @commercial_lead.email %>
-  </p>
-
-  <p>
+    <%= @commercial_lead.email %><br>
     <strong>Phone:</strong>
     <%= @commercial_lead.phone %>
   </p>
-
   <p>
-    <strong>Contact type:</strong>
-    <%= @commercial_lead.contact_type %>
+    <strong>Contact date:</strong>
+    <%= @commercial_lead.contact_date.strftime("%m/%d/%Y") %>
   </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= @commercial_lead.description %>
-  </p>
-
   <p>
     <strong>Source:</strong>
     <%= @commercial_lead.source %>
   </p>
-
   <p>
-    <strong>Contact date:</strong>
-    <%= @commercial_lead.contact_date %>
+    <strong>Contact type:</strong>
+    <%= @commercial_lead.contact_type %>
   </p>
-
+  <p>
+    <strong>Source:</strong>
+    <%= @commercial_lead.source %>
+  </p>
+  <p>
+    <strong>Use:</strong>
+    <%= @commercial_lead.use %>
+  </p>
+  <p>
+    <strong>Description:</strong>
+    <%= @commercial_lead.description %>
+  </p>
   <p>
     <strong>Properties referenced:</strong>
     <%= @commercial_lead.properties_referenced %>
+  </p>
+  <p>
+    <strong>Notes:</strong>
+    <%= @commercial_lead.notes %>
   </p>
 
   <%= link_to 'Edit', edit_commercial_lead_path(@commercial_lead) %> |
