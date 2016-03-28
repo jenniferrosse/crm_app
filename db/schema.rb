@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328153438) do
+ActiveRecord::Schema.define(version: 20160328174246) do
 
   create_table "available_units", force: :cascade do |t|
     t.string   "unit_id"
@@ -64,9 +64,12 @@ ActiveRecord::Schema.define(version: 20160328153438) do
     t.date     "date_received"
     t.date     "date_completed"
     t.boolean  "fee_paid"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.integer  "residential_lead_id"
   end
+
+  add_index "residential_applications", ["residential_lead_id"], name: "index_residential_applications_on_residential_lead_id"
 
   create_table "residential_leads", force: :cascade do |t|
     t.string   "first_name"

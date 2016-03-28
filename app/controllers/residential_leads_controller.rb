@@ -6,7 +6,6 @@ class ResidentialLeadsController < ApplicationController
   # GET /residential_leads.json
   def index
    
-    
     if params[:search].present?
         @residential_leads = ResidentialLead.search(params[:search])
     else

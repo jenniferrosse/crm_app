@@ -2,7 +2,9 @@
 
   <p id="notice"><%= notice %></p>
 
-  <h1>Residential Leads</h1>
+  
+
+  <%= link_to 'New Residential lead', new_residential_lead_path %>
 
   <%= form_tag(residential_leads_path, :method => "get", id: "search-form") do %>
     <p>
@@ -11,46 +13,43 @@
     </p>
   <% end %>
     
+    <h1>Residential Leads</h1>
+
+    <table class="table">
+    <thead>
+      <tr>
+        <th>Contact Date</th>
+        <th>Name</th>
+        <th>Properties Referenced</th>
+        <th>Contact Type</th>
+        <th>Source</th>
+      </tr>
+    </thead>
+
+    <tbody>
       <% @residential_leads.each do |residential_lead| %>
-        
-          <strong><%= link_to residential_lead.first_name, residential_lead %> 
-          <%= link_to residential_lead.last_name, residential_lead %></strong><br>
-        <table class="table table-striped"> 
-          <tr>
-            <td><strong>Email: </strong></td>
-            <td><%= residential_lead.email %></td>
-          <tr>
-            <td><strong>Phone: </strong></td>
-            <td><%= residential_lead.phone %></td>
-          </tr>
-          <tr>
-            <td><strong>Move-In Range: </strong>
-            <td><%= residential_lead.earliest_move_in.strftime("%m/%d/%Y")  %> - 
-            <%= residential_lead.latest_move_in.strftime("%m/%d/%Y")  %></td>
-          </tr>
-          <tr>
-            <td><strong>Price Range: </strong></td>
-            <td><%= residential_lead.price_min %> - <%= residential_lead.price_max %>
-            </td>
-          </tr>
-          <tr>
-            <td><strong>Properties Referenced: </strong></td>
-            <td><%= residential_lead.properties_referenced %></td>
-          </tr>
-          <tr>
-            <td><strong>First Contact Type: </strong></td>
-            <td><%= residential_lead.contact_type %></td>
-          </tr> 
-        </table>
-           <%= link_to 'Edit', edit_residential_lead_path(residential_lead) %>
-          <%= link_to 'Destroy', residential_lead, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <hr>
+        <tr>
+          <td><%= residential_lead.contact_date.strftime("%m/%d/%Y") %></td>
+          <td><%= link_to residential_lead.first_name, residential_lead %> 
+          <%= link_to residential_lead.last_name, residential_lead %></td>
+          <td><%= residential_lead.properties_referenced %></td>
+          <td><%= residential_lead.contact_type %></td>
+          <td><%= residential_lead.source %></td>
+          <td><%= link_to 'Edit', edit_residential_lead_path(residential_lead) %></td>
+          <td><%= link_to 'Destroy', residential_lead, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     
+        <tr>
       <% end %>
+    </tbody>
+  </table>
+           
+        
+    
+      
  
 
   <br>
 
-  <%= link_to 'New Residential lead', new_residential_lead_path %>
+
 
 </div>

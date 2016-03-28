@@ -5,7 +5,12 @@ class CommercialLeadsController < ApplicationController
   # GET /commercial_leads
   # GET /commercial_leads.json
   def index
-    @commercial_leads = CommercialLead.all.order ('contact_date DESC')
+
+    if params[:search].present?
+      @commercial_leads = CommercialLead.search(params[:search])
+    else
+      @commercial_leads = CommercialLead.all.order ('contact_date DESC')
+    end
   end
 
   # GET /commercial_leads/1

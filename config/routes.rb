@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   resources :residential_applications
   resources :available_units
   resources :brokers
-  resources :residential_leads
-  resources :residential_applications
+  resources :residential_leads do
+    resources :residential_applications
+  end
   devise_for :users
   get 'pages/home'
 
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#home'
 
-  get '*path' => redirect('/')
+  #get '*path' => redirect('/')
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

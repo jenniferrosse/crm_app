@@ -2,6 +2,15 @@
 
   <p id="notice"><%= notice %></p>
 
+  <%= link_to 'New Commercial lead', new_commercial_lead_path %>
+
+  <%= form_tag(commercial_leads_path, :method => "get", id: "search-form") do %>
+    <p>
+      <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+  <% end %>
+
   <h1>Commercial Leads</h1>
 
   <table class="table">
@@ -32,6 +41,6 @@
 
   <br>
 
-  <%= link_to 'New Commercial lead', new_commercial_lead_path %>
+ 
   
 </div>
