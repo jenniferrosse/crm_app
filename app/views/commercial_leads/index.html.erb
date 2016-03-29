@@ -18,6 +18,7 @@
       <tr>
         <th>Contact Date</th>
         <th>Name</th>
+        <th>Broker</th>
         <th>Use</th>
         <th>Properties Referenced</th>
         <th colspan="3"></th>
@@ -29,6 +30,7 @@
         <tr>
           <td><%= commercial_lead.contact_date.strftime("%m/%d/%Y") %></td>
           <td><%= commercial_lead.first_name %> <%= commercial_lead.last_name %></td>
+          <td><%= commercial_lead.broker %></td>
           <td><%= commercial_lead.use %></td>
           <td><%= commercial_lead.properties_referenced %></td>
 

@@ -16,18 +16,6 @@
     <strong>Phone:</strong>
     <%= @residential_lead.phone %>
   </p>
-
-  <p>
-    <strong>Move-In Range:</strong>
-    <%= @residential_lead.earliest_move_in.strftime("%m/%d/%Y") %> - 
-
-    <%= @residential_lead.latest_move_in.strftime("%m/%d/%Y") %>
-  </p>
-
-  <p>
-    <strong>Price range:</strong>
-    $<%= @residential_lead.price_min %> - $<%= @residential_lead.price_max %>
-  </p>
   
   <p>
     <strong>People:</strong>
@@ -47,8 +35,90 @@
   </p>
 
 <hr>
-
+  
   <p>
+    <strong>Profession:</strong>
+    <%= @residential_lead.profession %>
+  </p>
+  <p>
+    <strong>Employer:</strong>
+    <%= @residential_lead.employer %>
+  </p>
+  <p>
+    <strong>Source:</strong>
+    <%= @residential_lead.source %>
+  </p>
+   <p>
+    <strong>Contact type:</strong>
+    <%= @residential_lead.contact_type %>
+  </p>
+  <hr>
+
+<h4>Prequalification on File:</h4>
+<% @residential_lead.prequalifications.each do |prequalification| %>
+  <p>
+    <strong>Prequalification on File:</strong>
+    <%= prequalification.prequalification on file %>
+  </p>
+  <p>
+    <strong>Move-In Range:</strong>
+    <%= prequalification.earliest_move_in.strftime("%m/%d/%Y") %> - 
+
+    <%= prequalification.latest_move_in.strftime("%m/%d/%Y") %>
+  </p>
+   <p>
+    <strong>Price range:</strong>
+    $<%= prequalification.price_min %> - $<%= prequalification.price_max %>
+  </p>
+  <p>
+    <strong>People:</strong>
+    <%= prequalification.people %>
+  </p>
+  <p>
+    <strong>Pets:</strong>
+    <%= prequalification.pets %>
+  </p>
+<p>
+    <strong>Profession:</strong>
+    <%= prequalification.profession %>
+  </p>
+  <p>
+    <strong>Employer:</strong>
+    <%= prequalification.employer %>
+  </p>
+  <p>
+    <strong>Income:</strong>
+    <%= prequalification.income %>
+  </p>
+  <p>
+    <strong>Combined Income:</strong>
+    <%= prequalification.combined_income %>
+  </p>
+  <p>
+    <strong>Availability:</strong>
+    <%= prequalification.availability %>
+  </p>
+<% end %>
+
+
+<hr>
+<h4>Application on File:</h4>
+<% @residential_lead.residential_applications.each do |residential_application| %>
+  <p>
+    <strong>Date Received:</strong>
+    <%= residential_application.date_received %>
+  </p>
+  <p>
+    <strong>Date Completed:</strong>
+    <%= residential_application.date_completed %>
+  </p>
+
+
+<% end %>
+<hr>
+<h4>Appoitments:</h4>
+
+ <p>
     <strong>Appointment Date:</strong>
     <%= @residential_lead.appointment_date.strftime("%m/%d/%Y") %>
   </p>
@@ -72,40 +142,7 @@
   <% end %>
   
 <hr>
-  
-  <p>
-    <strong>Profession:</strong>
-    <%= @residential_lead.profession %>
-  </p>
-  <p>
-    <strong>Employer:</strong>
-    <%= @residential_lead.employer %>
-  </p>
-  <p>
-    <strong>Source:</strong>
-    <%= @residential_lead.source %>
-  </p>
-   <p>
-    <strong>Contact type:</strong>
-    <%= @residential_lead.contact_type %>
-  </p>
-
-  <hr>
-
-  <p>
-    <strong>Availability:</strong>
-    <%= @residential_lead.availability %>
-  </p>
-  <p>
-    <strong>Income:</strong>
-    <%= @residential_lead.income %>
-  </p>
-
-  <p>
-    <strong>Combined income:</strong>
-    <%= @residential_lead.combined_income %>
-  </p>
-
+<br><br>
   <%= link_to 'Edit', edit_residential_lead_path(@residential_lead) %> |
   <%= link_to 'Back', residential_leads_path %>
 </div>

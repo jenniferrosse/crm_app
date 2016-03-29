@@ -4,7 +4,10 @@
 
   <h2><%= @commercial_lead.first_name %> <%= @commercial_lead.last_name %>
   </h2>
-
+  <p>
+    <strong>Broker:</strong>
+    <%= @commercial_lead.broker %>
+  </p>
   <p>
     <strong>Email:</strong>
     <%= @commercial_lead.email %><br>
@@ -15,6 +18,13 @@
     <strong>Contact date:</strong>
     <%= @commercial_lead.contact_date.strftime("%m/%d/%Y") %>
   </p>
+  <p>
+    <strong>Properties referenced:</strong>
+    <%= @commercial_lead.properties_referenced %>
+  </p>
+
+  <hr>
+  
   <p>
     <strong>Source:</strong>
     <%= @commercial_lead.source %>
@@ -35,10 +45,7 @@
     <strong>Description:</strong>
     <%= @commercial_lead.description %>
   </p>
-  <p>
-    <strong>Properties referenced:</strong>
-    <%= @commercial_lead.properties_referenced %>
-  </p>
+  
   <p>
     <strong>Notes:</strong>
     <%= @commercial_lead.notes %>

@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Prequalifications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Earliest move in</th>
+      <th>Latest move in</th>
+      <th>Price min</th>
+      <th>Price max</th>
+      <th>People</th>
+      <th>Pets</th>
+      <th>Profession</th>
+      <th>Employer</th>
+      <th>Income</th>
+      <th>Combined income</th>
+      <th>Preference</th>
+      <th>Preferences</th>
+      <th>Availability</th>
+      <th>Smoker</th>
+      <th>Prequalification date</th>
+      <th>Residential lead</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prequalifications.each do |prequalification| %>
+      <tr>
+        <td><%= prequalification.earliest_move_in %></td>
+        <td><%= prequalification.latest_move_in %></td>
+        <td><%= prequalification.price_min %></td>
+        <td><%= prequalification.price_max %></td>
+        <td><%= prequalification.people %></td>
+        <td><%= prequalification.pets %></td>
+        <td><%= prequalification.profession %></td>
+        <td><%= prequalification.employer %></td>
+        <td><%= prequalification.income %></td>
+        <td><%= prequalification.combined_income %></td>
+        <td><%= prequalification.preference %></td>
+        <td><%= prequalification.preferences %></td>
+        <td><%= prequalification.availability %></td>
+        <td><%= prequalification.smoker %></td>
+        <td><%= prequalification.prequalification_date %></td>
+        <td><%= prequalification.residential_lead %></td>
+        <td><%= link_to 'Show', prequalification %></td>
+        <td><%= link_to 'Edit', edit_prequalification_path(prequalification) %></td>
+        <td><%= link_to 'Destroy', prequalification, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Prequalification', new_prequalification_path %>

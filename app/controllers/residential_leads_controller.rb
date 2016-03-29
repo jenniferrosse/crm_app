@@ -21,6 +21,8 @@ class ResidentialLeadsController < ApplicationController
   # GET /residential_leads/new
   def new
     @residential_lead = ResidentialLead.new
+   @residential_lead.residential_applications.build
+   @residential_lead.prequalifications.build
   end
 
   # GET /residential_leads/1/edit
@@ -75,6 +77,7 @@ class ResidentialLeadsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def residential_lead_params
-      params.require(:residential_lead).permit(:first_name, :last_name, :email, :phone, :contact_type, :earliest_move_in, :latest_move_in, :price_min, :price_max, :properties_referenced, :profession, :employer, :people, :pets, :income, :source, :combined_income, :contact_date, :notes, :availability, :preferences, :appointment_date, :appointment_time, :spaces, :application_date, :application_on_file)
+      params.require(:residential_lead).permit(:first_name, :last_name, :email, :phone, :contact_type, :earliest_move_in, :latest_move_in, :price_min, :price_max, :properties_referenced, :profession, :employer, :people, :pets, :income, :source, :combined_income, :contact_date, :notes, :availability, :preferences, :appointment_date, :appointment_time, :spaces, :application_date, :application_on_file, 
+        residential_applications_attributes: [:residential_lead_id, :date_received, :date_completed], prequalification_attributes: [:residential_lead_id, :earliest_move_in, :latest_move_in, :price_min, :price_max, :people, :pets, :profession, :employer, :income, :combined_income, :preference, :preferences, :availability, :smoker, :prequalification_date, :prequalification_on_file])
     end
 end

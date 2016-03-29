@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  earliest_move_in: 2016-03-29
+  latest_move_in: 2016-03-29
+  price_min: MyString
+  price_max: MyString
+  people: MyString
+  pets: MyText
+  profession: MyString
+  employer: MyString
+  income: MyString
+  combined_income: MyString
+  preference: MyString
+  preferences: MyText
+  availability: MyText
+  smoker: false
+  prequalification_date: 2016-03-29
+  residential_lead_id: 
+
+two:
+  earliest_move_in: 2016-03-29
+  latest_move_in: 2016-03-29
+  price_min: MyString
+  price_max: MyString
+  people: MyString
+  pets: MyText
+  profession: MyString
+  employer: MyString
+  income: MyString
+  combined_income: MyString
+  preference: MyString
+  preferences: MyText
+  availability: MyText
+  smoker: false
+  prequalification_date: 2016-03-29
+  residential_lead_id: 

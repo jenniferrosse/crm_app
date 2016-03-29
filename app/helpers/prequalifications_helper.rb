@@ -1,0 +1,2 @@
+module PrequalificationsHelper
+end

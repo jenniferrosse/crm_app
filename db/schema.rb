@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328174246) do
+ActiveRecord::Schema.define(version: 20160329211643) do
 
   create_table "available_units", force: :cascade do |t|
     t.string   "unit_id"
@@ -58,7 +58,32 @@ ActiveRecord::Schema.define(version: 20160328174246) do
     t.datetime "updated_at",            null: false
     t.string   "use"
     t.text     "notes"
+    t.string   "broker"
   end
+
+  create_table "prequalifications", force: :cascade do |t|
+    t.date     "earliest_move_in"
+    t.date     "latest_move_in"
+    t.string   "price_min"
+    t.string   "price_max"
+    t.string   "people"
+    t.text     "pets"
+    t.string   "profession"
+    t.string   "employer"
+    t.string   "income"
+    t.string   "combined_income"
+    t.string   "preference"
+    t.text     "preferences"
+    t.text     "availability"
+    t.boolean  "smoker"
+    t.date     "prequalification_date"
+    t.integer  "residential_lead_id"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.boolean  "prequalification_on_file"
+  end
+
+  add_index "prequalifications", ["residential_lead_id"], name: "index_prequalifications_on_residential_lead_id"
 
   create_table "residential_applications", force: :cascade do |t|
     t.date     "date_received"

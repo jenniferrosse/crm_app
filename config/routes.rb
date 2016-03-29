@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  resources :prequalifications
   resources :residential_applications
   resources :available_units
   resources :brokers
   resources :residential_leads do
     resources :residential_applications
+    resources :prequalifications
   end
   devise_for :users
   get 'pages/home'
