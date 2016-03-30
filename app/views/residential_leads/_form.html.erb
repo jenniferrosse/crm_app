@@ -54,8 +54,8 @@
     <br>
     <%= f.fields_for :prequalifications do |prequalification_form| %>
       <div class="field">
-        <%= prequalification_form.label :prequalification_on_file %>
-        <%= prequalification_form.check_box :prequalification_on_file %>
+        <%= prequalification_form.label :qualification_on_file %>
+        <%= prequalification_form.text_field :qualification_on_file %>
       </div>
 
       <div class="field">
@@ -106,34 +106,10 @@
       </div>
 
     <% end %>
-
-  <hr>
-  
-  <div class="field">
-    <%= f.label :appointment_date %><br>
-    <%= f.date_select :appointment_date %>
-  </div>
-  <div class="field">
-    <%= f.label :appointment_time %><br>
-    <%= f.time_select :appointment_time %>
-  </div>
-  <div class="field">
-    <%= f.label :spaces %><br>
-    <%= f.text_area :spaces %>
-  </div>
-  <div class="field">
-    <%= f.label :application_on_file %><br>
-    <%= f.check_box :application_on_file %>
-  </div>
-  <div class="field">
-    <%= f.label :application_date %><br>
-    <%= f.date_select :application_date %>
-  </div>
  
 <hr>
 
   <strong>Residential Applications:<strong>
-    
 
     <%= f.fields_for :residential_applications do |applications_form| %>
       <div class="field">
@@ -145,9 +121,6 @@
         <%= applications_form.date_select :date_completed %>
       </div>
     <% end %>
-
-     
- 
 
   <div class="actions">
     <%= f.submit %>

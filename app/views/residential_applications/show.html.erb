@@ -15,5 +15,9 @@
   <%= @residential_application.fee_paid %>
 </p>
 
+<p>
+  <strong>Residential lead:</strong>
+  <%= @residential_application.residential_lead_id %>
+</p>
 <%= link_to 'Edit', edit_residential_application_path(@residential_application) %> |
 <%= link_to 'Back', residential_applications_path %>

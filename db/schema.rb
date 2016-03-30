@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329211643) do
+ActiveRecord::Schema.define(version: 20160330120933) do
 
   create_table "available_units", force: :cascade do |t|
     t.string   "unit_id"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20160329211643) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.boolean  "prequalification_on_file"
+    t.string   "qualification_on_file"
   end
 
   add_index "prequalifications", ["residential_lead_id"], name: "index_prequalifications_on_residential_lead_id"

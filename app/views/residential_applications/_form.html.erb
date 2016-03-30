@@ -1,5 +1,15 @@
 <%= form_for (@residential_application) do |f| %>
-  
+  <% if @residential_application.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@residential_application.errors.count, "error") %> prohibited this residential_application from being saved:</h2>
+
+      <ul>
+      <% @residential_application.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
   <div class="field">
     <%= f.label :date_received %><br>
@@ -13,6 +23,7 @@
     <%= f.label :fee_paid %><br>
     <%= f.check_box :fee_paid %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

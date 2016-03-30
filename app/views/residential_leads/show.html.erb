@@ -16,15 +16,6 @@
     <strong>Phone:</strong>
     <%= @residential_lead.phone %>
   </p>
-  
-  <p>
-    <strong>People:</strong>
-    <%= @residential_lead.people %>
-  </p>
-  <p>
-    <strong>Pets:</strong>
-    <%= @residential_lead.pets %>
-  </p>
   <p>
     <strong>Properties referenced:</strong>
     <%= @residential_lead.properties_referenced %>
@@ -35,15 +26,7 @@
   </p>
 
 <hr>
-  
-  <p>
-    <strong>Profession:</strong>
-    <%= @residential_lead.profession %>
-  </p>
-  <p>
-    <strong>Employer:</strong>
-    <%= @residential_lead.employer %>
-  </p>
+
   <p>
     <strong>Source:</strong>
     <%= @residential_lead.source %>
@@ -52,13 +35,14 @@
     <strong>Contact type:</strong>
     <%= @residential_lead.contact_type %>
   </p>
+
   <hr>
 
 <h4>Prequalification on File:</h4>
 <% @residential_lead.prequalifications.each do |prequalification| %>
   <p>
     <strong>Prequalification on File:</strong>
-    <%= prequalification.prequalification on file %>
+    <%= qualification.qualification_on_file %>
   </p>
   <p>
     <strong>Move-In Range:</strong>
@@ -102,7 +86,19 @@
 
 
 <hr>
+
 <h4>Application on File:</h4>
+<p>
+    <strong>Application On File?</strong>
+    <%= @residential_lead.application_on_file ? 'yes' : 'no' %>
+  </p>
+  <% if @residential_lead.application_on_file %>
+  <p>
+    <strong>Application Date:</strong>
+    <%= @residential_lead.application_date.strftime("%m/%d/%Y") %>
+  </p>
+  <% end %>
+
 <% @residential_lead.residential_applications.each do |residential_application| %>
   <p>
     <strong>Date Received:</strong>
@@ -113,35 +109,8 @@
     <%= residential_application.date_completed %>
   </p>
 
-
 <% end %>
-<hr>
-<h4>Appoitments:</h4>
 
- <p>
-    <strong>Appointment Date:</strong>
-    <%= @residential_lead.appointment_date.strftime("%m/%d/%Y") %>
-  </p>
-  <p>
-    <strong>Appointment Time:</strong>
-    <%= @residential_lead.appointment_time.strftime("%l:%M %p") %>
-  </p>
-  <p>
-    <strong>Spaces:</strong>
-    <%= markdown(@residential_lead.spaces) %>
-  </p>
-  <p>
-    <strong>Application On File?</strong>
-    <%= @residential_lead.application_on_file ? 'yes' : 'no' %>
-  </p>
-  <% if @residential_lead.application_on_file %>
-  <p>
-    <strong>Application Date:</strong>
-    <%= @residential_lead.application_date.strftime("%m/%d/%Y")  %>
-  </p>
-  <% end %>
-  
-<hr>
 <br><br>
   <%= link_to 'Edit', edit_residential_lead_path(@residential_lead) %> |
   <%= link_to 'Back', residential_leads_path %>
