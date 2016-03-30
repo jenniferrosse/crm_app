@@ -25,8 +25,9 @@
         <td><%= broker.direct_phone %></td>
         <td><%= broker.company %></td>
   
-        <%= link_to 'Show', broker %>        <%= link_to 'Edit', edit_broker_path(broker) %>
-        <%= link_to 'Destroy', broker, method: :delete, data: { confirm: 'Are you sure?' } %></br></br>
+        <td><%= link_to 'Show', broker %></td>
+            <td><%= link_to 'Edit', edit_broker_path(broker) %></td>
+        <td><%= link_to 'Destroy', broker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
     </tr>
   </tbody>
