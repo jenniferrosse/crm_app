@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415155522) do
+ActiveRecord::Schema.define(version: 20160415161842) do
 
   create_table "available_units", force: :cascade do |t|
     t.string   "unit_id"
@@ -128,6 +128,8 @@ ActiveRecord::Schema.define(version: 20160415155522) do
     t.date     "application_date"
     t.boolean  "application_on_file",   default: false
     t.string   "credit_score"
+    t.boolean  "is_artist"
+    t.text     "art_description"
   end
 
   create_table "users", force: :cascade do |t|

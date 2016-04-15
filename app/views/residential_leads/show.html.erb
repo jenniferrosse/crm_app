@@ -56,12 +56,8 @@
     <%= @residential_lead.profession %>
   </p>
   <p>
-    <strong>Credit Score:</strong>
-    <%= @residential_lead.credit_score %>
-  </p>
-  <p>
     <strong>Artist?</strong>
-    
+    <%= @residential_lead.is_artist ? 'yes' : 'no' %>
   </p>
   <p>
     <strong>Anything necessary for creating?</strong>
@@ -89,6 +85,10 @@
   <p>
     <strong>Combined Income:</strong>
     <%= @residential_lead.combined_income %>
+  </p>
+  <p>
+    <strong>Credit Score:</strong>
+    <%= @residential_lead.credit_score %>
   </p>
   
 <br><br>
