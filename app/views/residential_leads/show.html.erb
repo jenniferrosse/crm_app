@@ -1,5 +1,7 @@
 <div class="container">
- 
+
+ <%= link_to 'Edit', edit_residential_lead_path(@residential_lead) %> |
+  <%= link_to 'Back', residential_leads_path %>
 
   <h3>
     <%= @residential_lead.first_name %> <%= @residential_lead.last_name %>
@@ -24,6 +26,10 @@
     <%= markdown(@residential_lead.notes) %>
   </p>
 <hr>
+  <p>
+    <strong>Status:</strong>
+    <%= @residential_lead.status %>
+  </p>
   <p>
     <strong>Appointment Date:</strong>
     <%= @residential_lead.appointment_date.try(:strftime, "%m/%d/%Y") %>
@@ -61,7 +67,7 @@
   </p>
   <p>
     <strong>Anything necessary for creating?</strong>
-    
+        <%= @residential_lead.art_description %>
   </p>
 <hr>
   <p>
