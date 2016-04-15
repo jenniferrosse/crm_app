@@ -21,8 +21,8 @@
         <th>Contact Date</th>
         <th>Name</th>
         <th>Properties Referenced</th>
-        <th>Contact Type</th>
-        <th>Source</th>
+        <th>Price Max</th>
+        <th>Latest Move-In</th>
       </tr>
     </thead>
 
@@ -33,8 +33,8 @@
           <td><%= residential_lead.first_name %> 
           <%= residential_lead.last_name %></td>
           <td><%= residential_lead.properties_referenced %></td>
-          <td><%= residential_lead.contact_type %></td>
-          <td><%= residential_lead.source %></td>
+          <td><%= residential_lead.price_max %></td>
+          <td><%= residential_lead.latest_move_in.try(:strftime, "%m/%d/%Y") %></td>
           <td><%= link_to 'Show', residential_lead %></td>
           <td><%= link_to 'Edit', edit_residential_lead_path(residential_lead) %></td>
           <td><%= link_to 'Destroy', residential_lead, method: :delete, data: { confirm: 'Are you sure?' } %></td>
