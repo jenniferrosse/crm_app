@@ -26,13 +26,13 @@
 <hr>
   <p>
     <strong>Move in Range:</strong>
-    <%= @residential_lead.earliest_move_in.try(:strftime, "%A, %b %d") %> -
-    <%= @residential_lead.latest_move_in.try(:strftime, "%A, %b %d") %>
+    <%= @residential_lead.earliest_move_in.try(:strftime, "%m/%d/%Y") %> -
+    <%= @residential_lead.latest_move_in.try(:strftime, "%m/%d/%Y") %>
   </p>
   <p>
     <strong>Price Range:</strong>
-    <%= @residential_lead.price_min %> -
-    <%= @residential_lead.price_max %>
+    $<%= @residential_lead.price_min %> -
+    $<%= @residential_lead.price_max %>
   </p>
   <p>
     <strong>Preferences:</strong>
