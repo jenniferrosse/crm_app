@@ -2,6 +2,14 @@
 
 <p id="notice"><%= notice %></p>
 
+<%= form_tag(brokers_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+<%= submit_tag "Search" %>
+<% end %>
+
+<%= link_to 'New Broker', new_broker_path %>
+
+
 <h1>Listing Brokers</h1>
 
   <table class="table">

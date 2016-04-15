@@ -5,10 +5,9 @@
     <%= @residential_lead.first_name %> <%= @residential_lead.last_name %>
   </h3>
   <p>
-    <strong>Contact Date:</strong>
+    <strong>First Contact Date:</strong>
     <%= @residential_lead.contact_date.strftime("%A, %b %d") %>
   </p>
-
   <p>
     <strong>Email:</strong>
     <%= @residential_lead.email %>
@@ -24,9 +23,46 @@
     <strong>Notes:</strong>
     <%= markdown(@residential_lead.notes) %>
   </p>
-
 <hr>
-
+  <p>
+    <strong>Move in Range:</strong>
+    <%= @residential_lead.earliest_move_in.try(:strftime, "%A, %b %d") %> -
+    <%= @residential_lead.latest_move_in.try(:strftime, "%A, %b %d") %>
+  </p>
+  <p>
+    <strong>Price Range:</strong>
+    <%= @residential_lead.price_min %> -
+    <%= @residential_lead.price_max %>
+  </p>
+  <p>
+    <strong>Preferences:</strong>
+    <%= @residential_lead.preferences %>
+  </p>
+  <p>
+    <strong>People:</strong>
+    <%= @residential_lead.people %>
+  </p>
+  <p>
+    <strong>Pets:</strong>
+    <%= @residential_lead.pets %>
+  </p>
+  <p>
+    <strong>Profession:</strong>
+    <%= @residential_lead.profession %>
+  </p>
+  <p>
+    <strong>Artist?</strong>
+    
+  </p>
+  <p>
+    <strong>Anything necessary for creating?</strong>
+    
+  </p>
+<hr>
+  <p>
+    <strong>Showing Availability:</strong>
+    <%= @residential_lead.availability %>
+  </p>
   <p>
     <strong>Source:</strong>
     <%= @residential_lead.source %>
@@ -37,79 +73,14 @@
   </p>
 
   <hr>
-
-<h4>Prequalification on File:</h4>
-<% @residential_lead.prequalifications.each do |prequalification| %>
-  <p>
-    <strong>Prequalification on File:</strong>
-    <%= qualification.qualification_on_file %>
-  </p>
-  <p>
-    <strong>Move-In Range:</strong>
-    <%= prequalification.earliest_move_in.strftime("%m/%d/%Y") %> - 
-
-    <%= prequalification.latest_move_in.strftime("%m/%d/%Y") %>
-  </p>
-   <p>
-    <strong>Price range:</strong>
-    $<%= prequalification.price_min %> - $<%= prequalification.price_max %>
-  </p>
-  <p>
-    <strong>People:</strong>
-    <%= prequalification.people %>
-  </p>
-  <p>
-    <strong>Pets:</strong>
-    <%= prequalification.pets %>
-  </p>
-<p>
-    <strong>Profession:</strong>
-    <%= prequalification.profession %>
-  </p>
-  <p>
-    <strong>Employer:</strong>
-    <%= prequalification.employer %>
-  </p>
   <p>
     <strong>Income:</strong>
-    <%= prequalification.income %>
+    <%= @residential_lead.income %>
   </p>
   <p>
     <strong>Combined Income:</strong>
-    <%= prequalification.combined_income %>
+    <%= @residential_lead.combined_income %>
   </p>
-  <p>
-    <strong>Availability:</strong>
-    <%= prequalification.availability %>
-  </p>
-<% end %>
-
-
-<hr>
-
-<h4>Application on File:</h4>
-<p>
-    <strong>Application On File?</strong>
-    <%= @residential_lead.application_on_file ? 'yes' : 'no' %>
-  </p>
-  <% if @residential_lead.application_on_file %>
-  <p>
-    <strong>Application Date:</strong>
-    <%= @residential_lead.application_date.strftime("%m/%d/%Y") %>
-  </p>
-  <% end %>
-
-<% @residential_lead.residential_applications.each do |residential_application| %>
-  <p>
-    <strong>Date Received:</strong>
-    <%= residential_application.date_received %>
-  </p>
-  <p>
-    <strong>Date Completed:</strong>
-    <%= residential_application.date_completed %>
-  </p>
-
-<% end %>
 
 <br><br>
   <%= link_to 'Edit', edit_residential_lead_path(@residential_lead) %> |

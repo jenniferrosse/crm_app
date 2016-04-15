@@ -1,6 +1,78 @@
 <div class="container"><h1>New Prequalification</h1>
 
-<%= render 'form' %>
+<%= form_for ([@residential_lead, @prequalification]) do |f| %>
+  <%=f.label :qualification_on_file %><br>
+  <%= f.check_box :qualification_on_file %>
+
+<br>
+<br>
+
+  <%=f.label :earliest_move_in %><br>
+  <%= f.date_select :earliest_move_in %>
+
+<br>
+<br>
+
+  <%=f.label :latest_move_in %><br>
+  <%= f.date_select :latest_move_in %>
+
+<br>
+<br>
+
+  <%=f.label :price_min %><br>
+  <%= f.text_field :price_min %>
+
+<br>
+<br>
+
+  <%=f.label :price_max %><br>
+  <%= f.text_field :price_max %>
+
+<br>
+<br>
+
+  <%=f.label :people %><br>
+  <%= f.text_field :people %>
+<br>
+<br>
+
+  <%=f.label :pets %><br>
+  <%= f.text_area :pets %>
+
+<br>
+<br>
+  
+  <%=f.label :profession %><br>
+  <%= f.text_field :profession %>
+
+<br>
+<br>
+
+  <%=f.label :employer %><br>
+  <%= f.text_field :profession %>
+
+<br>
+<br>
+
+<%=f.label :income %><br>
+  <%= f.text_field :income %>
+
+<br>
+<br>
+
+  <%=f.label :combined_income %><br>
+  <%= f.text_field :combined_income %>
+
+<br>
+<br>
+  
+  <%=f.label :availability %><br>
+  <%= f.text_area :availability %>
+
+<br>
+<br>
+  <%= f.submit %>
+<% end %>
 
 <%= link_to 'Back', prequalifications_path %>
 </div>

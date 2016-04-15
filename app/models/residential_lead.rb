@@ -1,7 +1,7 @@
 class ResidentialLead < ActiveRecord::Base
   has_many :prequalifications
 
-  accepts_nested_attributes_for :prequalifications, reject_if: proc { |attributes| attributes['qualification_on_file'].blank? }
+  accepts_nested_attributes_for :prequalifications
 
   has_many :residential_applications
 

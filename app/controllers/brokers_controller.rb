@@ -6,6 +6,11 @@ class BrokersController < ApplicationController
   # GET /brokers.json
   def index
     @brokers = Broker.all
+  if params[:search]
+    @brokers = Broker.search(params[:search]).order("created_at DESC")
+  else
+    @brokers = Broker.all.order('created_at DESC')
+  end
   end
 
   # GET /brokers/1
