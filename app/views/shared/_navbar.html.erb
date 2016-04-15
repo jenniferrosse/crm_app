@@ -16,8 +16,9 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Residential Leads", residential_leads_path %></li>
+        <li><%= link_to "Residential Applications", residential_applications_path %></li>
+        <li><%= link_to "Prequalifications", prequalifications_path %></li>
         <li><%= link_to "Commercial Leads", commercial_leads_path %></li>
-        <li><%= link_to "Brokers", brokers_path %></li>
         <% if user_signed_in? %>
           <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
         <% else %>
