@@ -25,6 +25,11 @@
   </p>
 <hr>
   <p>
+    <strong>Appointment Date:</strong>
+    <%= @residential_lead.appointment_date.try(:strftime, "%m/%d/%Y") %>
+  </p>
+<hr>
+  <p>
     <strong>Move in Range:</strong>
     <%= @residential_lead.earliest_move_in.try(:strftime, "%m/%d/%Y") %> -
     <%= @residential_lead.latest_move_in.try(:strftime, "%m/%d/%Y") %>
@@ -81,7 +86,7 @@
     <strong>Combined Income:</strong>
     <%= @residential_lead.combined_income %>
   </p>
-
+  
 <br><br>
   <%= link_to 'Edit', edit_residential_lead_path(@residential_lead) %> |
   <%= link_to 'Back', residential_leads_path %>

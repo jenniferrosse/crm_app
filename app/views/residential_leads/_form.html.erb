@@ -50,6 +50,12 @@
 
   <hr>
     <div class="field">
+      <%= f.label :appointment_date %><br>
+       <%= f.date_select :appointment_date, :include_blank => true  %>
+     </div>
+
+  <hr>
+    <div class="field">
       <%= f.label :earliest_move_in %><br>
       <%= f.date_select :earliest_move_in, :include_blank => true %>
     </div>
@@ -94,6 +100,7 @@
     <%= f.label :combined_income %><br>
     <%= f.text_field :combined_income %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
