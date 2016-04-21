@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :available_units
   resources :brokers
   resources :residential_leads do
+    collection do
+      get 'search'
+    end
     resources :residential_applications
     resources :prequalifications
   end

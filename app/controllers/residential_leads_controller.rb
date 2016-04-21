@@ -4,14 +4,18 @@ class ResidentialLeadsController < ApplicationController
 
   # GET /residential_leads
   # GET /residential_leads.json
-  def index
-   
+  def search
     if params[:search].present?
         @residential_leads = ResidentialLead.search(params[:search])
     else
         @residential_leads = ResidentialLead.all.order('contact_date DESC')
     end
   end
+
+  def index
+    @residential_leads = ResidentialLead.all.order('contact_date DESC')
+  end
+
 
   # GET /residential_leads/1
   # GET /residential_leads/1.json
