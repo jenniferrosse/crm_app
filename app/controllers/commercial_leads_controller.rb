@@ -8,12 +8,12 @@ class CommercialLeadsController < ApplicationController
     if params[:search].present?
         @commercial_leads = CommercialLead.search(params[:search])
     else
-        @commercial_leads = CommercialLead.all
+        @commercial_leads = CommercialLead.all.order('contact_date DESC')
     end
   end
 
   def index
-    @commercial_leads = CommercialLead.all
+    @commercial_leads = CommercialLead.all.order('contact_date DESC')
   end
 
   # GET /commercial_leads/1

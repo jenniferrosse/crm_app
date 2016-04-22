@@ -8,12 +8,12 @@ class BrokersController < ApplicationController
     if params[:search].present?
         @brokers = Broker.search(params[:search])
     else
-        @brokers = Broker.all
+        @brokers = Broker.all.order('first_name ASC')
     end
   end
 
   def index
-    @brokers = Broker.all
+    @brokers = Broker.all.order('first_name ASC')
   end
 
   # GET /brokers/1
