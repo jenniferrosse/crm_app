@@ -3,11 +3,11 @@
 <%= link_to 'New Broker', new_broker_path %>
 
 <%= form_tag search_brokers_path, method: :get, role: "search" do %>
-        <p>
-          <%= text_field_tag :search, params[:search], placeholder: "Search" %>
-          <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
-        </p>
-      <% end %>
+    <p>
+      <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+      <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+    </p>
+<% end %>
 
 
 <h1>Listing Brokers</h1>

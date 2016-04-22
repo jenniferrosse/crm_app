@@ -4,13 +4,16 @@ class BrokersController < ApplicationController
 
   # GET /brokers
   # GET /brokers.json
+  def search
+    if params[:search].present?
+        @brokers = Broker.search(params[:search])
+    else
+        @brokers = Broker.all
+    end
+  end
+
   def index
     @brokers = Broker.all
-  if params[:search]
-    @brokers = Broker.search(params[:search]).order("created_at DESC")
-  else
-    @brokers = Broker.all.order('created_at DESC')
-  end
   end
 
   # GET /brokers/1
