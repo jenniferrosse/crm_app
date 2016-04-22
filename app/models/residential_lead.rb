@@ -2,6 +2,7 @@ class ResidentialLead < ActiveRecord::Base
 
 def self.search(search)
   where("first_name ILIKE ?", "%#{search}%") 
+
  
 end
 

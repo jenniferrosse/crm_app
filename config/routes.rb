@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :prequalifications
   resources :residential_applications
   resources :available_units
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
     resources :residential_applications
     resources :prequalifications
   end
-  devise_for :users
+  
   get 'pages/home'
 
   resources :commercial_leads
