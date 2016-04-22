@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160415200540) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "available_units", force: :cascade do |t|
     t.string   "unit_id"
     t.string   "sq_ft"
@@ -84,7 +87,7 @@ ActiveRecord::Schema.define(version: 20160415200540) do
     t.string   "qualification_on_file"
   end
 
-  add_index "prequalifications", ["residential_lead_id"], name: "index_prequalifications_on_residential_lead_id"
+  add_index "prequalifications", ["residential_lead_id"], name: "index_prequalifications_on_residential_lead_id", using: :btree
 
   create_table "residential_applications", force: :cascade do |t|
     t.date     "date_received"
@@ -95,7 +98,7 @@ ActiveRecord::Schema.define(version: 20160415200540) do
     t.integer  "residential_lead_id"
   end
 
-  add_index "residential_applications", ["residential_lead_id"], name: "index_residential_applications_on_residential_lead_id"
+  add_index "residential_applications", ["residential_lead_id"], name: "index_residential_applications_on_residential_lead_id", using: :btree
 
   create_table "residential_leads", force: :cascade do |t|
     t.string   "first_name"
@@ -148,7 +151,7 @@ ActiveRecord::Schema.define(version: 20160415200540) do
     t.datetime "updated_at",                          null: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
