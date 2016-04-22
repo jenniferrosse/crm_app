@@ -1,5 +1,9 @@
 class ResidentialLead < ActiveRecord::Base
-  searchkick
+
+def self.search(search)
+  where("first_name LIKE ?", "%#{search}%") 
+ 
+end
 
   has_many :prequalifications
 
