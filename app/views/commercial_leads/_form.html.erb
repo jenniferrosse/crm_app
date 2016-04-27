@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :contact_date %><br>
+    <%= f.date_select :contact_date %>
+  </div>
+  <div class="field">
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>
   </div>
@@ -36,6 +40,11 @@
     <%= f.text_field :contact_type %>
   </div>
   <div class="field">
+    <%= f.label :source %><br>
+    <%= f.text_field :source %>
+  </div>
+  <hr>
+  <div class="field">
     <%= f.label :use %><br>
     <%= f.text_field :use %>
   </div>
@@ -44,16 +53,21 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :source %><br>
-    <%= f.text_field :source %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_date %><br>
-    <%= f.date_select :contact_date %>
-  </div>
-  <div class="field">
     <%= f.label :properties_referenced %><br>
     <%= f.text_field :properties_referenced %>
+  </div>
+  <hr>
+  <div class="field">
+    <%= f.label :properties_suggested %><br>
+    <%= f.text_field :properties_suggested %>
+  </div>
+  <div class="field">
+    <%= f.label :appointment_date %><br>
+    <%= f.date_select :appointment_date, :include_blank => true %>
+  </div>
+  <div class="field">
+    <%= f.label :properties_shown %><br>
+    <%= f.text_field :properties_shown %>
   </div>
   <div class="field">
     <%= f.label :notes %><br>

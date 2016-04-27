@@ -3,6 +3,10 @@
   <h2><%= @commercial_lead.first_name %> <%= @commercial_lead.last_name %>
   </h2>
   <p>
+    <strong>Contact date:</strong>
+    <%= @commercial_lead.contact_date.strftime("%m/%d/%Y") %>
+  </p>
+  <p>
     <strong>Broker:</strong>
     <%= @commercial_lead.broker %>
   </p>
@@ -13,21 +17,6 @@
     <%= @commercial_lead.phone %>
   </p>
   <p>
-    <strong>Contact date:</strong>
-    <%= @commercial_lead.contact_date.strftime("%m/%d/%Y") %>
-  </p>
-  <p>
-    <strong>Properties referenced:</strong>
-    <%= @commercial_lead.properties_referenced %>
-  </p>
-
-  <hr>
-  
-  <p>
-    <strong>Source:</strong>
-    <%= @commercial_lead.source %>
-  </p>
-  <p>
     <strong>Contact type:</strong>
     <%= @commercial_lead.contact_type %>
   </p>
@@ -35,7 +24,9 @@
     <strong>Source:</strong>
     <%= @commercial_lead.source %>
   </p>
+   <hr>
   <p>
+    <p>
     <strong>Use:</strong>
     <%= @commercial_lead.use %>
   </p>
@@ -43,7 +34,25 @@
     <strong>Description:</strong>
     <%= @commercial_lead.description %>
   </p>
-  
+  <p>
+    <strong>Properties referenced:</strong>
+    <%= @commercial_lead.properties_referenced %>
+  </p>
+
+  <hr>
+
+  <p>
+    <strong>Properties suggested:</strong>
+    <%= @commercial_lead.properties_suggested %>
+  </p>
+  <p>
+    <strong>Appointment date:</strong>
+    <%= @commercial_lead.appointment_date.try(:strftime, "%m/%d/%Y") %>
+  </p>
+  <p>
+    <strong>Properties shown:</strong>
+    <%= @commercial_lead.properties_shown %>
+  </p>
   <p>
     <strong>Notes:</strong>
     <%= @commercial_lead.notes %>
