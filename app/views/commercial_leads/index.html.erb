@@ -36,7 +36,7 @@
           <td><%= commercial_lead.use %></td>
           <td><%= commercial_lead.properties_referenced %></td>
           <td><%= commercial_lead.properties_suggested %></td>
-          <td class="info"><%= commercial_lead.appointment_date %></td>
+          <td class="info"><%= commercial_lead.appointment_date.try(:strftime, "%m/%d/%Y") %></td>
           <td class="info"><%= commercial_lead.properties_shown %></td>
 
           <td><%= link_to 'Show', commercial_lead %></td>
