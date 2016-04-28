@@ -1,6 +1,7 @@
 class CommercialLeadsController < ApplicationController
   before_action :set_commercial_lead, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  helper_method :sort_column, :sort_direction
 
   # GET /commercial_leads
   # GET /commercial_leads.json
@@ -13,7 +14,7 @@ class CommercialLeadsController < ApplicationController
   end
 
   def index
-    @commercial_leads = CommercialLead.all.order('contact_date DESC')
+    @commercial_leads = CommercialLead.order(sort_column + " " + sort_direction).order('contact_date DESC')
   end
 
   # GET /commercial_leads/1
@@ -71,6 +72,15 @@ class CommercialLeadsController < ApplicationController
   end
 
   private
+
+    def sort_column
+      CommercialLead.column_names.include?(params[:sort]) ? params[:sort] : "first_name"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_commercial_lead
       @commercial_lead = CommercialLead.find(params[:id])

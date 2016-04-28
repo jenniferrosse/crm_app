@@ -14,14 +14,14 @@
   <table class="table table-hover">
     <thead>
       <tr>
-        <th>Contact Date</th>
-        <th>Name</th>
-        <th>Broker</th>
-        <th>Use</th>
-        <th>Properties Referenced</th>
-        <th>Properties Suggested</th>
-        <th>Appointment Date</th>
-        <th>Properties Shown</th>
+        <th><%= sortable "contact_date" %></th>
+        <th><%= sortable "first_name", "Name" %></th>
+        <th><%= sortable "broker" %></th>
+        <th><%= sortable "use" %></th>
+        <th><%= sortable "properties_referenced" %></th>
+        <th><%= sortable "properties_suggested" %></th>
+        <th><%= sortable "appointment_date" %></th>
+        <th><%= sortable "properties_shown" %></th>
 
         <th colspan="3"></th>
       </tr>
