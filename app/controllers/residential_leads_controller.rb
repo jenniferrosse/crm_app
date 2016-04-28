@@ -1,6 +1,7 @@
 class ResidentialLeadsController < ApplicationController
   before_action :set_residential_lead, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  helper_method :sort_column, :sort_direction
 
   # GET /residential_leads
   # GET /residential_leads.json
@@ -13,7 +14,7 @@ class ResidentialLeadsController < ApplicationController
   end
 
   def index
-    @residential_leads = ResidentialLead.all.order('contact_date DESC')
+    @residential_leads = ResidentialLead.order(sort_column + " " + sort_direction).order('contact_date DESC')
   end
 
 
@@ -74,6 +75,15 @@ class ResidentialLeadsController < ApplicationController
   end
 
   private
+
+   def sort_column
+      ResidentialLead.column_names.include?(params[:sort]) ? params[:sort] : "first_name"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_residential_lead
       @residential_lead = ResidentialLead.find(params[:id])
