@@ -3,29 +3,17 @@
   <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Unit:</strong>
-  <%= @available_unit.unit_id %>
+  <h1><%= @available_unit.unit_id %></h1>
 </p>
 
-<p>
-  <strong>Sq ft:</strong>
-  <%= @available_unit.sq_ft %>
-</p>
+<p><%= @available_unit.bedroom %> bedroom | 
+  <%= @available_unit.bathroom %> bath</p>
 
-<p>
-  <strong>Market rent:</strong>
-  <%= @available_unit.market_rent %>
-</p>
 
-<p>
-  <strong>Bedroom:</strong>
-  <%= @available_unit.bedroom %>
-</p>
+<p>$<%= @available_unit.market_rent %> | 
+  <%= @available_unit.sq_ft %> sq ft</p>
 
-<p>
-  <strong>Bathroom:</strong>
-  <%= @available_unit.bathroom %>
-</p>
+
 
 <p>
   <strong>Laundry:</strong>
@@ -47,6 +35,8 @@
   <%= @available_unit.zip %>
 </p>
 
+<hr>
+<h3>Craigslist Info</h3>
 <p>
   <strong>Craigslist title:</strong>
   <%= @available_unit.craigslist_title %>
