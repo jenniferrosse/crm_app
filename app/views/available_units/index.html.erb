@@ -9,7 +9,7 @@
         </p>
       <% end %>
 
-<h1>Listing Available Units</h1>
+<h1>Available Units</h1>
 
   <table class="table table-hover">
     <thead>
@@ -28,13 +28,13 @@
       <% @available_units.each do |available_unit| %>
         <tr>
           <td><%= available_unit.lease_end_date.strftime("%m/%d/%Y") %></td>
-          <td><%= available_unit.unit_id %></td>
+          <td><%= link_to available_unit.unit_id, available_unit %></td>
           <td><%= available_unit.sq_ft %></td>
-          <td><%= available_unit.market_rent %></td>
+          <td>$<%= available_unit.market_rent %></td>
           <td><%= available_unit.prospects %></td>
 
-          <td><%= link_to 'Show', available_unit %></td>
-          <td><%= link_to 'Edit', edit_available_unit_path(available_unit) %></td>
+         
+          
           <td><%= link_to 'Delete', available_unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
   </tbody>
