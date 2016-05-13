@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160512205227) do
+ActiveRecord::Schema.define(version: 20160513141330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "available_units", force: :cascade do |t|
     t.string   "unit_id"
-    t.string   "sq_ft"
-    t.string   "market_rent"
+    t.integer  "sq_ft"
+    t.integer  "market_rent"
     t.string   "bedroom"
     t.string   "bathroom"
     t.string   "laundry"
