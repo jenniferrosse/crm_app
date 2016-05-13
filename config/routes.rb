@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   resources :prequalifications
   resources :residential_applications
-  resources :available_units
+  resources :available_units do
+    collection do
+      get 'search'
+    end
+  end
   resources :brokers do
     collection do
       get 'search'
