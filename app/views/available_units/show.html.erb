@@ -1,62 +1,58 @@
 <div class="container">
 
-  <p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-8">
 
-<p>
-  <h1><%= @available_unit.unit_id %></h1>
-</p>
-<p>
-    <strong>Lease end date:</strong>
-    <%= @available_unit.lease_end_date.strftime("%m/%d/%Y") %>
-  </p>
+    <p>
+      <h1><%= @available_unit.unit_id %> <small><%= @available_unit.lease_end_date.strftime("%m/%d/%Y") %></small></h1>
+    </p>
+    <p>
+      <%= @available_unit.address %>
+    </p>
 
-<p><%= @available_unit.bedroom %> bedroom | 
-  <%= @available_unit.bathroom %> bath</p>
+    <p><strong><%= @available_unit.bedroom %> bedroom | 
+      <%= @available_unit.bathroom %> bath</strong></p>
 
 
-<p>$<%= @available_unit.market_rent %> | 
-  <%= @available_unit.sq_ft %> sq ft</p>
+    <p><strong>$<%= @available_unit.market_rent %> | 
+      <%= @available_unit.sq_ft %> sq ft</strong></p>
 
-<p>
-  <strong>Prospects:</strong>
-  <%= @available_unit.prospects %>
-</p>
+    <p>
+      <strong>Laundry:</strong>
+      <%= @available_unit.laundry %>
+    </p>
 
-<p>
-  <strong>Laundry:</strong>
-  <%= @available_unit.laundry %>
-</p>
+  </div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @available_unit.address %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @available_unit.city %>
-</p>
-
-<p>
-  <strong>Zip:</strong>
-  <%= @available_unit.zip %>
-</p>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="panel-heading">
+          <h3 class="panel-title">Prospects</h3>
+        </div>
+        <%= markdown(@available_unit.prospects) %>
+      </div>
+    </div>
+  </div>
+</div>
 
 <hr>
+<br>
 <h3>Craigslist Info</h3>
+
+<br>
 <p>
-  <strong>Craigslist title:</strong>
   <%= @available_unit.craigslist_title %>
 </p>
 
 <p>
-  <strong>Short description:</strong>
-  <%= @available_unit.short_description %>
+  <strong><u>About</u></strong>
+  <%= markdown(@available_unit.short_description) %>
 </p>
 
 <p>
-  <strong>Features:</strong>
-  <%= @available_unit.features %>
+  <strong><u>Features</u></strong>
+  <%= markdown(@available_unit.features) %>
 </p>
 
 <%= link_to 'Edit', edit_available_unit_path(@available_unit) %> |
