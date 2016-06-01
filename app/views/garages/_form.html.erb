@@ -1,4 +1,6 @@
-<%= form_for(@garage) do |f| %>
+<div class="container">
+
+  <%= form_for(@garage) do |f| %>
   <% if @garage.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@garage.errors.count, "error") %> prohibited this garage from being saved:</h2>
@@ -39,3 +41,4 @@
     <%= f.submit %>
   </div>
 <% end %>
+</div>

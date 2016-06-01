@@ -1,7 +1,20 @@
 <div class="container">
 
 
-<h1>Listing Parking</h1>
+<h1>Available Parking</h1>
+
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px;'></div>
+</div>
+
+<script type="text/javascript">
+  handler = Gmaps.build('Google');
+  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+  });
+</script>
 
 <table class="table table-hover">
   <thead>
@@ -10,6 +23,7 @@
       <th><%= sortable "address" %></th>
       <th><%= sortable "parking_type" %></th>
       <th><%= sortable "rent" %></th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,14 +31,12 @@
   <tbody>
     <% @garages.each do |garage| %>
       <tr>
-        <td><%= garage.unit_id %></td>
+        <td><%= link_to garage.unit_id, garage %></td>
         <td><%= garage.address %></td>
         <td><%= garage.parking_type %></td>
         <td>$<%= garage.rent %></td>
       
-        <td><%= link_to 'Show', garage %></td>
-        <td><%= link_to 'Edit', edit_garage_path(garage) %></td>
-        <td><%= link_to 'Destroy', garage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', garage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
