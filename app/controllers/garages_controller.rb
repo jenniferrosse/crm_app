@@ -1,10 +1,13 @@
 class GaragesController < ApplicationController
   before_action :set_garage, only: [:show, :edit, :update, :destroy]
 
+
+  helper_method :sort_column, :sort_direction
+
   # GET /garages
   # GET /garages.json
   def index
-    @garages = Garage.all
+    @garages = Garage.order(sort_column + " " + sort_direction).order('rent DESC', 'unit_id DESC')
     @hash = Gmaps4rails.build_markers(@garages) do |garage, marker|
       marker.lat garage.latitude
       marker.lng garage.longitude
@@ -67,6 +70,14 @@ class GaragesController < ApplicationController
   end
 
   private
+
+    def sort_column
+      Garage.column_names.include?(params[:sort]) ? params[:sort] : "unit_id"
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_garage
       @garage = Garage.find(params[:id])
