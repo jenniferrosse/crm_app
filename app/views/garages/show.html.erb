@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @garage.unit_id %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @garage.address %>
+</p>
+
+<strong>Latitude :</strong>
+    <%= @garage.latitude %><br>
+    <strong>Longitude :</strong>
+    <%= @garage.longitude %><br>
+
+<p>
+  <strong>Type:</strong>
+  <%= @garage.parking_type %>
+</p>
+
+<p>
+  <strong>Rent:</strong>
+  $<%= @garage.rent %>
+</p>
+
+<%= link_to 'Edit', edit_garage_path(@garage) %> |
+<%= link_to 'Back', garages_path %>

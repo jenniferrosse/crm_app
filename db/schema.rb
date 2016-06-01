@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160513141330) do
+ActiveRecord::Schema.define(version: 20160601160358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,17 @@ ActiveRecord::Schema.define(version: 20160513141330) do
     t.text     "properties_suggested"
     t.text     "properties_shown"
     t.date     "appointment_date"
+  end
+
+  create_table "garages", force: :cascade do |t|
+    t.string   "unit_id"
+    t.string   "address"
+    t.string   "parking_type"
+    t.integer  "rent"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "prequalifications", force: :cascade do |t|

@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'devise', '~> 3.5', '>= 3.5.6'
 gem 'redcarpet', '~> 3.3', '>= 3.3.4'
+gem 'geocoder', '~> 1.3', '>= 1.3.4'
+gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 
