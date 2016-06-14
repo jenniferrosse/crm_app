@@ -77,7 +77,7 @@ class ResidentialLeadsController < ApplicationController
   private
 
    def sort_column
-      ResidentialLead.column_names.include?(params[:sort]) ? params[:sort] : "first_name"
+      ResidentialLead.column_names.include?(params[:sort]) ? params[:sort] : "contact_date"
     end
 
     def sort_direction
