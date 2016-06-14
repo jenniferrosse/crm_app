@@ -88,6 +88,6 @@ class AvailableUnitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def available_unit_params
-      params.require(:available_unit).permit(:unit_id, :sq_ft, :market_rent, :bedroom, :bathroom, :laundry, :address, :city, :zip, :craigslist_title, :short_description, :features, :lease_end_date, :prospects)
+      params.require(:available_unit).permit(:unit_id, :sq_ft, :market_rent, :bedroom, :bathroom, :laundry, :address, :city, :zip, :craigslist_title, :short_description, :features, :lease_end_date, :prospects, :available)
     end
 end

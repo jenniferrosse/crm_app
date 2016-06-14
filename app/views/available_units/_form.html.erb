@@ -16,6 +16,10 @@
     <%= f.text_field :unit_id %>
   </div>
   <div class="field">
+    <%= f.label :available %><br>
+    <%= f.check_box :available %>
+  </div>
+  <div class="field">
     <%= f.label :lease_end_date %><br>
     <%= f.date_select :lease_end_date %>
   </div>

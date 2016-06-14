@@ -6,6 +6,11 @@
     <p>
       <h1><%= @available_unit.unit_id %> <small><%= @available_unit.lease_end_date.strftime("%m/%d/%Y") %></small></h1>
     </p>
+
+    <p>
+    <strong>Available?</strong>
+    <%= @available_unit.available %>
+  </p>
     <p>
       <%= @available_unit.address %>
     </p>
