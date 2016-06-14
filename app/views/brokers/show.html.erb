@@ -1,49 +1,28 @@
 <div class="container">
+  <h2><%= @broker.first_name %> <%= @broker.last_name %>
+        </h2>
+  <dl class="dl-horizontal">   
+    <dt>Email</dt>
+    <dd><%= @broker.email %></dd>
 
-  <p>
-    <strong>First name:</strong>
-    <%= @broker.first_name %>
-  </p>
+    <dt>Mobile</dt>
+    <dd><%= @broker.mobile %></dd>
 
-  <p>
-    <strong>Last name:</strong>
-    <%= @broker.last_name %>
-  </p>
+    <dt>Direct phone</dt>
+    <dd><%= @broker.direct_phone %></dd>
 
-  <p>
-    <strong>Email:</strong>
-    <%= @broker.email %>
-  </p>
+    <dt>Company</dt>
+    <dd><%= @broker.company %></dd>
 
-  <p>
-    <strong>Mobile:</strong>
-    <%= @broker.mobile %>
-  </p>
+    <dt>Address</dt>
+    <dd><%= @broker.address %></dd>
 
-  <p>
-    <strong>Direct phone:</strong>
-    <%= @broker.direct_phone %>
-  </p>
+    <dt>City</dt>
+    <dd><%= @broker.city %></dd>
 
-  <p>
-    <strong>Company:</strong>
-    <%= @broker.company %>
-  </p>
-
-  <p>
-    <strong>Address:</strong>
-    <%= @broker.address %>
-  </p>
-
-  <p>
-    <strong>City:</strong>
-    <%= @broker.city %>
-  </p>
-
-  <p>
-    <strong>Zip:</strong>
-    <%= @broker.zip %>
-  </p>
+    <dt>Zip</dt>
+    <dd><%= @broker.zip %></dd>
+  </dl>
 
   <%= link_to 'Edit', edit_broker_path(@broker) %> |
   <%= link_to 'Back', brokers_path %>

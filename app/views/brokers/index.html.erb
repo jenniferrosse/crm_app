@@ -27,14 +27,12 @@
     <tbody>
     <% @brokers.each do |broker| %>
         <tr>
-          <td><%= broker.first_name %> <%= broker.last_name %></td>
+          <td><%= link_to "#{broker.first_name} #{broker.last_name}", broker %></td>
         <td><%= broker.email %></td>
         <td><%= broker.mobile %></td>
         <td><%= broker.direct_phone %></td>
         <td><%= broker.company %></td>
   
-        <td><%= link_to 'Show', broker %></td>
-            <td><%= link_to 'Edit', edit_broker_path(broker) %></td>
         <td><%= link_to 'Destroy', broker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
     </tr>
