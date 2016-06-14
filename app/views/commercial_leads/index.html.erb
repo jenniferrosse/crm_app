@@ -31,7 +31,7 @@
       <% @commercial_leads.each do |commercial_lead| %>
         <tr>
           <td><%= commercial_lead.contact_date.strftime("%m/%d/%Y") %></td>
-          <td><%= commercial_lead.first_name %> <%= commercial_lead.last_name %></td>
+          <td><%= link_to "#{commercial_lead.first_name} #{commercial_lead.last_name}", commercial_lead %></td>
           <td><%= commercial_lead.broker %></td>
           <td><%= commercial_lead.use %></td>
           <td><%= commercial_lead.properties_referenced %></td>
@@ -39,8 +39,7 @@
           <td class="info"><%= commercial_lead.appointment_date.try(:strftime, "%m/%d/%Y") %></td>
           <td class="info"><%= commercial_lead.properties_shown %></td>
 
-          <td><%= link_to 'Show', commercial_lead %></td>
-          <td><%= link_to 'Edit', edit_commercial_lead_path(commercial_lead) %></td>
+          
           <td><%= link_to 'Delete', commercial_lead, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
   </tbody>
