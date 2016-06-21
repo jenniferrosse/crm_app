@@ -75,11 +75,11 @@ class AvailableUnitsController < ApplicationController
   private
 
     def sort_column
-      AvailableUnit.column_names.include?(params[:sort]) ? params[:sort] : "lease_end_date"
+      AvailableUnit.column_names.include?(params[:sort]) ? params[:sort] : "available"
     end
 
     def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_available_unit
