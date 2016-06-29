@@ -28,6 +28,32 @@
     <%= f.text_field :broker %>
   </div>
   <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br>
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :properties_referenced %><br>
+    <%= f.text_field :properties_referenced %>
+  </div>
+
+  <hr>
+  
+  <div class="field">
+    <%= f.label :contact_type %><br>
+    <%= f.text_field :contact_type %>
+  </div>
+  <div class="field">
+    <%= f.label :source %><br>
+    <%= f.text_field :source %>
+  </div>
+
+  <hr>
+
+  <div class="field">
     <%= f.label :budget_max %><br>
     <%= f.text_field :budget_max %>
   </div>
@@ -56,36 +82,8 @@
     <%= f.text_field :website %>
   </div>
   
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_type %><br>
-    <%= f.text_field :contact_type %>
-  </div>
-  <div class="field">
-    <%= f.label :source %><br>
-    <%= f.text_field :source %>
-  </div>
   <hr>
-  <div class="field">
-    <%= f.label :use %><br>
-    <%= f.text_field :use %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :properties_referenced %><br>
-    <%= f.text_field :properties_referenced %>
-  </div>
-  <hr>
+  
   <div class="field">
     <%= f.label :properties_suggested %><br>
     <%= f.text_area :properties_suggested %>
