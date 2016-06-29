@@ -5,15 +5,29 @@
     <div class="col-md-8">
       <dl class="dl-horizontal">
        
-        <dt>Contact date</dt>
+        <dt>Contact Date</dt>
         <dd><%= @commercial_lead.contact_date.strftime("%m/%d/%Y") %></dd>
 
-        <dt>Broker<dt>
-        <dd><%= @commercial_lead.broker %></dd>
+        <dt>Max Budget</dt>
+        <dd><%= @commercial_lead.budget_max %></dd>
+        <dt>Occupancy Date</dt>
+        <dd><%= @commercial_lead.occupancy_date %></dd>
+        <dt>Size</dt>
+        <dd><%= @commercial_lead.size %> sf</dd>
+        <br>
+        
         <dt>Use</dt>
         <dd><%= @commercial_lead.use %></dd>
+        <dt>Company Name</dt>
+        <dd><%= @commercial_lead.company_name %></dd>
+
         <dt>Description</dt>
         <dd><%= markdown@commercial_lead.description %></dd>
+
+        <dt>Website</dt>
+        <dd><%= markdown@commercial_lead.website %></dd>
+        <br>
+        <br>
         <dt>Properties referenced</dt>
         <dd><%= markdown@commercial_lead.properties_referenced %></dd>
       </dl>
@@ -34,6 +48,8 @@
             <dd><%= @commercial_lead.contact_type %></dd>
             <dt>Source</dt>
             <dd><%= @commercial_lead.source %></dd>
+            <dt>Broker<dt>
+            <dd><%= @commercial_lead.broker %></dd>
           </dl>
        </div>
       </div>
@@ -50,6 +66,8 @@
     <dd><%= @commercial_lead.properties_shown %></dd>
     <dt>Notes</dt>
     <dd><%= @commercial_lead.notes %></dd>
+    <dt>Next Follow Date</dt>
+    <dd><%= @commercial_lead.next_follow_up %></dd>
   </dl>
 
   <%= link_to 'Edit', edit_commercial_lead_path(@commercial_lead) %> |

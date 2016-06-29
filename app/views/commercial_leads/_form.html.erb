@@ -28,6 +28,35 @@
     <%= f.text_field :broker %>
   </div>
   <div class="field">
+    <%= f.label :budget_max %><br>
+    <%= f.date_field :budget_max %>
+  </div>
+  <div class="field">
+    <%= f.label :occupancy_date %><br>
+    <%= f.date_select :occupancy_date, :include_blank => true  %>
+  </div>
+  <div class="field">
+    <%= f.label :size %><br>
+    <%= f.text_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :use %><br>
+    <%= f.text_field :use %>
+  </div>
+  <div class="field">
+    <%= f.label :company_name %><br>
+    <%= f.text_field :company_name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :website %><br>
+    <%= f.text_field :website %>
+  </div>
+  
+  <div class="field">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
@@ -72,6 +101,10 @@
   <div class="field">
     <%= f.label :notes %><br>
     <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :next_follow_up %><br>
+    <%= f.date_select :next_follow_up, :include_blank => true  %>
   </div>
   <div class="actions">
     <%= f.submit %>
