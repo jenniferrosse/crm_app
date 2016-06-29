@@ -92,7 +92,7 @@
   </div>
   <div class="field">
     <%= f.label :appointment_date %><br>
-    <%= f.date_select :appointment_date, :include_blank => true %>
+    <%= f.date_field :appointment_date, :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :properties_shown %><br>
@@ -104,7 +104,7 @@
   </div>
   <div class="field">
     <%= f.label :next_follow_up %><br>
-    <%= f.date_select :next_follow_up, :include_blank => true  %>
+    <%= f.date_field :next_follow_up, :include_blank => true  %>
   </div>
   <div class="actions">
     <%= f.submit %>
