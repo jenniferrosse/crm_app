@@ -15,6 +15,10 @@ class CommercialLeadsController < ApplicationController
 
   def index
     @commercial_leads = CommercialLead.order(sort_column + " " + sort_direction).order('contact_date DESC')
+    respond_to do |format|
+      format.html
+      format.csv { render text: @commercial_leads.to_csv }
+    end
   end
 
   # GET /commercial_leads/1
