@@ -14,6 +14,10 @@ class BrokersController < ApplicationController
 
   def index
     @brokers = Broker.all.order('first_name ASC')
+    respond_to do |format|
+      format.html
+      format.csv { render text: @brokers.to_csv }
+    end
   end
 
   # GET /brokers/1

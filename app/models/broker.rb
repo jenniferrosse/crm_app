@@ -4,4 +4,13 @@ class Broker < ActiveRecord::Base
     where("first_name ILIKE ? OR last_name ILIKE ? OR company ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
  
   end
+
+  def self.to_csv
+    CSV.generate do |csv|
+      csv << column_names
+      all.each do |broker|
+        csv << broker.attributes.values_at(*column_names)
+      end
+    end  
+  end
 end
