@@ -1,6 +1,6 @@
 <div class="container">
 
-  <%= link_to 'New Commercial lead', new_commercial_lead_path %>
+  
 
   <%= form_tag search_commercial_leads_path, method: :get, role: "search" do %>
         <p>
@@ -9,18 +9,24 @@
         </p>
       <% end %>
 
-  <%= link_to "All Commercial Leads", commercial_leads_path %>
+
+  <%= link_to "All Commercial Leads", commercial_leads_path %><br><br>
+  <%= link_to 'New Commercial lead', new_commercial_lead_path %>
 
   <h1>Commercial Leads</h1>
 
-  <table class="table">
+  <table class="table table-hover">
     <thead>
       <tr>
-        <th>Contact Date</th>
-        <th>Name</th>
-        <th>Broker</th>
-        <th>Use</th>
-        <th>Properties Referenced</th>
+        <th><%= sortable "contact_date" %></th>
+        <th><%= sortable "first_name", "Name" %></th>
+        <th><%= sortable "broker" %></th>
+        <th><%= sortable "use" %></th>
+        <th><%= sortable "properties_referenced" %></th>
+        <th><%= sortable "properties_suggested" %></th>
+        <th><%= sortable "appointment_date" %></th>
+        <th><%= sortable "properties_shown" %></th>
+
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -29,13 +35,15 @@
       <% @commercial_leads.each do |commercial_lead| %>
         <tr>
           <td><%= commercial_lead.contact_date.strftime("%m/%d/%Y") %></td>
-          <td><%= commercial_lead.first_name %> <%= commercial_lead.last_name %></td>
+          <td><%= link_to "#{commercial_lead.first_name} #{commercial_lead.last_name}", commercial_lead %></td>
           <td><%= commercial_lead.broker %></td>
           <td><%= commercial_lead.use %></td>
           <td><%= commercial_lead.properties_referenced %></td>
+          <td><%= commercial_lead.properties_suggested %></td>
+          <td class="info"><%= commercial_lead.appointment_date.try(:strftime, "%m/%d/%Y") %></td>
+          <td class="info"><%= commercial_lead.properties_shown %></td>
 
-          <td><%= link_to 'Show', commercial_lead %></td>
-          <td><%= link_to 'Edit', edit_commercial_lead_path(commercial_lead) %></td>
+          
           <td><%= link_to 'Delete', commercial_lead, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
   </tbody>
