@@ -17,6 +17,7 @@ class BrokersController < ApplicationController
     respond_to do |format|
       format.html
       format.csv { render text: @brokers.to_csv }
+      format.xls { send_data @brokers.to_csv(col_sep: "\t") }
     end
   end
 
