@@ -18,6 +18,7 @@ class CommercialLeadsController < ApplicationController
     respond_to do |format|
       format.html
       format.csv { render text: @commercial_leads.to_csv }
+      format.xls { send_data @commercial_leads.to_csv(col_sep: "\t") }
     end
   end
 

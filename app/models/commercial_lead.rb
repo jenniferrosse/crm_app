@@ -5,8 +5,8 @@ class CommercialLead < ActiveRecord::Base
  
   end
 
-  def self.to_csv
-    CSV.generate do |csv|
+  def self.to_csv (options = {})
+    CSV.generate(options) do |csv|
       csv << column_names
       all.each do |commercial_lead|
         csv << commercial_lead.attributes.values_at(*column_names)
