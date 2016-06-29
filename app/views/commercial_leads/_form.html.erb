@@ -29,11 +29,11 @@
   </div>
   <div class="field">
     <%= f.label :budget_max %><br>
-    <%= f.date_field :budget_max %>
+    <%= f.text_field :budget_max %>
   </div>
   <div class="field">
     <%= f.label :occupancy_date %><br>
-    <%= f.date_select :occupancy_date, :include_blank => true  %>
+    <%= f.date_field :occupancy_date, :include_blank => true  %>
   </div>
   <div class="field">
     <%= f.label :size %><br>
