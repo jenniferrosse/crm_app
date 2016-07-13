@@ -1,6 +1,10 @@
 <div class="container">
-   <h3 class="text-center"><%= @commercial_lead.first_name %> <%= @commercial_lead.last_name %>
-          </h2>
+   <h3 class="text-center"><%= @commercial_lead.first_name %> <%= @commercial_lead.last_name %></h3>
+   <p class="text-center">
+     <%= link_to 'Edit', edit_commercial_lead_path(@commercial_lead) %> |
+     <%= link_to 'Back', commercial_leads_path %>
+   </p>
+
     <div class="row">
       <div class="col-md-3">
         <div class="well">
@@ -69,15 +73,17 @@
               <%= @commercial_lead.appointment_date.try(:strftime, "%m/%d/%Y") %>
           </div>
           <div class="well"> 
-           <h6>Properties shown
+           <h6>Properties shown</h6>
+           <%= markdown@commercial_lead.properties_shown %>
           </div>
         </div>
       </div>
 
     </div>
 
-
+<p class="text-center">
   <%= link_to 'Edit', edit_commercial_lead_path(@commercial_lead) %> |
   <%= link_to 'Back', commercial_leads_path %>
+</p>
 
 </div>
