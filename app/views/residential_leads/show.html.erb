@@ -1,11 +1,12 @@
 <div class="container">
 
- <%= link_to 'Edit', edit_residential_lead_path(@residential_lead) %> |
-  <%= link_to 'Back', residential_leads_path %>
-
   <h3>
     <%= @residential_lead.first_name %> <%= @residential_lead.last_name %>
   </h3>
+  <p>
+    <%= link_to 'Edit', edit_residential_lead_path(@residential_lead) %> |
+    <%= link_to 'Back', residential_leads_path %>
+  </p>
   <p>
     <strong>First Contact Date:</strong>
     <%= @residential_lead.contact_date.strftime("%A, %b %d") %>
