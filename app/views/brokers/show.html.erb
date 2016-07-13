@@ -1,6 +1,12 @@
 <div class="container">
+  <p class="text-center">
   <h2><%= @broker.first_name %> <%= @broker.last_name %>
         </h2>
+    
+      <%= link_to 'Edit', edit_broker_path(@broker) %> |
+      <%= link_to 'Back', brokers_path %>
+    
+
   <dl class="dl-horizontal">   
     <dt>Email</dt>
     <dd><%= @broker.email %></dd>
@@ -23,8 +29,7 @@
     <dt>Zip</dt>
     <dd><%= @broker.zip %></dd>
   </dl>
+</p>
 
-  <%= link_to 'Edit', edit_broker_path(@broker) %> |
-  <%= link_to 'Back', brokers_path %>
 
 </div>
