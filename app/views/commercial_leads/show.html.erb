@@ -1,85 +1,73 @@
 <div class="container">
-   <h3 class="text-center"><%= @commercial_lead.first_name %> <%= @commercial_lead.last_name %></h3>
+   
    <p class="text-center">
      <%= link_to 'Edit', edit_commercial_lead_path(@commercial_lead) %> |
      <%= link_to 'Back', commercial_leads_path %>
    </p>
 
-    <div class="row">
-      <div class="col-md-3">
-        <div class="well">
-          <h4>Contact Info</h4>
-          <%= @commercial_lead.email %><br>
-          <%= @commercial_lead.phone %><br>
-          Broker: <%= @commercial_lead.broker %>
-          <hr>
-          First Contact: <%= @commercial_lead.contact_date.strftime("%m/%d/%Y") %><br>
-          Contact Type: <%= @commercial_lead.contact_type %><br>
-          Source: <%= @commercial_lead.source %><br>
-        </div>
-        <div class="well">
-          <h4>Notes</h4>
-           <%= @commercial_lead.notes %>
-        </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="well">
-          <h4>Business Info</h4>
-          
-            <table class="table">
-              <tr>
-                <td>Company Name:</td>
-                <td><strong><%= @commercial_lead.company_name %></strong></td>
-              </tr>
-              <tr>
-                <td>Use:</td>
-                <td><strong><%= @commercial_lead.use %></strong></td>
-              </tr>
-            </table>
-          
-         <div class="well"> 
-          <h5>Description</h5>
-          <%= markdown@commercial_lead.description %>
-          <h5>Website</h5> 
-          <%= markdown@commercial_lead.website %>
+      <div class="col-md-8">
+        <h4><u>Business Info</u></h4>
+          <strong>Use: </strong><%= @commercial_lead.use %></br>
+          <strong>Company Name: </strong><%= @commercial_lead.company_name %></br>
             
-          </div>
-          <div class="well">
-            Occupancy Date: <%= @commercial_lead.occupancy_date %><br>
-            Max Budget: <%= @commercial_lead.budget_max %><br>
-            Size: <%= @commercial_lead.size %> sf
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="well">
-          <h4>Follow Up</h4>
-          <%= @commercial_lead.next_follow_up %>
-        </div>
-        <div class="well">
-          <h4>Appointment Info</h4>
+        <strong>Description:</strong>
           <div class="well"> 
-            <h6>Properties Referenced</h6>
-              <%= markdown@commercial_lead.properties_referenced %>
+          <%= markdown@commercial_lead.description %>
           </div>
+        <strong>Website:</strong>
           <div class="well"> 
+          <%= markdown@commercial_lead.website %>
+          </div>  
+          <h4><u>Appointment Info</u></h4>
             <h6>Properties suggested</h6>
+              <div class="well">   
               <%= markdown@commercial_lead.properties_suggested %>
-          </div>
-          <div class="well"> 
+              </div>
             <h6>Appointment date</h6>
+              <div class="well"> 
               <%= @commercial_lead.appointment_date.try(:strftime, "%m/%d/%Y") %>
-          </div>
-          <div class="well"> 
-           <h6>Properties shown</h6>
-           <%= markdown@commercial_lead.properties_shown %>
-          </div>
-        </div>
-      </div>
+              </div>
+            <h6>Properties shown</h6>
+              <div class="well"> 
+              <%= markdown@commercial_lead.properties_shown %>
+              </div>
+           <strong>Notes:</strong>
+              <div class="well">
+              <%= @commercial_lead.notes %>
+           </div>
 
-    </div>
+         </div>
+
+      <div class="col-md-4">
+        <h4>Follow Up</h4>
+          <div class="well">
+            <%= @commercial_lead.next_follow_up %>
+          </div>
+        <h4>Contact Info</h4>
+          <div class="well">
+            <%= @commercial_lead.first_name %> <%= @commercial_lead.last_name %><br>
+            <%= @commercial_lead.email %><br>
+            <%= @commercial_lead.phone %><br>
+            Broker: <%= @commercial_lead.broker %>
+          </div>
+
+          <h4>Specs</h4>
+            <div class="well"> 
+              Occupancy Date: <%= @commercial_lead.occupancy_date %><br>
+              Max Budget: <%= @commercial_lead.budget_max %><br>
+              Size: <%= @commercial_lead.size %> sf<br>
+              <strong>Properties Referenced:</strong> <%= markdown@commercial_lead.properties_referenced %>
+            </div>
+          <h4>Tracking Info</h4>
+            <div class="well">
+              First Contact: <%= @commercial_lead.contact_date.strftime("%m/%d/%Y") %><br>
+              Contact Type: <%= @commercial_lead.contact_type %><br>
+              Source: <%= @commercial_lead.source %><br>
+            </div>
+    
+        </div>
+
+   
 
 <p class="text-center">
   <%= link_to 'Edit', edit_commercial_lead_path(@commercial_lead) %> |
