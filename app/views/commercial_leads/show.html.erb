@@ -40,12 +40,14 @@
 
       <div class="col-md-4">
         <h4>Follow Up</h4>
+
           <div class="well">
-            <%= @commercial_lead.next_follow_up %>
+            Current: <strong><%= @commercial_lead.follow_up %></strong><br>
+            Next Contact: <%= @commercial_lead.next_follow_up %>
           </div>
         <h4>Contact Info</h4>
           <div class="well">
-            <%= @commercial_lead.first_name %> <%= @commercial_lead.last_name %><br>
+            <h5><%= @commercial_lead.first_name %> <%= @commercial_lead.last_name %></h5><br>
             <%= @commercial_lead.email %><br>
             <%= @commercial_lead.phone %><br>
             Broker: <%= @commercial_lead.broker %>
