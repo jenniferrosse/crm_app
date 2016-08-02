@@ -1,16 +1,55 @@
 <div class="container">
 
-  
-
+<div class="row">
+  <div class="col-md-4">
   <%= form_tag search_commercial_leads_path, method: :get, role: "search" do %>
         <p>
           <%= text_field_tag :search, params[:search], placeholder: "Search" %>
           <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
         </p>
       <% end %>
+<%= link_to "Show All", commercial_leads_path %>
+<br>
+<br>
+</div>
+<div class="col-md-5">
+  <!-- Single button -->
+    <div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Source <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><%= link_to "Craigslist", commercial_leads_path(:source => "Craigslist") %></li>
+        <li><%= link_to "LoopNet", commercial_leads_path(:source => "LoopNet") %></li>
+        <li><%= link_to "Unknown", commercial_leads_path(:source => "Unknown") %></li>
+        <li><%= link_to "Blank", commercial_leads_path(:source => "") %></li>
+        <li role="separator" class="divider"></li>
+        <li><%= link_to "All Commercial Leads", commercial_leads_path %></li>
+      </ul>
+    </div>
 
-
-  <%= link_to "All Commercial Leads", commercial_leads_path %><br><br>
+    <div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Property<span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><%= link_to "1945h", commercial_leads_path(:properties_referenced => "1945h") %></li>
+        <li><%= link_to "LoopNet", commercial_leads_path(:source => "LoopNet") %></li>
+        <li><%= link_to "Unknown", commercial_leads_path(:source => "Unknown") %></li>
+        <li><%= link_to "Blank", commercial_leads_path(:source => "") %></li>
+        <li role="separator" class="divider"></li>
+        <li><a href="#">Separated link</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <p>
+    Download: 
+    <%= link_to "CSV", commercial_leads_path(format: "csv") %> |
+    <%= link_to "Excel", commercial_leads_path(format: "xls") %>
+  </p>
+  </div>  
+</div>
   <%= link_to 'New Commercial lead', new_commercial_lead_path %>
 
   <h1>Commercial Leads</h1>
