@@ -72,7 +72,7 @@
     <thead>
       <tr>
         <th><%= sortable "contact_date" %></th>
-        
+        <th><%= sortable "status" %></th>
         <th><%= sortable "first_name", "Name" %></th>
         <th><%= sortable "broker" %></th>
         <th><%= sortable "use" %></th>
@@ -89,6 +89,7 @@
       <% @commercial_leads.each do |commercial_lead| %>
         <tr>
           <td><%= commercial_lead.contact_date.strftime("%m/%d/%Y") %></td>
+          <td><%= commercial_lead.status %></td>
           <td><%= link_to "#{commercial_lead.first_name} #{commercial_lead.last_name}", commercial_lead %></td>
           <td><%= commercial_lead.broker %></td>
           <td><%= commercial_lead.use %></td>
