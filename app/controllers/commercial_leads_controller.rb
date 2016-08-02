@@ -16,6 +16,11 @@ class CommercialLeadsController < ApplicationController
   def index
     if params[:source]
       @commercial_leads = CommercialLead.where(:source => params[:source])
+      if @commercial_leads.empty?
+      flash[:error] = "There are <b>#{@commercial_leads.count}</b> from this source".html_safe
+      else
+      flash[:notice] = "There are <b>#{@commercial_leads.count}</b> from this source".html_safe
+      end
     elsif params[:properties_referenced]
       @commercial_leads = CommercialLead.where(:properties_referenced => params[:properties_referenced])
     else
