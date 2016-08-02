@@ -19,7 +19,10 @@
       <ul class="dropdown-menu">
         <li><%= link_to "Craigslist", commercial_leads_path(:source => "Craigslist") %></li>
         <li><%= link_to "LoopNet", commercial_leads_path(:source => "LoopNet") %></li>
-        <li><%= link_to "Unknown", commercial_leads_path(:source => "Unknown") %></li>
+        <li><%= link_to "CityFeet", commercial_leads_path(:source => "CityFeet") %></li>
+        <li><%= link_to "Referral", commercial_leads_path(:source => "Referral") %></li>
+        <li><%= link_to "Broker", commercial_leads_path(:source => "Broker") %></li>
+        <li><%= link_to "CoStar", commercial_leads_path(:source => "CoStar") %></li>
         <li><%= link_to "Blank", commercial_leads_path(:source => "") %></li>
         <li role="separator" class="divider"></li>
         <li><%= link_to "All Commercial Leads", commercial_leads_path %></li>
@@ -33,7 +36,8 @@
       <ul class="dropdown-menu">
         <li><%= link_to "1945h", commercial_leads_path(:properties_referenced => "1945h") %></li>
         <li><%= link_to "LoopNet", commercial_leads_path(:source => "LoopNet") %></li>
-        <li><%= link_to "Unknown", commercial_leads_path(:source => "Unknown") %></li>
+       
+        
         <li><%= link_to "Blank", commercial_leads_path(:source => "") %></li>
         <li role="separator" class="divider"></li>
         <li><a href="#">Separated link</a></li>
