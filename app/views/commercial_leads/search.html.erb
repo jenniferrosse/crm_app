@@ -39,6 +39,8 @@
       <ul class="dropdown-menu">
         <li><%= link_to "Current", commercial_leads_path(:status => "Current") %></li>
         <li><%= link_to "Waiting", commercial_leads_path(:status => "Waiting") %></li>
+        <li><%= link_to "Application", commercial_leads_path(:status => "Application") %></li>
+        <li><%= link_to "Signed", commercial_leads_path(:status => "Signed") %></li>
         <li><%= link_to "Rented Elsewhere", commercial_leads_path(:status => "Elsewhere") %></li>
         <li><%= link_to "No Options", commercial_leads_path(:status => "No Options") %></li>
         <li><%= link_to "Unknown", commercial_leads_path(:status => "") %></li>
