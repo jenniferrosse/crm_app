@@ -3,28 +3,27 @@
 <div class="row">
   <div class="col-md-4">
 
-  <%= form_tag search_brokers_path, method: :get, role: "search" do %>
-      <p>
-        <%= text_field_tag :search, params[:search], placeholder: "Search" %>
-        <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
-      </p>
-  <% end %>
-  <%= link_to "Show All", brokers_path %>
-</div>
-<div class="col-md-5">
-</div>
-<div class="col-md-3">
-  <p>
-  Download: 
-  <%= link_to "CSV", brokers_path(format: "csv") %> |
-  <%= link_to "Excel", brokers_path(format: "xls") %>
-  </p>
-</div>
+    <%= form_tag search_brokers_path, method: :get, role: "search" do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+      <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+    <% end %>
+    <%= link_to "Show All", brokers_path %>
+  </div>
+  <div class="col-md-5">
+  </div>
+  <div class="col-md-3">
+    <p>
+    Download: 
+    <%= link_to "CSV", brokers_path(format: "csv") %> |
+    <%= link_to "Excel", brokers_path(format: "xls") %>
+    </p>
+  </div>
 </div>
 <br>
-
+<br>
 <%= link_to 'New Broker', new_broker_path %>
-
+<br>
+<br>
 
 <h1>Listing Brokers</h1>
 
