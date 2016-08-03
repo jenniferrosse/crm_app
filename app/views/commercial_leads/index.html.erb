@@ -23,7 +23,7 @@
         <li><%= link_to "Referral", commercial_leads_path(:source => "Referral") %></li>
         <li><%= link_to "Broker", commercial_leads_path(:source => "Broker") %></li>
         <li><%= link_to "CoStar", commercial_leads_path(:source => "CoStar") %></li>
-        <li><%= link_to "Blank", commercial_leads_path(:source => "") %></li>
+        <li><%= link_to "Unknown", commercial_leads_path(:source => "") %></li>
         <li role="separator" class="divider"></li>
         <li><%= link_to "All Commercial Leads", commercial_leads_path %></li>
       </ul>
@@ -31,16 +31,15 @@
 
     <div class="btn-group">
       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Property<span class="caret"></span>
+        Status <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
-        <li><%= link_to "1945h", commercial_leads_path(:properties_referenced => "1945h") %></li>
-        <li><%= link_to "LoopNet", commercial_leads_path(:source => "LoopNet") %></li>
-       
-        
-        <li><%= link_to "Blank", commercial_leads_path(:source => "") %></li>
+        <li><%= link_to "Current", commercial_leads_path(:status => "Current") %></li>
+        <li><%= link_to "Waiting", commercial_leads_path(:status => "Waiting") %></li>
+        <li><%= link_to "Rented Elsewhere", commercial_leads_path(:status => "Elsewhere") %></li>
+        <li><%= link_to "Unknown", commercial_leads_path(:status => "") %></li>
         <li role="separator" class="divider"></li>
-        <li><a href="#">Separated link</a></li>
+        <li><%= link_to "All Commercial Leads", commercial_leads_path %></li>
       </ul>
     </div>
   </div>
