@@ -11,30 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802215110) do
+ActiveRecord::Schema.define(version: 20160803172629) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "available_units", force: :cascade do |t|
-    t.string   "unit_id"
-    t.integer  "sq_ft"
-    t.integer  "market_rent"
-    t.string   "bedroom"
-    t.string   "bathroom"
-    t.string   "laundry"
-    t.string   "address"
-    t.string   "city"
-    t.string   "zip"
-    t.string   "craigslist_title"
-    t.text     "short_description"
-    t.text     "features"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.date     "lease_end_date"
-    t.text     "prospects"
-    t.boolean  "available"
-  end
 
   create_table "brokers", force: :cascade do |t|
     t.string   "first_name"
@@ -159,6 +139,26 @@ ActiveRecord::Schema.define(version: 20160802215110) do
     t.boolean  "is_artist"
     t.text     "art_description"
     t.string   "status"
+  end
+
+  create_table "units", force: :cascade do |t|
+    t.string   "unit_id"
+    t.integer  "sq_ft"
+    t.integer  "market_rent"
+    t.string   "bedroom"
+    t.string   "bathroom"
+    t.string   "laundry"
+    t.string   "address"
+    t.string   "city"
+    t.string   "zip"
+    t.string   "craigslist_title"
+    t.text     "short_description"
+    t.text     "features"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.date     "lease_end_date"
+    t.text     "prospects"
+    t.boolean  "available"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,4 +1,4 @@
-class AvailableUnit < ActiveRecord::Base
+class Unit < ActiveRecord::Base
 
   def self.search(search)
     where("prospects ILIKE ?", "%#{search}%")

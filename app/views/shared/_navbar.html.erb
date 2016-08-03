@@ -19,7 +19,7 @@
         <li><%= link_to "Brokers", brokers_path %></li>
         <li><%= link_to "Residential Leads", residential_leads_path %></li>
         
-        <li><%= link_to "Available Units", available_units_path %></li>
+        <li><%= link_to "Available Units", units_path %></li>
         
         <% if user_signed_in? %>
           <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
