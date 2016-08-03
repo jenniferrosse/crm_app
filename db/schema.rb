@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803172629) do
+ActiveRecord::Schema.define(version: 20160803203309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,14 @@ ActiveRecord::Schema.define(version: 20160803172629) do
   end
 
   add_index "prequalifications", ["residential_lead_id"], name: "index_prequalifications_on_residential_lead_id", using: :btree
+
+  create_table "properties", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "residential_applications", force: :cascade do |t|
     t.date     "date_received"
