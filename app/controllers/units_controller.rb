@@ -82,7 +82,7 @@ class UnitsController < ApplicationController
       %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
     end
     # Use callbacks to share common setup or constraints between actions.
-    def set_available_unit
+    def set_unit
       @unit = Unit.find(params[:id])
     end
 

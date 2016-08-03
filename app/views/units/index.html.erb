@@ -29,7 +29,7 @@
       <% @units.each do |unit| %>
         <tr>
           <td><%= unit.lease_end_date.strftime("%m/%d/%Y") %></td>
-          <td><%= link_to unit.unit_id, available_unit %></td>
+          <td><%= link_to unit.unit_id, unit %></td>
           <td><%= unit.sq_ft %></td>
           <td>$<%= unit.market_rent %></td>
           <td><%= unit.available %></td>
