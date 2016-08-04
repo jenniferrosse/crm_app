@@ -15,7 +15,7 @@ class UnitsController < ApplicationController
   end
 
   def index
-    @units = Unit.order(sort_column + " " + sort_direction).order('lease_end_date DESC', 'market_rent DESC')
+    @units = Unit.order(sort_column + " " + sort_direction)
   end
 
   # GET /available_units/1
@@ -88,6 +88,6 @@ class UnitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def unit_params
-      params.require(:unit).permit(:unit_id, :sq_ft, :market_rent, :bedroom, :bathroom, :laundry, :address, :city, :zip, :craigslist_title, :short_description, :features, :lease_end_date, :prospects, :available)
+      params.require(:unit).permit(:unit_number, :sq_ft, :market_rent, :bedroom, :bathroom, :laundry, :address, :city, :zip, :craigslist_title, :short_description, :features, :lease_end_date, :prospects, :available)
     end
 end

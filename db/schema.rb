@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160803203309) do
+ActiveRecord::Schema.define(version: 20160804120143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -150,7 +150,7 @@ ActiveRecord::Schema.define(version: 20160803203309) do
   end
 
   create_table "units", force: :cascade do |t|
-    t.string   "unit_id"
+    t.string   "unit_number"
     t.integer  "sq_ft"
     t.integer  "market_rent"
     t.string   "bedroom"

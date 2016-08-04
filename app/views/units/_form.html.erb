@@ -12,16 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :unit_id %><br>
-    <%= f.text_field :unit_id %>
+    <%= f.label :unit_number %><br>
+    <%= f.text_field :unit_number %>
   </div>
   <div class="field">
     <%= f.label :available %><br>
     <%= f.check_box :available %>
-  </div>
-  <div class="field">
-    <%= f.label :lease_end_date %><br>
-    <%= f.date_select :lease_end_date %>
   </div>
   <div class="field">
     <%= f.label :sq_ft %><br>
@@ -32,36 +28,8 @@
     <%= f.text_field :market_rent %>
   </div>
   <div class="field">
-    <%= f.label :bedroom %><br>
-    <%= f.text_field :bedroom %>
-  </div>
-  <div class="field">
-    <%= f.label :bathroom %><br>
-    <%= f.text_field :bathroom %>
-  </div>
-  <div class="field">
     <%= f.label :laundry %><br>
     <%= f.text_field :laundry %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :zip %><br>
-    <%= f.text_field :zip %>
-  </div>
-  <div class="field">
-    <%= f.label :prospects %><br>
-    <%= f.text_area :prospects %>
-  </div>
-  <div class="field">
-    <%= f.label :craigslist_title %><br>
-    <%= f.text_field :craigslist_title %>
   </div>
   <div class="field">
     <%= f.label :short_description %><br>
@@ -70,6 +38,14 @@
   <div class="field">
     <%= f.label :features %><br>
     <%= f.text_area :features %>
+  </div>
+   <div class="field">
+    <%= f.label :bedroom %><br>
+    <%= f.text_field :bedroom %>
+  </div>
+  <div class="field">
+    <%= f.label :bathroom %><br>
+    <%= f.text_field :bathroom %>
   </div>
   <div class="actions">
     <%= f.submit %>

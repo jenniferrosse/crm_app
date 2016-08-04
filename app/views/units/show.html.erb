@@ -1,64 +1,35 @@
 <div class="container">
 
-<div class="row">
-  <div class="col-md-8">
-
-    <p>
-      <h1><%= @unit.unit_id %> <small><%= @unit.lease_end_date.strftime("%m/%d/%Y") %></small></h1>
-    </p>
-
-    <p>
-    <strong>Available?</strong>
-    <%= @unit.available %>
+  <p>
+    <h1><%= @unit.unit_number %></h1>
   </p>
-    <p>
-      <%= @unit.address %>
-    </p>
 
-    <p><strong><%= @unit.bedroom %> bedroom | 
-      <%= @unit.bathroom %> bath</strong></p>
+  <p>
+  <strong>Available?</strong>
+  <%= @unit.available %>
+  </p>
+  
+  <p><strong>$<%= @unit.market_rent %> | 
+    <%= @unit.sq_ft %> sq ft</strong>
+  </p>
+  <p><strong><%= @unit.bedroom %> bedroom | 
+    <%= @unit.bathroom %> bath</strong>
+  </p>
 
+  <p>
+    <strong>Laundry:</strong>
+    <%= @unit.laundry %>
+  </p>
 
-    <p><strong>$<%= @unit.market_rent %> | 
-      <%= @unit.sq_ft %> sq ft</strong></p>
+  <p>
+    <strong><u>About</u></strong>
+    <%= markdown(@unit.short_description) %>
+  </p>
 
-    <p>
-      <strong>Laundry:</strong>
-      <%= @unit.laundry %>
-    </p>
-
-  </div>
-
-  <div class="col-md-4">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <div class="panel-heading">
-          <h3 class="panel-title">Prospects</h3>
-        </div>
-        <%= markdown(@unit.prospects) %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<hr>
-<br>
-<h3>Craigslist Info</h3>
-
-<br>
-<p>
-  <%= @unit.craigslist_title %>
-</p>
-
-<p>
-  <strong><u>About</u></strong>
-  <%= markdown(@unit.short_description) %>
-</p>
-
-<p>
-  <strong><u>Features</u></strong>
-  <%= markdown(@unit.features) %>
-</p>
+  <p>
+    <strong><u>Features</u></strong>
+    <%= markdown(@unit.features) %>
+  </p>
 
 <%= link_to 'Edit', edit_unit_path(@unit) %> |
 <%= link_to 'Back', units_path %>
