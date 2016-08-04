@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :properties
+  resources :properties do
+    resources :units
+  end
   resources :garages
   devise_for :users
   resources :prequalifications
