@@ -4,9 +4,13 @@
      <%= link_to 'Edit', edit_commercial_lead_path(@commercial_lead) %> |
      <%= link_to 'Back', commercial_leads_path %>
    </p>
-
+    <div class="row">
+      <h3><u>Business Info</u></h3>
+    </div>
+    <div class="row">
       <div class="col-md-8">
-        <h4><u>Business Info</u></h4>
+          <strong>Current:</strong> <%= @commercial_lead.follow_up %><br>
+          <strong>Status:</strong> <%= @commercial_lead.status %><br>
           <strong>Use: </strong><%= @commercial_lead.use %></br>
           <strong>Company Name: </strong><%= @commercial_lead.company_name %></br>
             
@@ -18,7 +22,28 @@
           <div class="well"> 
           <%= markdown@commercial_lead.website %>
           </div>  
-          <h4><u>Appointment Info</u></h4>
+      </div>
+      <div class="col-md-4">
+        <h4>Contact Info</h4>
+          <div class="well">
+            <h5><%= @commercial_lead.first_name %> <%= @commercial_lead.last_name %></h5><br>
+            <%= @commercial_lead.email %><br>
+            <%= @commercial_lead.phone %><br>
+            Broker: <%= @commercial_lead.broker %>
+          </div>
+          <h4>Specs</h4>
+            <div class="well"> 
+              Occupancy Date: <%= @commercial_lead.occupancy_date %><br>
+              Max Budget: <%= @commercial_lead.budget_max %><br>
+              Size: <%= @commercial_lead.size %> sf<br>
+              <strong>Properties Referenced:</strong> <%= markdown@commercial_lead.properties_referenced %>
+            </div>
+          </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-8">
+          <h3><u>Appointment Info</u></h3>
             <h6>Properties suggested</h6>
               <div class="well">   
               <%= markdown@commercial_lead.properties_suggested %>
@@ -34,42 +59,17 @@
            <strong>Notes:</strong>
               <div class="well">
               <%= @commercial_lead.notes %>
-           </div>
-
-         </div>
-
+              </div>
+          </div>
       <div class="col-md-4">
-        <h4>Follow Up</h4>
-
-          <div class="well">
-            Status: <strong><%= @commercial_lead.status %></strong><br>
-            Current: <strong><%= @commercial_lead.follow_up %></strong><br>
-            Next Contact: <%= @commercial_lead.next_follow_up %>
-          </div>
-        <h4>Contact Info</h4>
-          <div class="well">
-            <h5><%= @commercial_lead.first_name %> <%= @commercial_lead.last_name %></h5><br>
-            <%= @commercial_lead.email %><br>
-            <%= @commercial_lead.phone %><br>
-            Broker: <%= @commercial_lead.broker %>
-          </div>
-
-          <h4>Specs</h4>
-            <div class="well"> 
-              Occupancy Date: <%= @commercial_lead.occupancy_date %><br>
-              Max Budget: <%= @commercial_lead.budget_max %><br>
-              Size: <%= @commercial_lead.size %> sf<br>
-              <strong>Properties Referenced:</strong> <%= markdown@commercial_lead.properties_referenced %>
-            </div>
           <h4>Tracking Info</h4>
             <div class="well">
               First Contact: <%= @commercial_lead.contact_date.strftime("%m/%d/%Y") %><br>
               Contact Type: <%= @commercial_lead.contact_type %><br>
               Source: <%= @commercial_lead.source %><br>
             </div>
-    
-        </div>
-
+      </div>
+</div>
    
 
 <p class="text-center">
