@@ -26,9 +26,9 @@
   <tbody>
     <% @property.units.each do |unit| %>
       <tr>
-        <td><%= link_to unit.unit_number %></td>
+        <td><%= link_to unit.unit_number, property.unit %></td>
         <td><%= unit.sq_ft %></td>
-        <td><%= unit.market_rent %></td>
+        <td>$<%= unit.market_rent %></td>
       </tr>
     <% end %>
    </tbody>

@@ -11,7 +11,7 @@ class PropertiesController < ApplicationController
   # GET /properties/1.json
   def show
     @property = Property.find(params[:id])
-    @units = @property.units
+    @units = @property.units(:available => true)
   end
 
   # GET /properties/new
