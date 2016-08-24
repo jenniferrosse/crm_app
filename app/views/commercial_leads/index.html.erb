@@ -7,7 +7,7 @@
           <%= text_field_tag :search, params[:search], placeholder: "Search" %>
           <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
   <% end %>
-  <%= link_to "Show All", commercial_leads_path %><br><br>
+  <%= link_to "Show All", commercial_leads_path, class: "btn btn-default" %><br><br>
   </div>
   
   <div class="col-md-5">
@@ -58,7 +58,9 @@
 </div>
   <br>
 
-  <%= link_to 'New Commercial lead', new_commercial_lead_path %>
+  <%= link_to new_commercial_lead_path, class: "btn btn-success" do %>
+    <span class="glyphicon glyphicon-plus"></span> New Commercial Lead
+  <% end %>
 
   <br>
   <br>

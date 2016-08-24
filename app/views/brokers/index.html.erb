@@ -6,7 +6,7 @@
           <%= text_field_tag :search, params[:search], placeholder: "Search" %>
           <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
     <% end %>
-    <%= link_to "Show All", brokers_path %>
+    <%= link_to "Show All", brokers_path, class: "btn btn-default" %>
   </div>
   <div class="col-md-5">
   </div>
@@ -20,7 +20,9 @@
 </div>
 <br>
 <br>
-<%= link_to 'New Broker', new_broker_path %>
+<%= link_to new_broker_path, class: "btn btn-success" do %>
+  <span class="glyphicon glyphicon-plus"></span> New Broker
+<% end %>
 <br>
 <br>
 
@@ -47,11 +49,13 @@
         <td><%= broker.direct_phone %></td>
         <td><%= broker.company %></td>
   
-        <td><%= link_to 'Destroy', broker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', broker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
     </tr>
   </tbody>
 </table>
 <br>
 
-<%= link_to 'New Broker', new_broker_path %>
+<%= link_to new_broker_path, class: "btn btn-success" do %>
+  <span class="glyphicon glyphicon-plus"></span> New Broker
+<% end %>
