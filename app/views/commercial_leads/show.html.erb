@@ -6,12 +6,12 @@
      <%= link_to 'Print', commercial_leads_path, :onclick => 'window.print();return false;' %>
    </p>
     <div class="row">
-      <div class="col-md-7 col-md-offset-1">
+      <div class="col-md-7 col-md-offset-1 col-sm-7 col-sm-offset-1  col-xs-6 col-xs-offset-1">
         <h3><u>Business Info</u></h3>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-7 col-md-offset-1">
+      <div class="col-md-7 col-md-offset-1 col-sm-7 col-sm-offset-1 col-xs-6 col-xs-offset-1">
          <!--  <strong>Current:</strong> <%= @commercial_lead.follow_up %><br> -->
         <strong>Status:</strong> <%= @commercial_lead.status %><br>
         <strong>Use: </strong><%= @commercial_lead.use %></br>
@@ -27,7 +27,7 @@
             <%= @commercial_lead.notes %>
           </div>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-3 col-s-3 col-xs-4">
         <h4>Contact Info</h4>
           <div class="well">
             <strong><%= @commercial_lead.first_name %> <%= @commercial_lead.last_name %></strong><br>
@@ -52,7 +52,7 @@
       </div>
       <hr class="hidden-print">
       <div class="row hidden-print">
-        <div class="col-md-7 col-md-offset-1">
+        <div class="col-md-7 col-md-offset-1 col-sm-7 col-sm-offset-1  col-xs-6 col-xs-offset-1">
           <h3><u>Appointment Info</u></h3>
             <strong>Properties suggested:</strong>
               <div class="well">   
@@ -68,9 +68,7 @@
               </div>
            
           </div>
-      <div class="col-md-4">
-          
-      </div>
+     
 </div>
    
 
