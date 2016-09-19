@@ -28,6 +28,13 @@ class CommercialLeadsController < ApplicationController
       else
       flash[:notice] = "There are <b>#{@commercial_leads.count}</b> in this category".html_safe
       end
+    elsif params[:follow_up]
+      @commercial_leads = CommercialLead.where(:follow_up => params[:follow_up])
+      if @commercial_leads.empty?
+      flash[:error] = "There are <b>#{@commercial_leads.count}</b> in this category".html_safe
+      else
+      flash[:notice] = "There are <b>#{@commercial_leads.count}</b> in this category".html_safe
+      end
     else
       @commercial_leads = CommercialLead.order(sort_column + " " + sort_direction).order('contact_date DESC')
           respond_to do |format|
