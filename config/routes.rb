@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   end
   
   get 'pages/home'
+  get 'pages/available_units'
 
   resources :commercial_leads do
     collection do
