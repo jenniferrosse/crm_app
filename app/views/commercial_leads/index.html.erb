@@ -100,6 +100,7 @@
         <th><%= sortable "appointment_date" %></th>
         <th><%= sortable "properties_shown" %></th>
         <th><%= sortable "source" %></th>
+        <th><%= sortable "description" %></th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -118,7 +119,20 @@
           <td class="info"><%= commercial_lead.appointment_date.try(:strftime, "%m/%d/%Y") %></td>
           <td class="info"><%= commercial_lead.properties_shown %></td>
           <td><%= commercial_lead.source %></td>
-
+          <td>
+            <% if commercial_lead.description.length > 50 %>
+              <%= truncate(commercial_lead.description, length: 50) %>
+              <%= link_to '...read more', '', class: "read-more-#{commercial_lead.id}" %>
+              <script>
+                $('.read-more-<%= commercial_lead.id %>').on('click', function(e) {
+                  e.preventDefault()
+                  $(this).parent().html('<%= escape_javascript commercial_lead.description %>')
+                })
+              </script>
+            <% else %>
+              <%= commercial_lead.description %>
+            <% end %>
+          </td>
           
           <td><%= link_to 'Delete', commercial_lead, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
