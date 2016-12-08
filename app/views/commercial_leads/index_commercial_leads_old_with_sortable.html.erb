@@ -9,9 +9,9 @@
   <% end %>
   <%= link_to "Show All", commercial_leads_path, class: "btn btn-default" %><br><br>
   </div>
-
-<div class="col-md-5">
-  <div class="btn-group">
+  
+  <div class="col-md-5">
+    <div class="btn-group">
       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Active Leads <span class="caret"></span>
       </button>
@@ -58,6 +58,7 @@
         <li><%= link_to "All Commercial Leads", commercial_leads_path %></li>
       </ul>
     </div>
+    
   </div>
   <div class="col-md-3">
     <p>
@@ -67,28 +68,50 @@
   </p>
   </div>  
 </div>
- <br>
+  <br>
+
   <%= link_to new_commercial_lead_path, class: "btn btn-success" do %>
     <span class="glyphicon glyphicon-plus"></span> New Commercial Lead
   <% end %>
 
   <br>
   <br>
+  
+
+<!--    <h1>Commercial Leads</h1>
+
+    <%= content_tag :div, "", id: "commercial_leads_chart", data: {commercial_leads: @commercial_leads} %>
+    <br>
+    <br>
+    <br>
+    <hr> -->
 
   <table class="table table-hover">
     <thead>
       <tr>
-        <th><%= sortable "contact_date" %></th>
-        <th><%= sortable "active" %></th>
+        <th>Contact Date</th>
+        <th>Last Updated</th>
+        <th>Status</th>
+        <th>Active ?</th>
+        <th>Name</th>
+        <th>Broker</th>
+        <th>Use</th>
+        <th>Description</th>
+        <th>Source</th>
+
+        <th><%= sortable "updated_at" %></th>
         <th><%= sortable "status" %></th>
+        <th><%= sortable "active" %></th>
         <th><%= sortable "first_name", "Name" %></th>
         <th><%= sortable "broker" %></th>
         <th><%= sortable "use" %></th>
+        <th><%= sortable "description" %></th>
         <th><%= sortable "properties_referenced" %></th>
         <th><%= sortable "properties_suggested" %></th>
         <th><%= sortable "appointment_date" %></th>
         <th><%= sortable "properties_shown" %></th>
         <th><%= sortable "source" %></th>
+        <th><%= sortable "notes" %></th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -97,17 +120,45 @@
       <% @commercial_leads.each do |commercial_lead| %>
         <tr>
           <td><%= commercial_lead.contact_date.strftime("%m/%d/%Y") %></td>
-          <td><%= commercial_lead.follow_up %></td>
+           <td><%= commercial_lead.updated_at.strftime("%m/%d/%Y") %></td>
           <td><%= commercial_lead.status %></td>
+          <td><%= commercial_lead.follow_up %></td>
           <td><%= link_to "#{commercial_lead.first_name} #{commercial_lead.last_name}", commercial_lead %></td>
           <td><%= commercial_lead.broker %></td>
           <td><%= commercial_lead.use %></td>
+          <td>
+            <% if commercial_lead.description.length > 50 %>
+              <%= truncate(commercial_lead.description, length: 50) %>
+              <%= link_to '...read more', '', class: "read-more-#{commercial_lead.id}" %>
+              <script>
+                $('.read-more-<%= commercial_lead.id %>').on('click', function(e) {
+                  e.preventDefault()
+                  $(this).parent().html('<%= escape_javascript commercial_lead.description %>')
+                })
+              </script>
+            <% else %>
+              <%= commercial_lead.description %>
+            <% end %>
+          </td>
           <td><%= commercial_lead.properties_referenced %></td>
           <td><%= commercial_lead.properties_suggested %></td>
           <td class="info"><%= commercial_lead.appointment_date.try(:strftime, "%m/%d/%Y") %></td>
           <td class="info"><%= commercial_lead.properties_shown %></td>
           <td><%= commercial_lead.source %></td>
-
+          <td>
+            <% if commercial_lead.notes.length > 50 %>
+              <%= truncate(commercial_lead.notes, length: 50) %>
+              <%= link_to '...read more', '', class: "read-more-#{commercial_lead.id}" %>
+              <script>
+                $('.read-more-<%= commercial_lead.id %>').on('click', function(e) {
+                  e.preventDefault()
+                  $(this).parent().html('<%= escape_javascript commercial_lead.notes %>')
+                })
+              </script>
+            <% else %>
+              <%= commercial_lead.notes %>
+            <% end %>
+          </td>
           
           <td><%= link_to 'Delete', commercial_lead, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
@@ -116,6 +167,5 @@
 
   <br>
 
- 
   
 </div>

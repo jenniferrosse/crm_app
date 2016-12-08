@@ -102,7 +102,7 @@ class CommercialLeadsController < ApplicationController
   private
 
     def sort_column
-      CommercialLead.column_names.include?(params[:sort]) ? params[:sort] : "contact_date"
+      CommercialLead.column_names.include?(params[:sort]) ? params[:sort] : "follow_up"
     end
 
     def sort_direction
