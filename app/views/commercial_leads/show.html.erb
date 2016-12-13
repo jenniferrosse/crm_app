@@ -5,18 +5,17 @@
      <%= link_to 'Edit', edit_commercial_lead_path(@commercial_lead) %> |
      <%= link_to 'Print', commercial_leads_path, :onclick => 'window.print();return false;' %>
    </p>
-    <div class="row">
-      <div class="col-md-7 col-md-offset-1 col-sm-7 col-sm-offset-1  col-xs-6 col-xs-offset-1">
-        <h3><u>Business Info</u></h3>
-      </div>
-    </div>
+    
     <div class="row">
       <div class="col-md-7 col-md-offset-1 col-sm-7 col-sm-offset-1 col-xs-6 col-xs-offset-1">
-        <strong>Current:</strong> <%= @commercial_lead.follow_up %><br>
-        <strong>Status:</strong> <%= @commercial_lead.status %><br>
-        <strong>Use: </strong><%= @commercial_lead.use %></br>
-        <strong>Company Name: </strong><%= @commercial_lead.company_name %></br>
-        <strong>Website: </strong><%= markdown@commercial_lead.website %><br>
+        
+        Use: <%= @commercial_lead.use %></br>
+        Company Name: <%= @commercial_lead.company_name %><br>
+        Website: <%= markdown@commercial_lead.website %><br>
+
+        Primary Contact: <%= @commercial_lead.first_name %> <%= @commercial_lead.last_name %><br>
+        Broker: <%= markdown@commercial_lead.broker %><br>
+
           
         <strong>Description:</strong>
           <div class="well"> 
@@ -28,6 +27,9 @@
           </div>
       </div>
       <div class="col-md-3 col-s-3 col-xs-4">
+        <strong>Current:</strong> <%= @commercial_lead.follow_up %><br>
+        <strong>Status:</strong> <%= @commercial_lead.status %><br>
+        </strong></br>
         <h4>Contact Info</h4>
           <div class="well">
             <strong><%= @commercial_lead.first_name %> <%= @commercial_lead.last_name %></strong><br>
