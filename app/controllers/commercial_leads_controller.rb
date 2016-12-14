@@ -45,6 +45,10 @@ class CommercialLeadsController < ApplicationController
     end
   end
 
+  def quick_view
+     @commercial_leads = CommercialLead.order(sort_column + " " + sort_direction).order('contact_date DESC')
+  end 
+
   # GET /commercial_leads/1
   # GET /commercial_leads/1.json
   def show
