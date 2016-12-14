@@ -46,7 +46,6 @@ class CommercialLeadsController < ApplicationController
   end
 
   def active_index
-     
 
      if params[:source]
       @commercial_leads = CommercialLead.where(:source => params[:source])
@@ -79,6 +78,8 @@ class CommercialLeadsController < ApplicationController
     end
   end 
 
+  def send_email
+  end
   # GET /commercial_leads/1
   # GET /commercial_leads/1.json
   def show
