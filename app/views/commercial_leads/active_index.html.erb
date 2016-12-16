@@ -96,7 +96,7 @@
         <tr>
           
           <td><%= commercial_lead.contact_date.strftime("%m/%d/%Y") %></td>
-          <td><%= commercial_lead.next_follow_up.try(:strftime, "%m/%d/%Y") %></td>
+          <td class="danger"><%= commercial_lead.next_follow_up.try(:strftime, "%m/%d/%Y") %></td>
           <td><%= commercial_lead.status %></td>
           <td><%= link_to "#{commercial_lead.first_name} #{commercial_lead.last_name}", commercial_lead %></td>
           <td><%= commercial_lead.broker %></td>

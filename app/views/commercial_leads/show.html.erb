@@ -46,6 +46,14 @@
             <td>Status</td>
             <td><%= @commercial_lead.status %></td>
           </tr>
+          <tr>
+            <td>Next Follow Up</td>
+            <% if @commercial_lead.follow_up == true %>
+              <td class="danger"><%= @commercial_lead.next_follow_up.try(:strftime, "%m/%d/%Y") %></td>
+            <% else %>
+              <td><%= @commercial_lead.next_follow_up.try(:strftime, "%m/%d/%Y") %></td>
+            <% end %>
+          </tr>
         </table>   
         <h4>Appointment Info</h4>
         <table class="table table-bordered">
