@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160804141108) do
+ActiveRecord::Schema.define(version: 20171019181923) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,7 +56,10 @@ ActiveRecord::Schema.define(version: 20160804141108) do
     t.date     "next_follow_up"
     t.boolean  "follow_up"
     t.string   "status"
+    t.integer  "source_id"
   end
+
+  add_index "commercial_leads", ["source_id"], name: "index_commercial_leads_on_source_id", using: :btree
 
   create_table "garages", force: :cascade do |t|
     t.string   "unit_id"
@@ -149,6 +152,12 @@ ActiveRecord::Schema.define(version: 20160804141108) do
     t.string   "status"
   end
 
+  create_table "sources", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "units", force: :cascade do |t|
     t.string   "unit_number"
     t.integer  "sq_ft"
@@ -190,6 +199,7 @@ ActiveRecord::Schema.define(version: 20160804141108) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "commercial_leads", "sources"
   add_foreign_key "prequalifications", "residential_leads"
   add_foreign_key "residential_applications", "residential_leads"
   add_foreign_key "units", "properties"

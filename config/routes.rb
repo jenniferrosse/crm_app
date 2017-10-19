@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :units
   end
   resources :garages
+  resources :sources
   resources :prequalifications
   resources :residential_applications
   resources :units do

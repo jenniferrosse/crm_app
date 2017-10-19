@@ -56,7 +56,7 @@
   </div>
   <div class="field">
     <%= f.label :source %><br>
-    <%= f.text_field :source %>
+    <%= f.collection_select :source_id, Source.all, :id, :name, include_blank: true %>
   </div>
 
   <hr>

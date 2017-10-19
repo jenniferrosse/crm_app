@@ -1,0 +1,29 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Listing Sources</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @sources.each do |source| %>
+        <tr>
+          <td><%= source.name %></td>
+          <td><%= link_to 'Show', source %></td>
+          <td><%= link_to 'Edit', edit_source_path(source) %></td>
+          <td><%= link_to 'Destroy', source, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New source', new_source_path %>
+</div>
