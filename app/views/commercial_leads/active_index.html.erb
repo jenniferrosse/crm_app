@@ -19,14 +19,14 @@
         Source <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
-        <li><%= link_to "Craigslist", commercial_leads_active_index_path(:source => "Craigslist") %></li>
-        <li><%= link_to "LoopNet", commercial_leads_active_index_path(:source => "LoopNet") %></li>
-        <li><%= link_to "CityFeet", commercial_leads_active_index_path(:source => "CityFeet") %></li>
-        <li><%= link_to "Referral", commercial_leads_active_index_path(:source => "Referral") %></li>
-        <li><%= link_to "Broker", commercial_leads_active_index_path(:source => "Broker") %></li>
-        <li><%= link_to "CoStar", commercial_leads_active_index_path(:source => "CoStar") %></li>
-        <li><%= link_to "Current/Past Tenant", commercial_leads_active_index_path(:source => "Current/Past Tenant") %></li>
-        <li><%= link_to "Unknown", commercial_leads_active_index_path(:source => "") %></li>
+        <li><%= link_to "Craigslist", commercial_leads_active_index_path(:source_id => "2") %></li>
+        <li><%= link_to "LoopNet", commercial_leads_active_index_path(:source_id => "3") %></li>
+        <li><%= link_to "CityFeet", commercial_leads_active_index_path(:source_id => "9") %></li>
+        <li><%= link_to "Referral", commercial_leads_active_index_path(:source_id => "5") %></li>
+        <li><%= link_to "Broker", commercial_leads_active_index_path(:source_id => "4") %></li>
+        <li><%= link_to "CoStar", commercial_leads_active_index_path(:source_id => "7") %></li>
+        <li><%= link_to "Current/Past Tenant", commercial_leads_active_index_path(:source_id=> "8") %></li>
+        <li><%= link_to "Unknown", commercial_leads_active_index_path(:source_id => "1") %></li>
         <li role="separator" class="divider"></li>
         <li><%= link_to "All Commercial Leads", commercial_leads_active_index_path %></li>
       </ul>
@@ -101,7 +101,7 @@
           <td><%= commercial_lead.occupancy_date.try(:strftime, "%m/%d/%Y") %></td>
           <td class="danger"><%= commercial_lead.next_follow_up.try(:strftime, "%m/%d/%Y") %></td>
           <td><%= commercial_lead.status %></td>
-          <td><%= link_to "#{commercial_lead.first_name} - #{commercial_lead.last_name}", commercial_lead %></td>
+          <td><%= link_to "#{commercial_lead.first_name} #{commercial_lead.last_name}", commercial_lead %></td>
           <td><%= commercial_lead.broker %></td>
           <td><%= commercial_lead.use %></td>
           <td class="info"><%= commercial_lead.appointment_date.try(:strftime, "%m/%d/%Y") %></td> 
