@@ -101,7 +101,7 @@
           <td><%= commercial_lead.occupancy_date.try(:strftime, "%m/%d/%Y") %></td>
           <td class="danger"><%= commercial_lead.next_follow_up.try(:strftime, "%m/%d/%Y") %></td>
           <td><%= commercial_lead.status %></td>
-          <td><%= link_to "#{commercial_lead.first_name} #{commercial_lead.last_name}", commercial_lead %></td>
+          <td><%= link_to "#{commercial_lead.first_name} - #{commercial_lead.last_name}", commercial_lead %></td>
           <td><%= commercial_lead.broker %></td>
           <td><%= commercial_lead.use %></td>
           <td class="info"><%= commercial_lead.appointment_date.try(:strftime, "%m/%d/%Y") %></td> 

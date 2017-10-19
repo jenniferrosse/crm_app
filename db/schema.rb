@@ -190,5 +190,7 @@ ActiveRecord::Schema.define(version: 20160804141108) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "prequalifications", "residential_leads"
+  add_foreign_key "residential_applications", "residential_leads"
   add_foreign_key "units", "properties"
 end

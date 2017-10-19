@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+
+  devise_for :users
+
   resources :properties do
     resources :units
   end
   resources :garages
-  devise_for :users
   resources :prequalifications
   resources :residential_applications
   resources :units do
