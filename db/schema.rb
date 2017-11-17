@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019193905) do
+ActiveRecord::Schema.define(version: 20171117175701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 20171019193905) do
     t.boolean  "follow_up"
     t.string   "status"
     t.integer  "source_id"
+    t.datetime "initial_contact"
+    t.datetime "initial_response"
   end
 
   add_index "commercial_leads", ["source_id"], name: "index_commercial_leads_on_source_id", using: :btree
