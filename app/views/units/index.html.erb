@@ -15,6 +15,7 @@
     <thead>
       <tr>
         <th><%= sortable "unit_number", "Unit" %></th>
+        <th><%= sortable "property" %></th>
         <th><%= sortable "sq_ft" %></th>
         <th><%= sortable "market_rent" %></th>
         <th><%= sortable "available" %></th>
@@ -27,6 +28,7 @@
       <% @units.each do |unit| %>
         <tr>
           <td><%= link_to unit.unit_number, unit %></td>
+          <td><%= unit.property %></td>
           <td><%= unit.sq_ft %></td>
           <td>$<%= unit.market_rent %></td>
           <td><%= unit.available %></td>
