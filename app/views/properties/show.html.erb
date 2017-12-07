@@ -36,6 +36,8 @@
  <br>
  <br>
 
+ <%= link_to "Add New Unit", new_unit_path(property_id: @property), class: "btn btn-warning" %><br><br>
+
   <%= link_to 'Edit', edit_property_path(@property) %> |
   <%= link_to 'Back', properties_path %>
 </div>

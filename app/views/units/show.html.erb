@@ -1,7 +1,7 @@
 <div class="container">
 
   <p>
-    <h1><%= @unit.property.name %> - <%= @unit.unit_number %></h1>
+    <h1><% if @unit.property.present? %><%= @unit.property.name %><% else %> No Property Yet<% end %> - <%= @unit.unit_number %></h1>
   </p>
 
   <p>

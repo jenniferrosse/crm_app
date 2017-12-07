@@ -25,7 +25,7 @@ class UnitsController < ApplicationController
 
   # GET /available_units/new
   def new
-    @unit = Unit.new
+    @unit = Unit.new(property_id: params[:property_id])
   end
 
   # GET /available_units/1/edit
@@ -35,7 +35,7 @@ class UnitsController < ApplicationController
   # POST /available_units
   # POST /available_units.json
   def create
-    @unit = Unit.new(unit_params)
+    @unit = Unit.new(unit_params, params[:gallery_id])
 
     respond_to do |format|
       if @unit.save
