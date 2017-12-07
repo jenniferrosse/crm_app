@@ -8,6 +8,11 @@ class Broker < ActiveRecord::Base
  
   end
 
+  def broker_full_name
+    "#{first_name}, #{last_name}"
+  end
+
+
   def self.to_csv (options = {})
     CSV.generate(options) do |csv|
       csv << column_names

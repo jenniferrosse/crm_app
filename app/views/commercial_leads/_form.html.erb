@@ -55,11 +55,13 @@
           <%= f.text_field :last_name %>
         </div>
          <div class="field">
-          <%= f.label :broker %><br>
-          <%= f.text_field :broker %>
+          <%= f.label :old_broker %><br>
+          <%= f.text_field :old_broker %>
         </div>
 
-        <%= f.collection_select(:broker_id, Broker.all, :id, :first_name, {:include_blank => true} )%>
+        <%= f.collection_select :broker_id, Broker.order('first_name DESC'), :id, :broker_full_name, { prompt: 'Select a Broker' }, {:include_blank => true} %>
+
+
 
 
         <div class="field">
