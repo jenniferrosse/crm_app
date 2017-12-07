@@ -22,7 +22,7 @@
           <dt>Primary Contact:</dt>
           <dd><%= @commercial_lead.first_name %> <%= @commercial_lead.last_name %></dd>
           <dt>Broker:</dt>
-          <dd><%= @commercial_lead.broker.first_name%> <%= @commercial_lead.broker.last_name%></dd>
+          <dd><%= @commercial_lead.broker.first_name%> <%= @commercial_lead.broker.last_name%> (<%= @commercial_lead.old_broker%>)</dd>
           <hr>
           <dt>Occupancy Date:</dt>
           <dd><%= @commercial_lead.occupancy_date.try(:strftime, "%m/%d/%Y") %></dd>
