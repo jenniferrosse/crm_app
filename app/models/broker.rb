@@ -1,4 +1,7 @@
 class Broker < ActiveRecord::Base
+
+  has_many :representations
+  has_many :commercial_leads, through: :representations
   
   def self.search(search)
     where("first_name ILIKE ? OR last_name ILIKE ? OR company ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :garages
   resources :sources
   resources :prequalifications
+  resources :representations
   resources :residential_applications
   resources :units do
     collection do
