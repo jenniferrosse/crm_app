@@ -10,6 +10,7 @@
       </ul>
     </div>
   <% end %>
+  <%= f.collection_select(:property_id, Property.all, :id, :name, {:include_blank => true} )%>
 
   <div class="field">
     <%= f.label :unit_number %><br>
