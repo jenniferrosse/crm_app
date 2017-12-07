@@ -15,7 +15,7 @@ class UnitsController < ApplicationController
   end
 
   def index
-    @units = Unit.order(sort_column + " " + sort_direction)
+    @units = Unit.order(sort_column + " " + sort_direction).order('market_rent DESC')
   end
 
   # GET /available_units/1

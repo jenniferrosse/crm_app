@@ -1,12 +1,12 @@
 <div class="container">
 
   <p>
-    <h1><%= @unit.unit_number %></h1>
+    <h1><%= @unit.property.name %> - <%= @unit.unit_number %></h1>
   </p>
 
   <p>
   <strong>Available?</strong>
-  <%= @unit.available %>
+  <%= human_boolean@unit.available %>
   </p>
   
   <p><strong>$<%= @unit.market_rent %> | 
