@@ -1,9 +1,7 @@
 class CommercialLead < ActiveRecord::Base
 
   belongs_to :source
-
-  has_many :representations
-  has_many :brokers, through: :representations
+  belongs_to :broker
   
   def self.search(search)
     where("first_name ILIKE ? OR last_name ILIKE ? OR broker ILIKE ? OR use ILIKE ? OR description ILIKE ? OR email ILIKE ? OR source ILIKE ? OR company_name ILIKE ? OR properties_referenced ILIKE ? OR properties_suggested ILIKE ? OR properties_shown ILIKE ? OR status ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")

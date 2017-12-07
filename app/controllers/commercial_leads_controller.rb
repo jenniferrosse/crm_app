@@ -151,6 +151,6 @@ class CommercialLeadsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def commercial_lead_params
-      params.require(:commercial_lead).permit(:first_name, :last_name, :email, :phone, :contact_type, :description, :source_id, :contact_date, :properties_referenced, :use, :notes, :properties_suggested, :properties_shown, :appointment_date, :company_name, :website, :size, :occupancy_date, :budget_max, :next_follow_up, :follow_up, :status, :initial_contact, :initial_response)
+      params.require(:commercial_lead).permit(:first_name, :last_name, :email, :phone, :contact_type, :description, :source_id, :contact_date, :properties_referenced, :use, :notes, :properties_suggested, :properties_shown, :appointment_date, :company_name, :website, :size, :occupancy_date, :budget_max, :next_follow_up, :follow_up, :status, :initial_contact, :initial_response, :broker_id)
     end
 end

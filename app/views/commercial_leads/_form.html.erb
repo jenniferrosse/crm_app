@@ -58,6 +58,10 @@
           <%= f.label :broker %><br>
           <%= f.text_field :broker %>
         </div>
+
+        <%= f.collection_select(:broker_id, Broker.all, :id, :first_name, {:include_blank => true} )%>
+
+
         <div class="field">
           <%= f.label :email %><br>
           <%= f.text_field :email %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207174533) do
+ActiveRecord::Schema.define(version: 20171207180834) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,8 +59,10 @@ ActiveRecord::Schema.define(version: 20171207174533) do
     t.integer  "source_id"
     t.datetime "initial_contact"
     t.datetime "initial_response"
+    t.integer  "broker_id"
   end
 
+  add_index "commercial_leads", ["broker_id"], name: "index_commercial_leads_on_broker_id", using: :btree
   add_index "commercial_leads", ["source_id"], name: "index_commercial_leads_on_source_id", using: :btree
 
   create_table "garages", force: :cascade do |t|
@@ -207,6 +209,7 @@ ActiveRecord::Schema.define(version: 20171207174533) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "commercial_leads", "brokers"
   add_foreign_key "commercial_leads", "sources"
   add_foreign_key "prequalifications", "residential_leads"
   add_foreign_key "residential_applications", "residential_leads"
