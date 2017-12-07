@@ -83,7 +83,6 @@ class CommercialLeadsController < ApplicationController
   # GET /commercial_leads/1
   # GET /commercial_leads/1.json
   def show
-    @representations = @commercial_lead.representations
   end
 
   # GET /commercial_leads/new
