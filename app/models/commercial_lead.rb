@@ -1,6 +1,8 @@
 class CommercialLead < ActiveRecord::Base
 
   belongs_to :source
+  belongs_to :status
+  belongs_to :contact_method
   belongs_to :broker
   
   def self.search(search)

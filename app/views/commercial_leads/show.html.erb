@@ -46,7 +46,7 @@
           </tr>
           <tr>
             <td>Status</td>
-            <td><%= @commercial_lead.status %></td>
+            <td><% if @commercial_lead.status.present? %><%= @commercial_lead.status.name %><% end %></td>
           </tr>
           <tr>
             <td>Next Follow Up</td>

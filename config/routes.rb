@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :contact_methods
   resources :statuses
   devise_for :users
 

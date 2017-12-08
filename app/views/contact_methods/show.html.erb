@@ -1,0 +1,11 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= @contact_method.name %>
+  </p>
+
+  <%= link_to 'Edit', edit_contact_method_path(@contact_method) %> |
+  <%= link_to 'Back', contact_methods_path %>
+</div>

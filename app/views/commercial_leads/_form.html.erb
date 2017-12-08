@@ -21,7 +21,11 @@
         </div>
         <div class="field">
           <%= f.label :status %><br>
-          <%= f.text_field :status %>
+          <%= f.text_field :old_status %>
+        </div>
+        <div class="field">
+          <%= f.label :status %><br>
+          <%= f.collection_select :status_id, Status.all, :id, :name %>
         </div>
       </div>
       <div class="col-md-6">
@@ -77,6 +81,10 @@
         <div class="field">
           <%= f.label :contact_type %><br>
           <%= f.text_field :contact_type %>
+        </div>
+        <div class="field">
+          <%= f.label :contact_method %><br>
+          <%= f.collection_select :contact_method_id, ContactMethod.all, :id, :name %>
         </div>
         <div class="field">
           <%= f.label :source %><br>
