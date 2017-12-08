@@ -27,7 +27,7 @@
           <dt>Occupancy Date:</dt>
           <dd><%= @commercial_lead.occupancy_date.try(:strftime, "%m/%d/%Y") %></dd>
           <dt>Square Footage:</dt>
-          <dd><%= @commercial_lead.size %> sq ft</dd>
+          <dd><%= @commercial_lead.size_min %> - <%= @commercial_lead.size_max %> sq ft</dd>
           <dt>Max Budget:</dt>
           <dd>$<%= @commercial_lead.budget_max %></dd>
           <hr>
