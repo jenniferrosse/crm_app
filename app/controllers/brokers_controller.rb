@@ -24,6 +24,7 @@ class BrokersController < ApplicationController
   # GET /brokers/1
   # GET /brokers/1.json
   def show
+    @clients = @broker.commercial_leads.all
   end
 
   # GET /brokers/new

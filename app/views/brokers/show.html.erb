@@ -10,16 +10,27 @@
             
             <h2 class="text-left"><%= @broker.first_name %> <%= @broker.last_name %></h2>
           </p>
-        </div>
+          </div>
         <%= @broker.email %><br>
         C <%= @broker.mobile %><br>
         D <%= @broker.direct_phone %><br>
         <br>
         <h4><%= @broker.company %></h4>
-        <p><%= @broker.address %></p>
-        
+        <p><%= @broker.address %></p> 
       </div>
 
+    </div>
+
   </div>
+
+
+<div class="row">
+  <h2>Clients</h2>
+  <% if @clients.any? %>
+    <% @clients.each do |commercial_lead| %>
+      <%= link_to "#{commercial_lead.first_name} #{commercial_lead.last_name}", commercial_lead %><br>
+    <% end %> 
+  <% end %> 
+</div>
 
 </div>

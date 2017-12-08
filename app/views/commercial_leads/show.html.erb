@@ -95,7 +95,7 @@
           </tr>
           <tr>
             <td>Source:</td>
-            <td><%= @commercial_lead.source.name %></td>
+            <td><% if @commercial_lead.source.present? %><%= @commercial_lead.source.name %><% end %></td>
           </tr>
           <tr>
             <td>Properties Referenced:</td>
