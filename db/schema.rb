@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171208164241) do
+ActiveRecord::Schema.define(version: 20171208181946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20171208164241) do
     t.integer  "broker_id"
     t.integer  "status_id"
     t.integer  "contact_method_id"
+    t.integer  "size_min"
+    t.integer  "size_max"
   end
 
   add_index "commercial_leads", ["broker_id"], name: "index_commercial_leads_on_broker_id", using: :btree

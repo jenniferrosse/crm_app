@@ -14,7 +14,7 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-4">
         <div class="field">
           <%= f.label :active %><br>
           <%= f.check_box :follow_up %>
@@ -28,7 +28,7 @@
           <%= f.collection_select :status_id, Status.all, :id, :name %>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <div class="actions background-gray">
           <%= f.submit %>
         </div>
@@ -46,9 +46,24 @@
           <%= f.datetime_select :initial_response, ampm: true %>
         </div> 
       </div>
+      <div class="col-md-4">
+        <div class="field">
+          <%= f.label :contact_type %><br>
+          <%= f.text_field :contact_type %>
+        </div>
+        <div class="field">
+          <%= f.label :contact_method %><br>
+          <%= f.collection_select :contact_method_id, ContactMethod.all, :id, :name %>
+        </div>
+        <div class="field">
+          <%= f.label :source %><br>
+          <%= f.collection_select :source_id, Source.all, :id, :name %>
+        </div>
+      </div>
     </div>
     <hr>
     <div class="row">
+      <h2>Contact Info</h2>
       <div class="col-md-6">
         <div class="field">
           <%= f.label :first_name %><br>
@@ -66,8 +81,8 @@
         <%= f.collection_select :broker_id, Broker.order('first_name ASC'), :id, :broker_full_name, { prompt: 'Select a Broker' }, {:include_blank => true} %>
 
          <%= link_to "Add New Broker", new_broker_path, target: :_blank, class: "btn btn-warning" %><br><br>
-
-
+      </div>
+      <div class="col-md-6">
         <div class="field">
           <%= f.label :email %><br>
           <%= f.text_field :email %>
@@ -76,24 +91,7 @@
           <%= f.label :phone %><br>
           <%= f.text_field :phone %>
         </div>
-      </div>
-      <div class="col-md-6">
-        <div class="field">
-          <%= f.label :contact_type %><br>
-          <%= f.text_field :contact_type %>
-        </div>
-        <div class="field">
-          <%= f.label :contact_method %><br>
-          <%= f.collection_select :contact_method_id, ContactMethod.all, :id, :name %>
-        </div>
-        <div class="field">
-          <%= f.label :source %><br>
-          <%= f.collection_select :source_id, Source.all, :id, :name %>
-        </div>
-        <div class="field">
-          <%= f.label :properties_referenced %><br>
-          <%= f.text_field :properties_referenced %>
-        </div>
+        
       </div>
     </div>
     <hr>
@@ -103,44 +101,55 @@
           <%= f.label :budget_max %><br>
           <%= f.text_field :budget_max %>
         </div>
+        
+        <div class="field">
+          <%= f.label :size_min, "Size Minimum" %><br>
+          <%= f.text_field :size_min %>
+        </div>
+        <div class="field">
+          <%= f.label :size_max, "Size Maximum" %><br>
+          <%= f.text_field :size_max %>
+        </div>
+        
+        <div class="field">
+          <%= f.label :company_name %><br>
+          <%= f.text_field :company_name %>
+        </div>
+        
+        <div class="field">
+          <%= f.label :website %><br>
+          <%= f.text_field :website %>
+        </div>
+        
+      </div>
+      <div class="col-md-6">
         <div class="field">
           <%= f.label :occupancy_date %><br>
           <%= f.date_field :occupancy_date, :include_blank => true  %>
-        </div>
-        <div class="field">
-          <%= f.label :size %><br>
-          <%= f.text_field :size %>
         </div>
         <div class="field">
           <%= f.label :use %><br>
           <%= f.text_field :use %>
         </div>
         <div class="field">
-          <%= f.label :company_name %><br>
-          <%= f.text_field :company_name %>
-        </div>
-        <div class="field">
           <%= f.label :description %><br>
           <%= f.text_area :description %>
         </div>
         <div class="field">
-          <%= f.label :website %><br>
-          <%= f.text_field :website %>
+          <%= f.label :properties_referenced %><br>
+          <%= f.text_field :properties_referenced %>
         </div>
       </div>
+    </div>
+    <hr>
+    <div class="row">
+      <h2>Appointment Info </h2>
       <div class="col-md-6">
         <div class="field">
           <%= f.label :properties_suggested %><br>
           <%= f.text_area :properties_suggested %>
         </div>
-        <div class="field">
-          <%= f.label :appointment_date %><br>
-          <%= f.date_field :appointment_date, :include_blank => true %>
-        </div>
-        <div class="field">
-          <%= f.label :properties_shown %><br>
-          <%= f.text_area :properties_shown %>
-        </div>
+        
         <div class="field">
           <%= f.label :notes %><br>
           <%= f.text_area :notes %>
@@ -150,6 +159,17 @@
           <%= f.date_field :next_follow_up, :include_blank => true  %>
         </div>
       </div>
+      <div class="col-md-6">
+        <div class="field">
+          <%= f.label :appointment_date %><br>
+          <%= f.date_field :appointment_date, :include_blank => true %>
+        </div>
+        <div class="field">
+          <%= f.label :properties_shown %><br>
+          <%= f.text_area :properties_shown %>
+        </div>
+      </div>
+    </div>
     </div>
     <br>
     <div class="actions">

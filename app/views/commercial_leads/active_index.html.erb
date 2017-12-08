@@ -85,13 +85,9 @@
         <th><%= sortable "first_name", "Name" %></th>
         <th><%= sortable "broker" %></th>
         <th><%= sortable "use" %></th>
-        <th><%= sortable "occupancy_date" %></th>  
-        
-        
-        <th><%= sortable "source" %></th>
-        
-        
-        
+        <th><%= sortable "size_min", "Size" %></th>
+        <th><%= sortable "occupancy_date" %></th>    
+        <th><%= sortable "source" %></th>  
         <th><%= sortable "notes" %></th>
         <th><%= sortable "appointment_date" %></th>
         <th><%= sortable "next_follow_up", "Next Follow Up" %></th>
@@ -108,14 +104,9 @@
           <td><%= link_to "#{commercial_lead.first_name} #{commercial_lead.last_name}", commercial_lead %></td>
           <td><% if commercial_lead.broker.present? %><%= link_to "#{commercial_lead.broker.first_name} #{commercial_lead.broker.last_name}", commercial_lead.broker %><% end %></td>
           <td><%= commercial_lead.use %></td>
+          <td><%= commercial_lead.size_min %> - <%= commercial_lead.size_max %></td>
           <td><%= commercial_lead.occupancy_date.try(:strftime, "%m/%d/%Y") %></td>
-          
-          
-          
-          <td><% if commercial_lead.source.present? %><%= commercial_lead.source.name %><% end %></td>
-          
-          
-           
+          <td><% if commercial_lead.source.present? %><%= commercial_lead.source.name %><% end %></td>  
           <td>
             <% if commercial_lead.notes.length > 50 %>
               <%= truncate(commercial_lead.notes, length: 50) %>
@@ -132,7 +123,7 @@
               <td class="danger"><%= commercial_lead.next_follow_up.try(:strftime, "%m/%d/%Y") %></td>
             <% end %>
           </td>
-          
+
           <td><%= link_to 'Delete', commercial_lead, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
   </tbody>
