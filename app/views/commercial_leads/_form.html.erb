@@ -61,7 +61,7 @@
 
         <%= f.collection_select :broker_id, Broker.order('first_name ASC'), :id, :broker_full_name, { prompt: 'Select a Broker' }, {:include_blank => true} %>
 
-
+         <%= link_to "Add New Broker", new_broker_path, target: :_blank, class: "btn btn-warning" %><br><br>
 
 
         <div class="field">
