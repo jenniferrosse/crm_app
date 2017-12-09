@@ -9,7 +9,7 @@ class Broker < ActiveRecord::Base
   end
 
   def broker_full_name
-    "#{first_name}, #{last_name}"
+    "#{first_name} #{last_name}"
   end
 
 
