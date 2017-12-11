@@ -76,8 +76,12 @@
       <h2>Space Requirements</h2>
       <div class="col-md-6">
         <div class="field">
-          <%= f.label :budget_max %><br>
-          <%= f.text_field :budget_max %>
+          <%= f.label :use %><br>
+          <%= f.text_field :use %>
+        </div>
+        <div class="field">
+          <%= f.label :occupancy_date %><br>
+          <%= f.date_field :occupancy_date, :include_blank => true  %>
         </div>
         <div class="field">
           <%= f.label :size_min, "Size Minimum" %><br>
@@ -87,34 +91,27 @@
           <%= f.label :size_max, "Size Maximum" %><br>
           <%= f.text_field :size_max %>
         </div>
-        
         <div class="field">
-          <%= f.label :company_name %><br>
-          <%= f.text_field :company_name %>
-        </div>
-        
-        <div class="field">
-          <%= f.label :website %><br>
-          <%= f.text_field :website %>
-        </div>
-        
-      </div>
-      <div class="col-md-6">
-        <div class="field">
-          <%= f.label :occupancy_date %><br>
-          <%= f.date_field :occupancy_date, :include_blank => true  %>
-        </div>
-        <div class="field">
-          <%= f.label :use %><br>
-          <%= f.text_field :use %>
+          <%= f.label :budget_max %><br>
+          <%= f.text_field :budget_max %>
         </div>
         <div class="field">
           <%= f.label :description %><br>
           <%= f.text_area :description %>
         </div>
+      </div>
+      <div class="col-md-6">
         <div class="field">
           <%= f.label :properties_referenced %><br>
           <%= f.text_field :properties_referenced %>
+        </div>
+        <div class="field">
+          <%= f.label :company_name %><br>
+          <%= f.text_field :company_name %>
+        </div>
+        <div class="field">
+          <%= f.label :website %><br>
+          <%= f.text_field :website %>
         </div>
       </div>
     </div>
