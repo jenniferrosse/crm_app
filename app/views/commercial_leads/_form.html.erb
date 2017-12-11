@@ -16,26 +16,8 @@
     <div class="row">
       <div class="col-md-4">
         <div class="field">
-          <%= f.label :active %><br>
-          <%= f.check_box :follow_up %>
-        </div>
-        <div class="field">
-          <%= f.label :status %><br>
-          <%= f.text_field :old_status %>
-        </div>
-        <div class="field">
           <%= f.label :status %><br>
           <%= f.collection_select :status_id, Status.all, :id, :name %>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="actions background-gray">
-          <%= f.submit %>
-        </div>
-        <br>
-        <div class="field">
-          <%= f.label :contact_date %><br>
-          <%= f.date_select :contact_date %>
         </div>
         <div class="field">
           <%= f.label :initial_contact %><br>
@@ -48,10 +30,6 @@
       </div>
       <div class="col-md-4">
         <div class="field">
-          <%= f.label :contact_type %><br>
-          <%= f.text_field :contact_type %>
-        </div>
-        <div class="field">
           <%= f.label :contact_method %><br>
           <%= f.collection_select :contact_method_id, ContactMethod.all, :id, :name %>
         </div>
@@ -60,11 +38,16 @@
           <%= f.collection_select :source_id, Source.all, :id, :name %>
         </div>
       </div>
+      <div class="col-md-4">
+        <div class="actions">
+          <%= f.submit :Submit, class: "btn btn-default" %>
+        </div>
+      </div>
     </div>
     <hr>
     <div class="row">
       <h2>Contact Info</h2>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <div class="field">
           <%= f.label :first_name %><br>
           <%= f.text_field :first_name %>
@@ -73,16 +56,6 @@
           <%= f.label :last_name %><br>
           <%= f.text_field :last_name %>
         </div>
-         <div class="field">
-          <%= f.label :old_broker %><br>
-          <%= f.text_field :old_broker %>
-        </div>
-
-        <%= f.collection_select :broker_id, Broker.order('first_name ASC'), :id, :broker_full_name, { prompt: 'Select a Broker' }, {:include_blank => true} %>
-
-         <%= link_to "Add New Broker", new_broker_path, target: :_blank, class: "btn btn-warning" %><br><br>
-      </div>
-      <div class="col-md-6">
         <div class="field">
           <%= f.label :email %><br>
           <%= f.text_field :email %>
@@ -91,19 +64,20 @@
           <%= f.label :phone %><br>
           <%= f.text_field :phone %>
         </div>
-        
+      </div>
+      <div class="col-md-4">
+        <%= f.collection_select :broker_id, Broker.order('first_name ASC'), :id, :broker_full_name, { prompt: 'Select a Broker' }, {:include_blank => true} %>
+        <%= link_to "Add New Broker", new_broker_path, target: :_blank, class: "btn btn-primary" %><br><br>
+      
       </div>
     </div>
     <hr>
     <div class="row">
+      <h2>Space Requirements</h2>
       <div class="col-md-6">
         <div class="field">
           <%= f.label :budget_max %><br>
           <%= f.text_field :budget_max %>
-        </div>
-        <div class="field">
-          <%= f.label :size, "Size" %><br>
-          <%= f.text_field :size %>
         </div>
         <div class="field">
           <%= f.label :size_min, "Size Minimum" %><br>
@@ -175,9 +149,9 @@
     </div>
     </div>
     <br>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
+      <div class="actions">
+        <%= f.submit :Submit, class: "btn btn-default" %>
+      </div>
   <% end %>
 </div>
   

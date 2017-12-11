@@ -84,7 +84,6 @@
         <th><%= sortable "broker" %></th>
         <th><%= sortable "use" %></th>
         <th><%= sortable "size_min", "Size" %></th>
-        <th><%= sortable "size", "Size" %></th>
         <th><%= sortable "occupancy_date" %></th>    
         <th><%= sortable "source" %></th>  
         <th><%= sortable "notes" %></th>
@@ -104,7 +103,6 @@
           <td><% if commercial_lead.broker.present? %><%= link_to "#{commercial_lead.broker.first_name} #{commercial_lead.broker.last_name}", commercial_lead.broker %><% end %></td>
           <td><%= commercial_lead.use %></td>
           <td><%= commercial_lead.size_min %> - <%= commercial_lead.size_max %></td>
-          <td><%= commercial_lead.size %></td>
           <td><%= commercial_lead.occupancy_date.try(:strftime, "%m/%d/%Y") %></td>
           <td><% if commercial_lead.source.present? %><%= commercial_lead.source.name %><% end %></td>  
           <td>

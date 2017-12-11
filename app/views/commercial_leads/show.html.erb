@@ -12,6 +12,35 @@
       <div class="col-md-8 col-sm-7 col-sm-offset-1 col-xs-6 col-xs-offset-1">
         <br>
         <br>
+
+        <h2>Status & Tracking Info </h2>
+        <dl class="dl-horizontal">
+          <dt>Status:</dt>
+          <dd><% if @commercial_lead.status.present? %><%= @commercial_lead.status.name %><% end %></dd>
+          <dt>Initial Contact Date:</dt>
+          <dd><%= @commercial_lead.initial_contact.try(:strftime, "%m/%d/%Y") %></dd>
+          <dt>Response Date:</dt>
+          <dd><%= @commercial_lead.initial_response.try(:strftime, "%m/%d/%Y") %></dd>
+          <dt>Contact Method:</dt>
+          <dd><% if @commercial_lead.contact_method.present? %><%= @commercial_lead.contact_method.name %><% end %></dd>
+          <dt>Contact Source:</dt>
+          <dd><% if @commercial_lead.source.present? %><%= @commercial_lead.source.name %><% end %></dd>
+        </dl>
+
+        <h2>Contact Info </h2>
+        <dl class="dl-horizontal">
+          <dt>Primary Contact:</dt>
+          <dd><%= @commercial_lead.first_name %> <%= @commercial_lead.last_name %></dd>
+          <dt>Phone:</dt>
+          <dd><%= @commercial_lead.phone %></dd>
+          <dt>Email:</dt>
+          <dd><%= @commercial_lead.email %></dd>
+          <dt>Broker:</dt>
+          <dd><% if @commercial_lead.broker.present? %><%= link_to "#{@commercial_lead.broker.first_name} #{@commercial_lead.broker.last_name}", @commercial_lead.broker %><% end %>
+          </dd>
+        </dl>
+
+        <h2>Space Requirements</h2>
         <dl class="dl-horizontal">
           <dt>Use:</dt>
           <dd><%= @commercial_lead.use %></dd>
@@ -19,11 +48,6 @@
           <dd><%= @commercial_lead.company_name %></dd>
           <dt>Website:</dt>
           <dd><%= markdown@commercial_lead.website %></dd>
-          <dt>Primary Contact:</dt>
-          <dd><%= @commercial_lead.first_name %> <%= @commercial_lead.last_name %></dd>
-          <dt>Broker:</dt>
-          <dd><% if @commercial_lead.broker.present? %><%= @commercial_lead.broker.first_name%> <%= @commercial_lead.broker.last_name%><% end %> (<%= @commercial_lead.old_broker%>)</dd>
-          <hr>
           <dt>Occupancy Date:</dt>
           <dd><%= @commercial_lead.occupancy_date.try(:strftime, "%m/%d/%Y") %></dd>
           <dt>Square Footage:</dt>
@@ -34,76 +58,27 @@
           <dt>Description:</dt>
           <dd><%= markdown@commercial_lead.description %></dd>
           <hr>
+          <dt>Properties Referenced:</dt>
+          <dd><%= markdown@commercial_lead.properties_referenced %></dd>
+          <hr>
+          <dt>Next Follow Up:</dt>
+          <dd><%= @commercial_lead.next_follow_up.try(:strftime, "%m/%d/%Y") %></dd>
           <dt>Notes:</dt>
           <dd><%= markdown@commercial_lead.notes %></dd>
         </dl>          
+
+        <h2>Appointment Info</h2>
+        <dl class="dl-horizontal">
+          <dt>Properties suggested:</dt>
+          <dd><%= markdown@commercial_lead.properties_suggested %></dd>
+          <dt>Appointment Date:</dt>
+          <dd><%= @commercial_lead.appointment_date.try(:strftime, "%m/%d/%Y") %></dd>
+          <dt>Properties Shown:</dt>
+          <dd><%= markdown@commercial_lead.properties_shown %></dd>
+        </dl>
+
       </div>
-      <div class="col-md-3 col-s-3 col-xs-4">
-        <table class="table table-bordered">
-          <tr class="warning">
-            <td>Active?</td>
-            <td><%= human_boolean@commercial_lead.follow_up %></td>
-          </tr>
-          <tr>
-            <td>Status</td>
-            <td><% if @commercial_lead.status.present? %><%= @commercial_lead.status.name %><% end %></td>
-          </tr>
-          <tr>
-            <td>Next Follow Up</td>
-            <% if @commercial_lead.follow_up == true %>
-              <td class="danger"><%= @commercial_lead.next_follow_up.try(:strftime, "%m/%d/%Y") %></td>
-            <% else %>
-              <td><%= @commercial_lead.next_follow_up.try(:strftime, "%m/%d/%Y") %></td>
-            <% end %>
-          </tr>
-        </table>   
-        <h4>Appointment Info</h4>
-        <table class="table table-bordered">
-          <tr>
-            <td>Properties suggested:</td>
-            <td><%= markdown@commercial_lead.properties_suggested %></td>
-          </tr>
-          <tr class="warning">
-            <td>Appointment Date:</td>
-            <td><%= @commercial_lead.appointment_date.try(:strftime, "%m/%d/%Y") %></td>
-          </tr>
-          <tr>
-            <td>Properties Shown:</td>
-            <td><%= markdown@commercial_lead.properties_shown %></td>
-          </tr>
-        </table>
-        <h4>Primary Contact Info</h4>
-        <table class="table table-bordered">
-          <tr>
-            <td>Name:</td>
-            <td><%= @commercial_lead.first_name %> <%= @commercial_lead.last_name %></td>
-          </tr>
-          <tr>
-            <td>Email:</td>
-            <td><%= @commercial_lead.email %></td>
-          </tr>
-          <tr>
-            <td>Phone:</td>
-            <td><%= @commercial_lead.phone %></td>
-          </tr>
-        </table> 
-      <h4>Tracking Info</h4>
-        <table class="table table-bordered">
-          <tr>
-            <td>First Contact:</td>
-            <td><%= @commercial_lead.contact_date.try(:strftime, "%m/%d/%Y") %></td>
-          </tr>
-          <tr>
-            <td>Source:</td>
-            <td><% if @commercial_lead.source.present? %><%= @commercial_lead.source.name %><% end %></td>
-          </tr>
-          <tr>
-            <td>Properties Referenced:</td>
-            <td><%= markdown@commercial_lead.properties_referenced %>
-          </tr>
-        </table>
-      </div>
-</div>
+    </div>
    
 
 <p class="text-center hidden-print">
