@@ -36,7 +36,7 @@ class CommercialLeadsController < ApplicationController
       flash[:notice] = "There are <b>#{@commercial_leads.count}</b> in this category".html_safe
       end
     else
-      @commercial_leads = CommercialLead.order(sort_column + " " + sort_direction).order('contact_date DESC')
+      @commercial_leads = CommercialLead.order(sort_column + " " + sort_direction).order('initial_contact DESC')
           respond_to do |format|
             format.html
             format.csv { render text: @commercial_leads.to_csv }
