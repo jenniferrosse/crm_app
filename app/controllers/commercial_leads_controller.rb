@@ -14,7 +14,7 @@ class CommercialLeadsController < ApplicationController
   end
 
   def index
-    if params[:source]
+     if params[:source]
       @commercial_leads = CommercialLead.where(:source => params[:source])
       if @commercial_leads.empty?
       flash[:error] = "There are <b>#{@commercial_leads.count}</b> from this source".html_safe
