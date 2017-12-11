@@ -13,8 +13,13 @@
 
 
   <div class="container">
+    <div class="actions">
+      <%= f.submit :Submit, class: "btn btn-default" %>
+    </div>
+    <hr>
     <div class="row">
-      <div class="col-md-4">
+      <h2>Status Info</h2>
+      <div class="col-md-6">
         <div class="field">
           <%= f.label :status %><br>
           <%= f.collection_select :status_id, Status.all, :id, :name %>
@@ -28,7 +33,7 @@
           <%= f.datetime_select :initial_response, ampm: true %>
         </div> 
       </div>
-      <div class="col-md-4">
+      <div class="col-md-6">
         <div class="field">
           <%= f.label :contact_method %><br>
           <%= f.collection_select :contact_method_id, ContactMethod.all, :id, :name %>
@@ -38,16 +43,11 @@
           <%= f.collection_select :source_id, Source.all, :id, :name %>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="actions">
-          <%= f.submit :Submit, class: "btn btn-default" %>
-        </div>
-      </div>
     </div>
     <hr>
     <div class="row">
       <h2>Contact Info</h2>
-      <div class="col-md-4">
+      <div class="col-md-6">
         <div class="field">
           <%= f.label :first_name %><br>
           <%= f.text_field :first_name %>
@@ -65,7 +65,7 @@
           <%= f.text_field :phone %>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-6">
         <%= f.collection_select :broker_id, Broker.order('first_name ASC'), :id, :broker_full_name, { prompt: 'Select a Broker' }, {:include_blank => true} %>
         <%= link_to "Add New Broker", new_broker_path, target: :_blank, class: "btn btn-primary" %><br><br>
       
