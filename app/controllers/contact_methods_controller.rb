@@ -5,6 +5,11 @@ class ContactMethodsController < ApplicationController
   # GET /contact_methods.json
   def index
     @contact_methods = ContactMethod.all
+    respond_to do |format|
+      format.html
+      format.csv { render text: @contact_methods.to_csv }
+      format.xls { send_data @contact_methods.to_csv(col_sep: "\t") }
+    end
   end
 
   # GET /contact_methods/1

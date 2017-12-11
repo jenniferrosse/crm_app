@@ -25,5 +25,11 @@
 
   <br>
 
-  <%= link_to 'New Contact method', new_contact_method_path %>
+  <%= link_to 'New Contact method', new_contact_method_path %><br>
+  <br>
+  <p>
+    Download: 
+    <%= link_to "CSV", contact_methods_path(format: "csv") %> |
+    <%= link_to "Excel", contact_methods_path(format: "xls") %>
+  </p>
 </div>

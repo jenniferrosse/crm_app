@@ -7,6 +7,11 @@ class SourcesController < ApplicationController
   # GET /sources.json
   def index
     @sources = Source.all
+    respond_to do |format|
+      format.html
+      format.csv { render text: @sources.to_csv }
+      format.xls { send_data @sources.to_csv(col_sep: "\t") }
+    end
   end
 
   # GET /sources/1

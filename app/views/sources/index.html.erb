@@ -25,5 +25,12 @@
 
   <br>
 
-  <%= link_to 'New source', new_source_path %>
+  <%= link_to 'New source', new_source_path %><br>
+<br>
+  <p>
+    Download: 
+    <%= link_to "CSV", sources_path(format: "csv") %> |
+    <%= link_to "Excel", sources_path(format: "xls") %>
+  </p>
+
 </div>

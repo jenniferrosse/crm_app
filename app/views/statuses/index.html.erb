@@ -25,5 +25,11 @@
 
   <br>
 
-  <%= link_to 'New Status', new_status_path %>
+  <%= link_to 'New Status', new_status_path %><br>
+  <br>
+  <p>
+    Download: 
+    <%= link_to "CSV", statuses_path(format: "csv") %> |
+    <%= link_to "Excel", statuses_path(format: "xls") %>
+  </p>
 </div>

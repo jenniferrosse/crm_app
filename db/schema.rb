@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171208223329) do
+ActiveRecord::Schema.define(version: 20171211213412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20171208223329) do
     t.string   "phone"
     t.string   "contact_type"
     t.text     "description"
-    t.string   "old_source"
     t.date     "contact_date"
     t.string   "properties_referenced"
     t.datetime "created_at",            null: false
@@ -55,7 +54,6 @@ ActiveRecord::Schema.define(version: 20171208223329) do
     t.integer  "budget_max"
     t.date     "next_follow_up"
     t.boolean  "follow_up"
-    t.string   "old_status"
     t.integer  "source_id"
     t.datetime "initial_contact"
     t.datetime "initial_response"

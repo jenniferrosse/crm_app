@@ -5,6 +5,11 @@ class StatusesController < ApplicationController
   # GET /statuses.json
   def index
     @statuses = Status.all
+    respond_to do |format|
+      format.html
+      format.csv { render text: @statuses.to_csv }
+      format.xls { send_data @statuses.to_csv(col_sep: "\t") }
+    end
   end
 
   # GET /statuses/1
