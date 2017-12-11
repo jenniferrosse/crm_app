@@ -117,12 +117,10 @@
               </script>
             <% else %>
               <%= commercial_lead.notes %>
-              <td><% if commercial_lead.contact_method.present? %><%= commercial_lead.contact_method.name %><% end %></td>
-              <td class="info"><%= commercial_lead.appointment_date.try(:strftime, "%m/%d/%Y") %></td>
-              <td class="danger"><%= commercial_lead.next_follow_up.try(:strftime, "%m/%d/%Y") %></td>
             <% end %>
-          </td>
-
+          <td><% if commercial_lead.contact_method.present? %><%= commercial_lead.contact_method.name %><% end %></td>
+          <td class="info"><%= commercial_lead.appointment_date.try(:strftime, "%m/%d/%Y") %></td>
+          <td class="danger"><%= commercial_lead.next_follow_up.try(:strftime, "%m/%d/%Y") %></td>
           <td><%= link_to 'Edit', edit_commercial_lead_path(commercial_lead) %></td>
           <td><%= link_to 'Delete', commercial_lead, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
