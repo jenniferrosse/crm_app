@@ -99,7 +99,7 @@
     <tbody>
       <% @commercial_leads.each do |commercial_lead| %>
         <tr>
-          <td><% if commercial_lead.initial_contact.present? %><%= commercial_lead.initial_contact.try(:strftime, "%A, %d %b %Y %l:%M %p") %><% end %></td>
+          <td><% if commercial_lead.initial_contact.present? %><%= commercial_lead.initial_contact.try(:strftime, "%A, %b %d, %Y %l:%M %p") %><% end %></td>
           <td><% if commercial_lead.initial_contact.present? %><%= commercial_lead.initial_contact %><% end %></td>
           <td><% if commercial_lead.initial_contact.present? %><%= commercial_lead.initial_contact.try(:strftime, "%m/%d/%Y") %><% end %></td>
           <td><% if commercial_lead.status.present? %><%= commercial_lead.status.name %><% end %></td>
