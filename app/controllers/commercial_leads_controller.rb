@@ -9,7 +9,7 @@ class CommercialLeadsController < ApplicationController
     if params[:search].present?
         @commercial_leads = CommercialLead.search(params[:search])
     else
-        @commercial_leads = CommercialLead.all.order('contact_date DESC')
+        @commercial_leads = CommercialLead.all.order('initial_contact DESC')
     end
   end
 
@@ -23,13 +23,6 @@ class CommercialLeadsController < ApplicationController
       end
     elsif params[:status]
       @commercial_leads = CommercialLead.where(:status => params[:status])
-      if @commercial_leads.empty?
-      flash[:error] = "There are <b>#{@commercial_leads.count}</b> in this category".html_safe
-      else
-      flash[:notice] = "There are <b>#{@commercial_leads.count}</b> in this category".html_safe
-      end
-    elsif params[:follow_up]
-      @commercial_leads = CommercialLead.where(:follow_up => params[:follow_up])
       if @commercial_leads.empty?
       flash[:error] = "There are <b>#{@commercial_leads.count}</b> in this category".html_safe
       else
