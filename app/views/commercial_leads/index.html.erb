@@ -17,16 +17,16 @@
         Source <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
-        <li><%= link_to "Craigslist", commercial_leads_active_index_path(:source_id => "2") %></li>
-        <li><%= link_to "LoopNet", commercial_leads_active_index_path(:source_id => "3") %></li>
-        <li><%= link_to "CityFeet", commercial_leads_active_index_path(:source_id => "9") %></li>
-        <li><%= link_to "Referral", commercial_leads_active_index_path(:source_id => "5") %></li>
-        <li><%= link_to "Broker", commercial_leads_active_index_path(:source_id => "4") %></li>
-        <li><%= link_to "CoStar", commercial_leads_active_index_path(:source_id => "7") %></li>
-        <li><%= link_to "Current/Past Tenant", commercial_leads_active_index_path(:source_id=> "8") %></li>
-        <li><%= link_to "Unknown", commercial_leads_active_index_path(:source_id => "1") %></li>
+        <li><%= link_to "Craigslist", commercial_leads_path(:source_id => "2") %></li>
+        <li><%= link_to "LoopNet", commercial_leads_path(:source_id => "3") %></li>
+        <li><%= link_to "CityFeet", commercial_leads_path(:source_id => "9") %></li>
+        <li><%= link_to "Referral", commercial_leads_path(:source_id => "5") %></li>
+        <li><%= link_to "Broker", commercial_leads_path(:source_id => "4") %></li>
+        <li><%= link_to "CoStar", commercial_leads_path(:source_id => "7") %></li>
+        <li><%= link_to "Current/Past Tenant", commercial_leads_path(:source_id=> "8") %></li>
+        <li><%= link_to "Unknown", commercial_leads_path(:source_id => "1") %></li>
         <li role="separator" class="divider"></li>
-        <li><%= link_to "All Commercial Leads", commercial_leads_active_index_path %></li>
+        <li><%= link_to "All Commercial Leads", commercial_leads_path %></li>
       </ul>
     </div>
 
@@ -35,14 +35,14 @@
         Status <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
-        <li><%= link_to "Current", commercial_leads_active_index_path(:status => "Current") %></li>
-        <li><%= link_to "Waiting", commercial_leads_active_index_path(:status => "Waiting") %></li>
-        <li><%= link_to "Application", commercial_leads_active_index_path(:status => "Application") %></li>
-        <li><%= link_to "Signed", commercial_leads_active_index_path(:status => "Signed") %></li>
-        <li><%= link_to "Not a Good Fit", commercial_leads_active_index_path(:status => "Not a Good Fit") %></li>
-        <li><%= link_to "Rented Elsewhere", commercial_leads_active_index_path(:status => "Elsewhere") %></li>
-        <li><%= link_to "No Options", commercial_leads_active_index_path(:status => "No Options") %></li>
-        <li><%= link_to "Unknown", commercial_leads_active_index_path(:status => "") %></li>
+        <li><%= link_to "Current", commercial_leads_path(:status => "Current") %></li>
+        <li><%= link_to "Waiting", commercial_leads_path(:status => "Waiting") %></li>
+        <li><%= link_to "Application", commercial_leads_path(:status => "Application") %></li>
+        <li><%= link_to "Signed", commercial_leads_path(:status => "Signed") %></li>
+        <li><%= link_to "Not a Good Fit", commercial_leads_path(:status => "Not a Good Fit") %></li>
+        <li><%= link_to "Rented Elsewhere", commercial_leads_path(:status => "Elsewhere") %></li>
+        <li><%= link_to "No Options", commercial_leads_path(:status => "No Options") %></li>
+        <li><%= link_to "Unknown", commercial_leads_path(:status => "") %></li>
         <li role="separator" class="divider"></li>
         <li><%= link_to "All Commercial Leads", commercial_leads_path %></li>
       </ul>
@@ -79,6 +79,7 @@
     <thead>
       <tr>
         <th><%= sortable "initial_contact" %></th>
+        <th><%= sortable "initial_contact" %></th>
         <th><%= sortable "status" %></th>
         <th><%= sortable "first_name", "Name" %></th>
         <th><%= sortable "broker" %></th>
@@ -97,7 +98,8 @@
     <tbody>
       <% @commercial_leads.each do |commercial_lead| %>
         <tr>
-          <td><% if commercial_lead.source.present? %><%= commercial_lead.initial_contact.try(:strftime, "%m/%d/%Y") %><% end %></td>
+          <td><% if commercial_lead.initial_contact.present? %><%= commercial_lead.initial_contact %><% end %></td>
+          <td><% if commercial_lead.initial_contact.present? %><%= commercial_lead.initial_contact.try(:strftime, "%m/%d/%Y") %><% end %></td>
           <td><% if commercial_lead.status.present? %><%= commercial_lead.status.name %><% end %></td>
           <td><%= link_to "#{commercial_lead.first_name} #{commercial_lead.last_name}", commercial_lead %></td>
           <td><% if commercial_lead.broker.present? %><%= link_to "#{commercial_lead.broker.first_name} #{commercial_lead.broker.last_name}", commercial_lead.broker %><% end %></td>

@@ -1,7 +1,7 @@
 <div class="container">
    
    <p class="text-center hidden-print" >
-     <%= link_to 'Back', commercial_leads_active_index_path %> |
+     <%= link_to 'Back', commercial_leads_path %> |
      <%= link_to 'Edit', edit_commercial_lead_path(@commercial_lead) %> |
      <%= link_to 'Print', commercial_leads_path, :onclick => 'window.print();return false;' %>
    </p>
@@ -18,9 +18,9 @@
           <dt>Status:</dt>
           <dd><% if @commercial_lead.status.present? %><%= @commercial_lead.status.name %><% end %></dd>
           <dt>Initial Contact Date:</dt>
-          <dd><%= @commercial_lead.initial_contact.try(:strftime, "%m/%d/%Y") %></dd>
+          <dd><%= @commercial_lead.initial_contact.try(:strftime, "%B %e, %Y %l:%M %p") %></dd>
           <dt>Response Date:</dt>
-          <dd><%= @commercial_lead.initial_response.try(:strftime, "%m/%d/%Y") %></dd>
+          <dd><%= @commercial_lead.initial_response.try(:strftime, "%B %e, %Y %l:%M %p") %></dd>
           <dt>Contact Method:</dt>
           <dd><% if @commercial_lead.contact_method.present? %><%= @commercial_lead.contact_method.name %><% end %></dd>
           <dt>Contact Source:</dt>
@@ -82,7 +82,7 @@
    
 
 <p class="text-center hidden-print">
-  <%= link_to 'Back', commercial_leads_active_index_path %> |
+  <%= link_to 'Back', commercial_leads_path %> |
   <%= link_to 'Edit', edit_commercial_lead_path(@commercial_lead) %>
   
 </p>
