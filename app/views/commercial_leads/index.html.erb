@@ -79,7 +79,6 @@
     <thead>
       <tr>
         <th><%= sortable "initial_contact" %></th>
-        <th><%= sortable "initial_contact" %></th>
         <th><%= sortable "status" %></th>
         <th><%= sortable "first_name", "Name" %></th>
         <th><%= sortable "broker" %></th>
@@ -99,7 +98,6 @@
       <% @commercial_leads.each do |commercial_lead| %>
         <tr>
           <td><% if commercial_lead.initial_contact.present? %><%= commercial_lead.initial_contact.try(:strftime, "%A, %b %d, %Y") %><% end %></td>
-          <td><% if commercial_lead.initial_contact.present? %><%= commercial_lead.initial_contact.try(:strftime, "%m/%d/%Y") %><% end %></td>
           <td><% if commercial_lead.status.present? %><%= commercial_lead.status.name %><% end %></td>
           <td><%= link_to "#{commercial_lead.first_name} #{commercial_lead.last_name}", commercial_lead %></td>
           <td><% if commercial_lead.broker.present? %><%= link_to "#{commercial_lead.broker.first_name} #{commercial_lead.broker.last_name}", commercial_lead.broker %><% end %></td>
