@@ -82,7 +82,6 @@
         <th><%= sortable "status" %></th>
         <th><%= sortable "first_name", "Name" %></th>
         <th><%= sortable "broker" %></th>
-        <th><%= sortable "old_broker" %></th>
         <th><%= sortable "use" %></th>
         <th><%= sortable "size_min", "Size" %></th>
         <th><%= sortable "size", "Size" %></th>
@@ -103,7 +102,6 @@
           <td><% if commercial_lead.status.present? %><%= commercial_lead.status.name %><% end %></td>
           <td><%= link_to "#{commercial_lead.first_name} #{commercial_lead.last_name}", commercial_lead %></td>
           <td><% if commercial_lead.broker.present? %><%= link_to "#{commercial_lead.broker.first_name} #{commercial_lead.broker.last_name}", commercial_lead.broker %><% end %></td>
-          <td><%= commercial_lead.old_broker %></td>
           <td><%= commercial_lead.use %></td>
           <td><%= commercial_lead.size_min %> - <%= commercial_lead.size_max %></td>
           <td><%= commercial_lead.size %></td>
