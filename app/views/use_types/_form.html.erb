@@ -1,0 +1,21 @@
+<%= form_for(@use_type) do |f| %>
+  <% if @use_type.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@use_type.errors.count, "error") %> prohibited this use_type from being saved:</h2>
+
+      <ul>
+      <% @use_type.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

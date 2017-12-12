@@ -42,6 +42,8 @@
 
         <h2>Space Requirements</h2>
         <dl class="dl-horizontal">
+          <dt>Use Type:</dt>
+          <dd><% if @commercial_lead.use_type.present? %><%= @commercial_lead.use_type.name %><% end %></dd>
           <dt>Use:</dt>
           <dd><%= @commercial_lead.use %></dd>
           <dt>Company:</dt>

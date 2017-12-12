@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171211214723) do
+ActiveRecord::Schema.define(version: 20171212154637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,12 +59,14 @@ ActiveRecord::Schema.define(version: 20171211214723) do
     t.integer  "contact_method_id"
     t.integer  "size_min"
     t.integer  "size_max"
+    t.integer  "use_type_id"
   end
 
   add_index "commercial_leads", ["broker_id"], name: "index_commercial_leads_on_broker_id", using: :btree
   add_index "commercial_leads", ["contact_method_id"], name: "index_commercial_leads_on_contact_method_id", using: :btree
   add_index "commercial_leads", ["source_id"], name: "index_commercial_leads_on_source_id", using: :btree
   add_index "commercial_leads", ["status_id"], name: "index_commercial_leads_on_status_id", using: :btree
+  add_index "commercial_leads", ["use_type_id"], name: "index_commercial_leads_on_use_type_id", using: :btree
 
   create_table "contact_methods", force: :cascade do |t|
     t.string   "name"
@@ -198,6 +200,12 @@ ActiveRecord::Schema.define(version: 20171211214723) do
 
   add_index "units", ["property_id"], name: "index_units_on_property_id", using: :btree
 
+  create_table "use_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -220,6 +228,7 @@ ActiveRecord::Schema.define(version: 20171211214723) do
   add_foreign_key "commercial_leads", "contact_methods"
   add_foreign_key "commercial_leads", "sources"
   add_foreign_key "commercial_leads", "statuses"
+  add_foreign_key "commercial_leads", "use_types"
   add_foreign_key "prequalifications", "residential_leads"
   add_foreign_key "residential_applications", "residential_leads"
   add_foreign_key "units", "properties"
