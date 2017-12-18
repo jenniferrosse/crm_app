@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
   
   <%= link_to 'New Residential lead', new_residential_lead_path %>
 
@@ -17,8 +17,10 @@
         <th><%= sortable "contact_date" %></th>
         <th><%= sortable "first_name", "Name" %></th>
         <th><%= sortable "properties_referenced" %></th>
-        <th><%= sortable "price_max" %></th>
-        <th><%= sortable "latest_move_in" %></th>
+        <th><%= sortable "price_max", "Price Range" %></th>
+        <th><%= sortable "latest_move_in", "Move In Range" %></th>
+        <th><%= sortable "pets" %></th>
+        <th><%= sortable "notes" %></th>
         <th><%= sortable "appointment_date" %></th>
       </tr>
     </thead>
@@ -29,10 +31,25 @@
           <td><%= residential_lead.contact_date.strftime("%m/%d/%Y") %></td>
           <td><%= link_to "#{residential_lead.first_name} #{residential_lead.last_name}", residential_lead %></td>
           <td><%= residential_lead.properties_referenced %></td>
-          <td>$<%= residential_lead.price_max %></td>
-          <td><%= residential_lead.latest_move_in.try(:strftime, "%m/%d/%Y") %></td>
+          <td>$<%= residential_lead.price_min %> - $<%= residential_lead.price_max %></td>
+          <td><%= residential_lead.earliest_move_in.try(:strftime, "%m/%d/%Y") %> - <%= residential_lead.latest_move_in.try(:strftime, "%m/%d/%Y") %></td>
+          <td><%= residential_lead.pets %></td>
+          <td>
+            <% if residential_lead.notes.length > 50 %>
+              <%= truncate(residential_lead.notes, length: 50) %>
+              <%= link_to '...read more', '', class: "read-more-#{residential_lead.id}" %>
+              <script>
+                $('.read-more-<%= residential_lead.id %>').on('click', function(e) {
+                  e.preventDefault()
+                  $(this).parent().html('<%= escape_javascript residential_lead.notes %>')
+                })
+              </script>
+            <% else %>
+              <%= residential_lead.notes %>
+            <% end %>
           <td class="info"><%= residential_lead.appointment_date.try(:strftime, "%m/%d/%Y") %></td>
           
+          <td><%= link_to 'Edit', edit_residential_lead_path(residential_lead)  %></td>
           <td><%= link_to 'Destroy', residential_lead, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     
         <tr>
