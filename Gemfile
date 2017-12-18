@@ -27,6 +27,7 @@ gem 'redcarpet', '~> 3.3', '>= 3.3.4'
 gem 'geocoder', '~> 1.3', '>= 1.3.4'
 gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
 
 
 # Use ActiveModel has_secure_password
