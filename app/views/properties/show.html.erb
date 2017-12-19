@@ -3,8 +3,22 @@
     <%= @property.name %>
   </h2>
   <p>
+    <strong>Property Code:</strong>
+    <%= @property.property_code %>
+  </p>
+
+  <p>
     <strong>Address:</strong>
     <%= @property.address %>
+  </p>
+
+  <p>
+    <strong>Short Description:</strong>
+    <%= markdown@property.short_description %>
+  </p>
+   <p>
+    <strong>Medium Description:</strong>
+    <%= markdown@property.medium_description %>
   </p>
 
   <p>

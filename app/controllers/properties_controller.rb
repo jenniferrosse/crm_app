@@ -4,7 +4,7 @@ class PropertiesController < ApplicationController
   # GET /properties
   # GET /properties.json
   def index
-    @properties = Property.all.order('name DESC')
+    @properties = Property.all.order('name ASC')
   end
 
   # GET /properties/1
@@ -71,6 +71,6 @@ class PropertiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def property_params
-      params.require(:property).permit(:name, :address, :description)
+      params.require(:property).permit(:name, :address, :description, :short_description, :medium_description, :property_code)
     end
 end

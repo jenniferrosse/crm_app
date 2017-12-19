@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :property_code %><br>
+    <%= f.text_field :property_code %>
+  </div>
+  <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
@@ -20,6 +24,14 @@
     <%= f.text_field :address %>
   </div>
   <div class="field">
+    <%= f.label :short_description %><br>
+    <%= f.text_area :short_description %>
+  </div>
+  <div class="field">
+    <%= f.label :medium_description %><br>
+    <%= f.text_area :medium_description %>
+  </div>
+    <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
