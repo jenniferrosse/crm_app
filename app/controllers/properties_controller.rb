@@ -4,7 +4,7 @@ class PropertiesController < ApplicationController
   # GET /properties
   # GET /properties.json
   def index
-    @properties = Property.all.order('name ASC')
+    @properties = Property.all.order('property_code DESC')
   end
 
   # GET /properties/1
