@@ -48,6 +48,7 @@
         <td><%= link_to unit.unit_number, unit %></td>
         <td><%= unit.sq_ft %></td>
         <td>$<%= unit.market_rent %></td>
+        <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
       </tr>
     <% end %>
    </tbody>
