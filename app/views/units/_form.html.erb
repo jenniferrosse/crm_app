@@ -26,7 +26,7 @@
   </div>
   <div class="field">
     <%= f.label :lease_type %><br>
-    <%= select_tag :lease_type, options_for_select([ "Gross", "NNN" ], "Gross") %>
+    <%= f.select :lease_type, options_for_select([ "Gross", "NNN" ], "Gross") %>
   </div>
   <div class="field">
     <%= f.label :market_rent, "Monthly rent" %><br>
