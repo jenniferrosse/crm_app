@@ -1,3 +1,3 @@
 class Property < ActiveRecord::Base
-  has_many :units, -> { order 'market_rent DESC' }
+  has_many :units
 end

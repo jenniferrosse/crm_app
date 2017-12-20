@@ -11,7 +11,7 @@ class PropertiesController < ApplicationController
   # GET /properties/1.json
   def show
     @property = Property.find(params[:id])
-    @units = @property.units(:available => true).order('unit_number DESC')
+    @property_units = @property.units.order('unit_number ASC')
   end
 
   # GET /properties/new
