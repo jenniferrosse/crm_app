@@ -5,13 +5,26 @@
   </p>
 
   <p>
-  <strong>Available?</strong>
+  <strong>Available:</strong>
   <%= human_boolean@unit.available %>
   </p>
   
-  <p><strong>$<%= @unit.market_rent %> | 
-    <%= @unit.sq_ft %> sq ft</strong>
+  <p><strong>Square Footage:</strong>
+    <%= @unit.sq_ft %>
   </p>
+
+  <p><strong>Lease Type:</strong> 
+    <%= @unit.lease_type %>
+  </p>
+
+  <p><strong>Monthly Rent:</strong> 
+    $<%= @unit.market_rent %>
+  </p>
+
+  <p><strong>Rent per SF:</strong> 
+    $<%= @unit.net_rent_min %> - $<%= @unit.net_rent_max %>
+  </p>
+
   <p><strong><%= @unit.bedroom %> bedroom | 
     <%= @unit.bathroom %> bath</strong>
   </p>

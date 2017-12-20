@@ -25,8 +25,20 @@
     <%= f.text_field :sq_ft %>
   </div>
   <div class="field">
-    <%= f.label :market_rent %><br>
+    <%= f.label :lease_type %><br>
+    <%= select_tag :lease_type, options_for_select([ "Gross", "NNN" ], "Gross") %>
+  </div>
+  <div class="field">
+    <%= f.label :market_rent, "Monthly rent" %><br>
     <%= f.text_field :market_rent %>
+  </div>
+  <div class="field">
+    <%= f.label :net_rent_min, "Rent per SF min" %><br>
+    <%= f.text_field :net_rent_min %>
+  </div>
+  <div class="field">
+    <%= f.label :net_rent_max, "Rent per SF max" %><br>
+    <%= f.text_field :net_rent_max %>
   </div>
   <div class="field">
     <%= f.label :laundry %><br>

@@ -37,7 +37,8 @@
     <tr>
       <th>Unit Number</th>
       <th>Square Footage</th>
-      <th>Rent</th>
+      <th>Monthly Rent</th>
+      <th>Per SF Rent</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -47,7 +48,8 @@
       <tr>
         <td><%= link_to unit.unit_number, unit %></td>
         <td><%= unit.sq_ft %></td>
-        <td>$<%= unit.market_rent %></td>
+        <td><% if unit.market_rent.present? %>$<%= unit.market_rent %><% end %></td>
+        <td><% if unit.net_rent_min.present? %>$<%= unit.net_rent_min %> - $<%= unit.net_rent_max %><% end %></td>
         <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
       </tr>
     <% end %>
