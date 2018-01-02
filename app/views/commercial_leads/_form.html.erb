@@ -76,6 +76,10 @@
       <h2>Space Requirements</h2>
       <div class="col-md-6">
         <div class="field">
+          <%= f.label :use_type %><br>
+          <%= f.collection_select :use_type_id, UseType.all, :id, :name %>
+        </div>
+        <div class="field">
           <%= f.label :use %><br>
           <%= f.text_field :use %>
         </div>
