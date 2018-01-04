@@ -1,19 +1,46 @@
-<script type='text/javascript' charset='utf-8'>
-  document.write(unescape("%3Cscript src='" + (('https:' == document.location.protocol) ? 'https:' : 'http:') + "//podmajersky.appfolio.com/javascripts/listing.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-
 <div class="container">
 
- 
-<script type='text/javascript' charset='utf-8'>
+<%= link_to 'New Unit', new_unit_path %>
 
-  Appfolio.Listing({
-    hostUrl: 'podmajersky.appfolio.com',
-    //propertyGroup: 'My Group Name',
-    themeColor: '#676767',
-   height: '500px',
-    width: '100%'
-  });
-</script>
-    
+<%= form_tag search_units_path, method: :get, role: "search" do %>
+        <p>
+          <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+          <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+        </p>
+      <% end %>
+
+<h1>Units</h1>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Unit</th>
+        <th>Property</th>
+        <th>SQ FT</th>
+        <th>Market Rent</th>
+        <th>Availability</th>
+
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @available_units.each do |unit| %>
+        <tr>
+          <td><%= link_to unit.unit_number, unit %></td>
+          <td><%=link_to unit.property.try(:name), unit.property %></td>
+          <td><%= number_with_delimiter(unit.sq_ft) %></td>
+          <td>$<%= unit.market_rent %></td>
+          <td><%= human_boolean(unit.available) %></td>
+          
+          <td><%= link_to 'Delete', unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+  </tbody>
+</table>
+
+
+<br>
+
+<%= link_to 'New Unit', new_unit_path %>
+
 </div>
