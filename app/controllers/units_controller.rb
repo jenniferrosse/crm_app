@@ -1,8 +1,6 @@
 class UnitsController < ApplicationController
   before_action :set_unit, only: [:show, :edit, :update, :destroy]
-
   before_action :authenticate_user!
-  helper_method :sort_column, :sort_direction
 
   # GET /available_units
   # GET /available_units.json
@@ -15,11 +13,11 @@ class UnitsController < ApplicationController
   end
 
   def index
-    @units = Unit.order(sort_column + " " + sort_direction).order('market_rent DESC')
+    @units = Unit.includes(:property).order('properties.name DESC, unit_number ASC')
   end
 
-  # GET /available_units/1
   # GET /available_units/1.json
+  # GET /available_units/1
   def show
   end
 
@@ -35,7 +33,7 @@ class UnitsController < ApplicationController
   # POST /available_units
   # POST /available_units.json
   def create
-    @unit = Unit.new(unit_params, params[:gallery_id])
+    @unit = Unit.new(unit_params, params[:property_id])
 
     respond_to do |format|
       if @unit.save
@@ -74,13 +72,6 @@ class UnitsController < ApplicationController
 
   private
 
-    def sort_column
-      Unit.column_names.include?(params[:sort]) ? params[:sort] : "available"
-    end
-
-    def sort_direction
-      %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
-    end
     # Use callbacks to share common setup or constraints between actions.
     def set_unit
       @unit = Unit.find(params[:id])
