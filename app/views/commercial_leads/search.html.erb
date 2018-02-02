@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
     <h1>Commercial Leads</h1>
 
 <div class="row">
@@ -7,35 +7,24 @@
           <%= text_field_tag :search, params[:search], placeholder: "Search" %>
           <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
   <% end %>
-  <%= link_to "Show All", commercial_leads_path, class: "btn btn-default" %><br><br>
   </div>
-
-<div class="col-md-5">
-  <div class="btn-group">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Active Leads <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><%= link_to "Active", commercial_leads_path(:follow_up => "true") %></li>
-        <li><%= link_to "Inactive", commercial_leads_path(:follow_up => "false") %></li>
-        <li role="separator" class="divider"></li>
-        <li><%= link_to "All Commercial Leads", commercial_leads_path %></li>
-      </ul>
-    </div>
+  
+  <div class="col-md-5">
+    
   <!-- Single button -->
     <div class="btn-group">
       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Source <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
-        <li><%= link_to "Craigslist", commercial_leads_path(:source => "Craigslist") %></li>
-        <li><%= link_to "LoopNet", commercial_leads_path(:source => "LoopNet") %></li>
-        <li><%= link_to "CityFeet", commercial_leads_path(:source => "CityFeet") %></li>
-        <li><%= link_to "Referral", commercial_leads_path(:source => "Referral") %></li>
-        <li><%= link_to "Broker", commercial_leads_path(:source => "Broker") %></li>
-        <li><%= link_to "CoStar", commercial_leads_path(:source => "CoStar") %></li>
-        <li><%= link_to "Current/Past Tenant", commercial_leads_path(:source => "Current/Past Tenant") %></li>
-        <li><%= link_to "Unknown", commercial_leads_path(:source => "") %></li>
+        <li><%= link_to "Craigslist", commercial_leads_path(:source_id => "2") %></li>
+        <li><%= link_to "LoopNet", commercial_leads_path(:source_id => "3") %></li>
+        <li><%= link_to "CityFeet", commercial_leads_path(:source_id => "9") %></li>
+        <li><%= link_to "Referral", commercial_leads_path(:source_id => "5") %></li>
+        <li><%= link_to "Broker", commercial_leads_path(:source_id => "4") %></li>
+        <li><%= link_to "CoStar", commercial_leads_path(:source_id => "7") %></li>
+        <li><%= link_to "Current/Past Tenant", commercial_leads_path(:source_id=> "8") %></li>
+        <li><%= link_to "Unknown", commercial_leads_path(:source_id => "1") %></li>
         <li role="separator" class="divider"></li>
         <li><%= link_to "All Commercial Leads", commercial_leads_path %></li>
       </ul>
@@ -58,6 +47,7 @@
         <li><%= link_to "All Commercial Leads", commercial_leads_path %></li>
       </ul>
     </div>
+    
   </div>
   <div class="col-md-3">
     <p>
@@ -67,26 +57,40 @@
   </p>
   </div>  
 </div>
- <br>
+  <br>
+
   <%= link_to new_commercial_lead_path, class: "btn btn-success" do %>
     <span class="glyphicon glyphicon-plus"></span> New Commercial Lead
   <% end %>
 
   <br>
   <br>
+  
+
+<!--    <h1>Commercial Leads</h1>
+
+    <%= content_tag :div, "", id: "commercial_leads_chart", data: {commercial_leads: @commercial_leads} %>
+    <br>
+    <br>
+    <br>
+    <hr> -->
 
   <table class="table table-hover">
     <thead>
       <tr>
-        <th><%= sortable "contact_date" %></th>
-        <th><%= sortable "follow_up", "Active?" %></th>
-        <th><%= sortable "next_follow_up", "Next Follow Up" %></th>
+        <th><%= sortable "initial_contact" %></th>
         <th><%= sortable "status" %></th>
         <th><%= sortable "first_name", "Name" %></th>
         <th><%= sortable "broker" %></th>
+        <th><%= sortable "use_type" %></th>
         <th><%= sortable "use" %></th>
-        <th><%= sortable "appointment_date" %></th>
+        <th><%= sortable "size_min", "Size" %></th>
+        <th><%= sortable "occupancy_date" %></th>    
+        <th><%= sortable "source" %></th>  
         <th><%= sortable "notes" %></th>
+        <th><%= sortable "notes", "Contact Method" %></th>
+        <th><%= sortable "appointment_date" %></th>
+        <th><%= sortable "next_follow_up", "Next Follow Up" %></th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -94,18 +98,32 @@
     <tbody>
       <% @commercial_leads.each do |commercial_lead| %>
         <tr>
-          <td><%= commercial_lead.contact_date.strftime("%m/%d/%Y") %></td>
-          <td><%= human_boolean(commercial_lead.follow_up) %></td>
-          <% if commercial_lead.follow_up == true %>
-            <td class="danger"><%= commercial_lead.next_follow_up.try(:strftime, "%m/%d/%Y") %></td>
-          <% else %>
-            <td><%= commercial_lead.next_follow_up.try(:strftime, "%m/%d/%Y") %></td>
-          <% end %>
-          <td><%= commercial_lead.status %></td>
+          <td><% if commercial_lead.initial_contact.present? %><%= commercial_lead.initial_contact.try(:strftime, "%A, %b %d, %Y") %><% end %></td>
+          <td><% if commercial_lead.status.present? %><%= commercial_lead.status.name %><% end %></td>
           <td><%= link_to "#{commercial_lead.first_name} #{commercial_lead.last_name}", commercial_lead %></td>
-          <td><%= commercial_lead.broker %></td>
+          <td><% if commercial_lead.broker.present? %><%= link_to "#{commercial_lead.broker.first_name} #{commercial_lead.broker.last_name}", commercial_lead.broker %><% end %></td>
+          <td><% if commercial_lead.use_type.present? %><%= commercial_lead.use_type.name %><% end %></td>
           <td><%= commercial_lead.use %></td>
-          <td class="info"><%= commercial_lead.appointment_date.try(:strftime, "%m/%d/%Y") %></td>          
+          <td><%= commercial_lead.size_min %> - <%= commercial_lead.size_max %></td>
+          <td><%= commercial_lead.occupancy_date.try(:strftime, "%m/%d/%Y") %></td>
+          <td><% if commercial_lead.source.present? %><%= commercial_lead.source.name %><% end %></td>  
+          <td>
+            <% if commercial_lead.notes.length > 50 %>
+              <%= truncate(commercial_lead.notes, length: 50) %>
+              <%= link_to '...read more', '', class: "read-more-#{commercial_lead.id}" %>
+              <script>
+                $('.read-more-<%= commercial_lead.id %>').on('click', function(e) {
+                  e.preventDefault()
+                  $(this).parent().html('<%= escape_javascript commercial_lead.notes %>')
+                })
+              </script>
+            <% else %>
+              <%= commercial_lead.notes %>
+            <% end %>
+          <td><% if commercial_lead.contact_method.present? %><%= commercial_lead.contact_method.name %><% end %></td>
+          <td class="info"><%= commercial_lead.appointment_date.try(:strftime, "%m/%d/%Y") %></td>
+          <td class="danger"><%= commercial_lead.next_follow_up.try(:strftime, "%m/%d/%Y") %></td>
+          <td><%= link_to 'Edit', edit_commercial_lead_path(commercial_lead) %></td>
           <td><%= link_to 'Delete', commercial_lead, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
   </tbody>
@@ -113,6 +131,5 @@
 
   <br>
 
- 
   
 </div>
