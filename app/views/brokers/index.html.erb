@@ -36,6 +36,7 @@
         <th>Mobile</th>
         <th>Direct Phone</th>
         <th>Company</th>
+        <th>Leads Count</th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -48,6 +49,7 @@
         <td><%= broker.mobile %></td>
         <td><%= broker.direct_phone %></td>
         <td><%= broker.company %></td>
+        <td><%= broker.commercial_leads.count %></td>
   
         <td><%= link_to 'Delete', broker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
