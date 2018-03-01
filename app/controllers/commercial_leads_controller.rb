@@ -14,28 +14,12 @@ class CommercialLeadsController < ApplicationController
   end
 
   def index
-     if params[:source]
-      @commercial_leads = CommercialLead.where(:source => params[:source])
-      if @commercial_leads.empty?
-      flash[:error] = "There are <b>#{@commercial_leads.count}</b> from this source".html_safe
-      else
-      flash[:notice] = "There are <b>#{@commercial_leads.count}</b> from this source".html_safe
+    @commercial_leads = CommercialLead.joins(:status).where(statuses: { name: "Active" })
+      respond_to do |format|
+        format.html
+        format.csv { render text: @commercial_leads.to_csv }
+        format.xls { send_data @commercial_leads.to_csv(col_sep: "\t") }
       end
-    elsif params[:status]
-      @commercial_leads = CommercialLead.where(:status => params[:status])
-      if @commercial_leads.empty?
-      flash[:error] = "There are <b>#{@commercial_leads.count}</b> in this category".html_safe
-      else
-      flash[:notice] = "There are <b>#{@commercial_leads.count}</b> in this category".html_safe
-      end
-    else
-      @commercial_leads = CommercialLead.order(sort_column + " " + sort_direction).order('initial_contact DESC')
-          respond_to do |format|
-            format.html
-            format.csv { render text: @commercial_leads.to_csv }
-            format.xls { send_data @commercial_leads.to_csv(col_sep: "\t") }
-          end
-    end
   end
 
   def send_email
