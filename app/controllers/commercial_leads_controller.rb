@@ -14,7 +14,7 @@ class CommercialLeadsController < ApplicationController
   end
 
   def index
-    @commercial_leads = CommercialLead.joins(:status).where(statuses: { name: "Active" })
+    @commercial_leads = CommercialLead.joins(:status).where(statuses: { name: "Active" }).order('initial_contact DESC')
       respond_to do |format|
         format.html
         format.csv { render text: @commercial_leads.to_csv }
