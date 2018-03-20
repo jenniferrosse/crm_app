@@ -12,6 +12,21 @@
   <div class="col-md-5">
     
   <!-- Single button -->
+
+    <div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Status <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><%= link_to "Active", active_commercial_leads_path %></li>
+        <li><%= link_to "Application", application_commercial_leads_path %></li>
+        <li><%= link_to "Signed", signed_commercial_leads_path %></li>
+        <li><%= link_to "Rented Elsewhere", rented_elsewhere_commercial_leads_path %></li>
+        <li><%= link_to "Not a Good Fit", not_a_good_fit_commercial_leads_path %></li>
+        <li role="separator" class="divider"></li>
+        <li><%= link_to "All Commercial Leads", commercial_leads_path %></li>
+      </ul>
+    </div>
     <div class="btn-group">
       <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Source <span class="caret"></span>
@@ -30,23 +45,7 @@
       </ul>
     </div>
 
-    <div class="btn-group">
-      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Status <span class="caret"></span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><%= link_to "Current", commercial_leads_path(:status => "Current") %></li>
-        <li><%= link_to "Waiting", commercial_leads_path(:status => "Waiting") %></li>
-        <li><%= link_to "Application", commercial_leads_path(:status => "Application") %></li>
-        <li><%= link_to "Signed", commercial_leads_path(:status => "Signed") %></li>
-        <li><%= link_to "Not a Good Fit", commercial_leads_path(:status => "Not a Good Fit") %></li>
-        <li><%= link_to "Rented Elsewhere", commercial_leads_path(:status => "Elsewhere") %></li>
-        <li><%= link_to "No Options", commercial_leads_path(:status => "No Options") %></li>
-        <li><%= link_to "Unknown", commercial_leads_path(:status => "") %></li>
-        <li role="separator" class="divider"></li>
-        <li><%= link_to "All Commercial Leads", commercial_leads_path %></li>
-      </ul>
-    </div>
+    
     
   </div>
   <div class="col-md-3">
@@ -75,7 +74,7 @@
     <br>
     <hr> -->
 
-  <table class="table table-hover">
+<table class="table table-hover">
     <thead>
       <tr>
         <th><%= sortable "initial_contact" %></th>
@@ -129,7 +128,7 @@
   </tbody>
 </table>
 
-  <br>
+    
 
   
 </div>

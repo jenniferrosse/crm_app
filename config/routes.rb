@@ -37,6 +37,11 @@ Rails.application.routes.draw do
   resources :commercial_leads do
     collection do
       get 'search'
+      get :active
+      get :application
+      get :signed
+      get :rented_elsewhere
+      get :not_a_good_fit
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
