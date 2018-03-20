@@ -52,6 +52,12 @@ class CommercialLeadsController < ApplicationController
     render action: :index
   end
 
+  def proposal
+    @commercial_leads = CommercialLead.joins(:status).where(statuses: { 
+      name: "Proposal" }).order('initial_contact DESC')
+    render action: :index
+  end
+
   def send_email
   end
   # GET /commercial_leads/1
