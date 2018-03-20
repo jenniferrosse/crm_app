@@ -15,7 +15,19 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Commercial Leads", commercial_leads_path %></li>
+        <<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Commercial Leads<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Active", active_commercial_leads_path %></li>
+            <li><%= link_to "Application", application_commercial_leads_path %></li>
+            <li><%= link_to "Signed", signed_commercial_leads_path %></li>
+            <li><%= link_to "Rented Elsewhere", rented_elsewhere_commercial_leads_path %></li>
+            <li><%= link_to "Not a Good Fit", not_a_good_fit_commercial_leads_path %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "All", commercial_leads_path %></li>
+          </ul>
+        </li>
+        <li><%= link_to "Commercial Leads", active_commercial_leads_path %></li>
         <li><%= link_to "Brokers", brokers_path %></li>
         <li><%= link_to "Properties", properties_path %></li>
         <li><%= link_to "Available Units", pages_available_units_path %></li>
