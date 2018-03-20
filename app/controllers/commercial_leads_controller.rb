@@ -52,9 +52,9 @@ class CommercialLeadsController < ApplicationController
     render action: :index
   end
 
-  def proposal
+  def denied
     @commercial_leads = CommercialLead.joins(:status).where(statuses: { 
-      name: "Proposal" }).order('initial_contact DESC')
+      name: "Denied" }).order('initial_contact DESC')
     render action: :index
   end
 
