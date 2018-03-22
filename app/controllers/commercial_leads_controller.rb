@@ -30,7 +30,7 @@ class CommercialLeadsController < ApplicationController
 
   def application
     @commercial_leads = CommercialLead.joins(:status).where(statuses: { 
-      name: "Application" }).order('initial_contact DESC')
+      name: "Application/Proposal" }).order('initial_contact DESC')
     render action: :index
   end
 
