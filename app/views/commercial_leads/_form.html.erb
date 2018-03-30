@@ -112,7 +112,7 @@
 
         <div class="field">
           <%= f.label :unit, "Unit Referenced" %><br>
-          <%= f.collection_check_boxes(:unit_ids, Unit.where(available: "true"), :id, :unit_number) do |unit| %>
+          <%= f.collection_check_boxes(:unit_ids, Unit.where(available: "true").order(unit_number: "ASC") , :id, :unit_number) do |unit| %>
             <%= unit.label { unit.check_box + unit.text } %>
           <% end %>
         </div>
