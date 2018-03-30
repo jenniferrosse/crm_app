@@ -32,7 +32,7 @@
           <td><%= number_with_delimiter(unit.sq_ft) %></td>
           <td>$<%= unit.market_rent %></td>
           <td><%= human_boolean(unit.available) %></td>
-          
+          <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
           <td><%= link_to 'Delete', unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
   </tbody>
