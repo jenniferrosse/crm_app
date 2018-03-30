@@ -60,8 +60,15 @@
           <dt>Description:</dt>
           <dd><%= markdown@commercial_lead.description %></dd>
           <hr>
-          <dt>Properties Referenced:</dt>
-          <dd><%= markdown@commercial_lead.properties_referenced %></dd>
+          <dt>Units Referenced:</dt>
+          <% if @commercial_lead.units.any? %>
+          <dd>
+            <% @units.each_with_index do |unit, index| %>
+              <%= unit.unit_number %>
+              <%= "," unless@units.size==index+1 %>
+            <% end %>
+          </dd>
+          <% end %>
           <hr>
           <dt>Next Follow Up:</dt>
           <dd><%= @commercial_lead.next_follow_up.try(:strftime, "%m/%d/%Y") %></dd>

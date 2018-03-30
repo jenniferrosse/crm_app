@@ -109,6 +109,16 @@
           <%= f.label :properties_referenced %><br>
           <%= f.text_field :properties_referenced %>
         </div>
+
+        <div class="field">
+          <%= f.label :unit, "Unit Referenced" %><br>
+          <%= f.collection_check_boxes(:unit_ids, Unit.where(available: "true"), :id, :unit_number) do |unit| %>
+            <%= unit.label { unit.check_box + unit.text } %>
+          <% end %>
+        </div>
+
+
+
         <div class="field">
           <%= f.label :company_name %><br>
           <%= f.text_field :company_name %>

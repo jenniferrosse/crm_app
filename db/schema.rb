@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171220190948) do
+ActiveRecord::Schema.define(version: 20180330171117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -181,6 +181,13 @@ ActiveRecord::Schema.define(version: 20171220190948) do
     t.string   "name"
   end
 
+  create_table "unit_references", force: :cascade do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "unit_id"
+    t.integer  "commercial_lead_id"
+  end
+
   create_table "units", force: :cascade do |t|
     t.string   "unit_number"
     t.integer  "sq_ft"
@@ -238,5 +245,7 @@ ActiveRecord::Schema.define(version: 20171220190948) do
   add_foreign_key "commercial_leads", "use_types"
   add_foreign_key "prequalifications", "residential_leads"
   add_foreign_key "residential_applications", "residential_leads"
+  add_foreign_key "unit_references", "commercial_leads"
+  add_foreign_key "unit_references", "units"
   add_foreign_key "units", "properties"
 end
