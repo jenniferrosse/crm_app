@@ -137,6 +137,14 @@
           <%= f.label :properties_suggested %><br>
           <%= f.text_area :properties_suggested %>
         </div>
+
+        <div class="field">
+          <%= f.label :unit, "Suggested Units" %><br>
+          <%= f.collection_check_boxes(:unit_ids, Unit.order(unit_number: "ASC") , :id, :unit_number) do |unit| %>
+            <%= unit.label { unit.check_box + unit.text } %>
+          <% end %>
+        </div>
+
         
         <div class="field">
           <%= f.label :notes %><br>

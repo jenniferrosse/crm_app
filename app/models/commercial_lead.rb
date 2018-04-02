@@ -2,6 +2,8 @@ class CommercialLead < ActiveRecord::Base
 
   has_many :unit_references
   has_many :units, :through => :unit_references
+  has_many :suggested_units
+  has_many :units, :through => :suggested_units
   belongs_to :source
   belongs_to :status
   belongs_to :contact_method
